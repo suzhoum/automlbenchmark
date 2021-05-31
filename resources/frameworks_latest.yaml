@@ -10,11 +10,54 @@
 
 AutoGluon:
   version: "latest"
+  params:
+    _leaderboard_test: True
 
 AutoGluon_bestquality:
   extends: AutoGluon
   params:
     presets: best_quality
+    _leaderboard_test: True
+
+AutoGluon_holdout:
+  extends: AutoGluon
+  params:
+    presets: best_quality
+    use_bag_holdout: True
+    _leaderboard_test: True
+
+AutoGluon_hpo_auto:
+  extends: AutoGluon
+  params:
+    hyperparameter_tune_kwargs: 'auto'
+
+AutoGluon_bestquality_hpo_auto:
+  extends: AutoGluon
+  params:
+    presets: best_quality
+    hyperparameter_tune_kwargs: 'auto'
+
+AutoGluon_random:
+  extends: AutoGluon
+  params:
+    hyperparameter_tune_kwargs: 'random'
+
+AutoGluon_bestquality_random:
+  extends: AutoGluon
+  params:
+    presets: best_quality
+    hyperparameter_tune_kwargs: 'random'
+
+AutoGluon_bayesopt:
+  extends: AutoGluon
+  params:
+    hyperparameter_tune_kwargs: 'bayesopt'
+
+AutoGluon_bestquality_bayesopt:
+  extends: AutoGluon
+  params:
+    presets: best_quality
+    hyperparameter_tune_kwargs: 'bayesopt'
 
 autosklearn:
   version: 'latest'
