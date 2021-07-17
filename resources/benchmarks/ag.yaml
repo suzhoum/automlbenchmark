@@ -72,10 +72,10 @@
   openml_task_id: 359971
 
 - name: QSAR-TID-10980
-  openml_task_id: 14097
+  openml_task_id: 360933
 
 - name: QSAR-TID-11
-  openml_task_id: 13854
+  openml_task_id: 360932
 
 - name: SAT11-HAND-runtime-regression
   openml_task_id: 359948
