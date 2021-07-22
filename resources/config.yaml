@@ -1,5 +1,5 @@
 ---
-project_repository: https://github.com/Innixma/automlbenchmark#ag-2021_07_19     # this is also the url used to clone the repository on ec2 instances
+project_repository: https://github.com/Innixma/automlbenchmark#ag-2021_07_22     # this is also the url used to clone the repository on ec2 instances
                                                                           # when running those without docker.
                                                                           # to clone a specific branch/tag, add a url fragment, e.g.:
                                                                           # https://github.com/openml/automlbenchmark#stable
@@ -65,7 +65,7 @@ job_scheduler:           # configuration namespace
   exit_on_job_failure:   # if true, the entire run will be aborted on the first job failure (mainly used for testing) : set by caller (runbenchmark.py)
   parallel_jobs: 1       # the number of jobs being run in parallel in a benchmark session, set by caller (runbenchmark.py)
   max_parallel_jobs: 2000  # safety limit: increase this if you want to be able to run many jobs in parallel, especially in aws mode. Defaults to 10 to allow running the usual 10 folds in parallel with no problem.
-  delay_between_jobs: 5  # delay in seconds between each parallel job start
+  delay_between_jobs: 1  # delay in seconds between each parallel job start
 
 monitoring:               # configuration namespace describing the basic monitoring features: currently, the app only logs each statistic at a given interval.
   interval_seconds: 120   # set to <= 0 to disable monitoring
@@ -131,7 +131,7 @@ aws:                    # configuration namespace for AWS mode.
     temporary: false                # if true, the S3 bucket is created during setup and deleted at the end of the benchmark run.
                                     # Note that for safety reasons, the bucket is then created with a generated name: <s3.bucket>-<now>.
                                     # if false, the real <s3.bucket> name is used (after creation if it doesn't exists), but never deleted.
-    root_key: ec2/2021_07_19/                  #
+    root_key: ec2/2021_07_22/                  #
     delete_resources: false         #
 
   ec2:
