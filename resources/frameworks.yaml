@@ -38,6 +38,18 @@ AutoGluon_bestquality:
     presets: best_quality
     _leaderboard_test: True
 
+AutoGluon_hq:
+  extends: AutoGluon
+  params:
+    presets: high_quality_fast_inference_only_refit
+    _leaderboard_test: True
+
+AutoGluon_gq:
+  extends: AutoGluon
+  params:
+    presets: good_quality_faster_inference_only_refit
+    _leaderboard_test: True
+
 autosklearn:
   version: 'stable'
   description: |
