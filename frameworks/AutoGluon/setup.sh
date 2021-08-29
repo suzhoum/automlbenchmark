@@ -26,7 +26,7 @@ elif [[ "$VERSION" =~ ^[0-9] ]]; then
     PIP install --no-cache-dir -U ${PKG}==${VERSION}
 else
     # FIXME: HACK
-    VERSION="tabular_fix_refit_weights"
+    VERSION="tabular_remove_knn_stack"
     # REPO="https://github.com/gradientsky/autogluon.git"
 
     TARGET_DIR="${HERE}/lib/${PKG}"
