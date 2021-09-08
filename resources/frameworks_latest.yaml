@@ -23,25 +23,13 @@ AutoGluon_bestquality_prune:
   extends: AutoGluon
   params:
     presets: best_quality
-    feature_prune_kwargs:
-      stop_threshold: 10
-      prune_ratio: 0.05
-      prune_threshold: null
-      n_train_subsample: 50000
-      n_fi_subsample: 5000
-      min_fi_samples: 10000
+    feature_prune_kwargs: {}
     _leaderboard_test: True
 
 AutoGluon_prune:
   extends: AutoGluon
   params:
-    feature_prune_kwargs:
-      stop_threshold: 10
-      prune_ratio: 0.05
-      prune_threshold: null
-      n_train_subsample: 50000
-      n_fi_subsample: 5000
-      min_fi_samples: 10000
+    feature_prune_kwargs: {}
     _leaderboard_test: True
 
 AutoGluon_hq:
