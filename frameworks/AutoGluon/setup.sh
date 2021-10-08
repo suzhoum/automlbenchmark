@@ -18,7 +18,7 @@ fi
 PIP install --upgrade pip
 PIP install --upgrade setuptools wheel
 PIP install "mxnet<2.0.0"
-PIP install "scikit-learn-intelex<2021.3"
+PIP install "scikit-learn-intelex<=2021.3"
 
 if [[ "$VERSION" == "stable" ]]; then
     PIP install --no-cache-dir -U ${PKG}
@@ -26,8 +26,8 @@ elif [[ "$VERSION" =~ ^[0-9] ]]; then
     PIP install --no-cache-dir -U ${PKG}==${VERSION}
 else
     # FIXME: HACK
-    VERSION="proxy-select"
-    REPO="https://github.com/truebluejason/autogluon.git"
+    VERSION="tabular_update_sklearn_cat"
+    # REPO="https://github.com/truebluejason/autogluon.git"
 
     TARGET_DIR="${HERE}/lib/${PKG}"
     rm -Rf ${TARGET_DIR}
