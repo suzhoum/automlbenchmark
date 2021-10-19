@@ -19,6 +19,19 @@ AutoGluon_bestquality:
     presets: best_quality
     _leaderboard_test: True
 
+AutoGluon_bestquality_temp:
+  extends: AutoGluon
+  params:
+    calibrate: True
+    presets: best_quality
+    _leaderboard_test: True
+
+AutoGluon_temp:
+  extends: AutoGluon
+  params:
+    calibrate: True
+    _leaderboard_test: True
+
 AutoGluon_bestquality_prune:
   extends: AutoGluon
   params:
