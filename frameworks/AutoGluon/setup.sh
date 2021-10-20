@@ -20,14 +20,18 @@ PIP install --upgrade setuptools wheel
 PIP install "mxnet<2.0.0"
 PIP install "scikit-learn-intelex<=2021.3"
 
+# FIXME: instead do -e core/[all]
+PIP install "ray>=1.7,<1.8"
+
+
 if [[ "$VERSION" == "stable" ]]; then
     PIP install --no-cache-dir -U ${PKG}
 elif [[ "$VERSION" =~ ^[0-9] ]]; then
     PIP install --no-cache-dir -U ${PKG}==${VERSION}
 else
     # FIXME: HACK:
-    VERSION="temperature_scaling"
-    REPO="https://github.com/DolanTheMFWizard/autogluon.git"
+    VERSION="ray_parallel"
+    REPO="https://github.com/yinweisu/autogluon.git"
 
     TARGET_DIR="${HERE}/lib/${PKG}"
     rm -Rf ${TARGET_DIR}
