@@ -30,7 +30,7 @@ elif [[ "$VERSION" =~ ^[0-9] ]]; then
     PIP install --no-cache-dir -U ${PKG}==${VERSION}
 else
     # FIXME: HACK:
-    VERSION="tabular_knn_rf_refit"
+    VERSION="tabular_cat_callback"
     # REPO="https://github.com/yinweisu/autogluon.git"
 
     TARGET_DIR="${HERE}/lib/${PKG}"
