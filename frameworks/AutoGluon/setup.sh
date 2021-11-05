@@ -18,7 +18,7 @@ fi
 PIP install --upgrade pip
 PIP install --upgrade setuptools wheel
 PIP install "mxnet<2.0.0"
-PIP install "scikit-learn-intelex<=2021.3"
+PIP install "scikit-learn-intelex<=2021.4"
 
 # FIXME: instead do -e core/[all]
 PIP install "ray>=1.7,<1.8"
@@ -30,8 +30,8 @@ elif [[ "$VERSION" =~ ^[0-9] ]]; then
     PIP install --no-cache-dir -U ${PKG}==${VERSION}
 else
     # FIXME: HACK:
-    VERSION="tabular_cat_callback"
-    # REPO="https://github.com/yinweisu/autogluon.git"
+    VERSION="temperature_scaling"
+    REPO="https://github.com/DolanTheMFWizard/autogluon.git"
 
     TARGET_DIR="${HERE}/lib/${PKG}"
     rm -Rf ${TARGET_DIR}
