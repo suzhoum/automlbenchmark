@@ -30,8 +30,8 @@ elif [[ "$VERSION" =~ ^[0-9] ]]; then
     PIP install --no-cache-dir -U ${PKG}==${VERSION}
 else
     # FIXME: HACK:
-    VERSION="temperature_scaling"
-    REPO="https://github.com/DolanTheMFWizard/autogluon.git"
+    VERSION="tabular_es_opt"
+    # REPO="https://github.com/DolanTheMFWizard/autogluon.git"
 
     TARGET_DIR="${HERE}/lib/${PKG}"
     rm -Rf ${TARGET_DIR}
