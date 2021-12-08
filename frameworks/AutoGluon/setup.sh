@@ -30,18 +30,17 @@ elif [[ "$VERSION" =~ ^[0-9] ]]; then
     PIP install --no-cache-dir -U ${PKG}==${VERSION}
 else
     # FIXME: HACK:
-    VERSION="tabular_es_opt"
-    # REPO="https://github.com/DolanTheMFWizard/autogluon.git"
+    VERSION="2021_11_24_fastai_normalization_2"
+    REPO="https://github.com/gradientsky/autogluon.git"
 
     TARGET_DIR="${HERE}/lib/${PKG}"
     rm -Rf ${TARGET_DIR}
     git clone --depth 1 --single-branch --branch ${VERSION} --recurse-submodules ${REPO} ${TARGET_DIR}
     cd ${TARGET_DIR}
-    PIP install -e core/
+    PIP install -e common/
     PIP install -e features/
+    PIP install -e core/
     PIP install -e tabular/[all]
-    PIP install -e mxnet/
-    PIP install -e extra/
     PIP install -e text/
     PIP install -e vision/
     PIP install -e autogluon/
