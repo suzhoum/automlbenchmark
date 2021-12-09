@@ -30,8 +30,8 @@ elif [[ "$VERSION" =~ ^[0-9] ]]; then
     PIP install --no-cache-dir -U ${PKG}==${VERSION}
 else
     # FIXME: HACK:
-    # VERSION="2021_11_24_fastai_normalization_2"
-    # REPO="https://github.com/gradientsky/autogluon.git"
+    VERSION="2021_12_08_fastai_normalization"
+    REPO="https://github.com/gradientsky/autogluon.git"
 
     TARGET_DIR="${HERE}/lib/${PKG}"
     rm -Rf ${TARGET_DIR}
