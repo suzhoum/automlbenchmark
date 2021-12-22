@@ -12,16 +12,15 @@ fi
 #if [[ -x "$(command -v apt-get)" ]]; then
 #    SUDO apt-get install -y libomp-dev
 if [[ -x "$(command -v brew)" ]]; then
-    brew install libomp
+    wget https://raw.githubusercontent.com/Homebrew/homebrew-core/fb8323f2b170bd4ae97e1bac9bf3e2983af3fdb0/Formula/libomp.rb
+    brew install libomp.rb
+    rm libomp.rb
 fi
 
 PIP install --upgrade pip
 PIP install --upgrade setuptools wheel
 PIP install "mxnet<2.0.0"
 PIP install "scikit-learn-intelex<=2021.4"
-
-# FIXME: instead do -e core/[all]
-PIP install "ray>=1.7,<1.8"
 
 
 if [[ "$VERSION" == "stable" ]]; then
@@ -30,8 +29,8 @@ elif [[ "$VERSION" =~ ^[0-9] ]]; then
     PIP install --no-cache-dir -U ${PKG}==${VERSION}
 else
     # FIXME: HACK:
-    # VERSION="2021_12_08_fastai_normalization"
-    # REPO="https://github.com/gradientsky/autogluon.git"
+    VERSION="2021_12_08_fastai_normalization"
+    REPO="https://github.com/gradientsky/autogluon.git"
 
     TARGET_DIR="${HERE}/lib/${PKG}"
     rm -Rf ${TARGET_DIR}
@@ -39,7 +38,7 @@ else
     cd ${TARGET_DIR}
     PIP install -e common/
     PIP install -e features/
-    PIP install -e core/
+    PIP install -e core[all]/
     PIP install -e tabular/[all]
     PIP install -e text/
     PIP install -e vision/
