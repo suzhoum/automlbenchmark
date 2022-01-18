@@ -29,8 +29,8 @@ elif [[ "$VERSION" =~ ^[0-9] ]]; then
     PIP install --no-cache-dir -U ${PKG}==${VERSION}
 else
     # FIXME: HACK::
-    VERSION="vw-algorithm"
-    REPO="https://github.com/killerSwitch/autogluon.git"
+    VERSION="tabularNN_torch"
+    # REPO="https://github.com/killerSwitch/autogluon.git"
 
     TARGET_DIR="${HERE}/lib/${PKG}"
     rm -Rf ${TARGET_DIR}
