@@ -29,7 +29,7 @@ elif [[ "$VERSION" =~ ^[0-9] ]]; then
     PIP install --no-cache-dir -U ${PKG}==${VERSION}
 else
     # FIXME: HACK::
-    VERSION="enable_calibrate"
+    VERSION="tabular_xgb_opt"
     # REPO="https://github.com/killerSwitch/autogluon.git"
 
     TARGET_DIR="${HERE}/lib/${PKG}"
