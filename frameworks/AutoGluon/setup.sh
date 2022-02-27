@@ -19,7 +19,6 @@ fi
 
 PIP install --upgrade pip
 PIP install --upgrade setuptools wheel
-PIP install "mxnet<2.0.0"
 PIP install "scikit-learn-intelex<=2021.4"
 
 
@@ -29,8 +28,8 @@ elif [[ "$VERSION" =~ ^[0-9] ]]; then
     PIP install --no-cache-dir -U ${PKG}==${VERSION}
 else
     # FIXME: HACK::
-    VERSION="fix_NN_num_cpu"
-    REPO="https://github.com/yinweisu/autogluon.git"
+    VERSION="refactor_refit_full"
+    # REPO="https://github.com/yinweisu/autogluon.git"
 
     TARGET_DIR="${HERE}/lib/${PKG}"
     rm -Rf ${TARGET_DIR}
