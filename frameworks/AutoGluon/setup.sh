@@ -19,7 +19,7 @@ fi
 
 PIP install --upgrade pip
 PIP install --upgrade setuptools wheel
-PIP install "scikit-learn-intelex<=2021.4"
+PIP install "scikit-learn-intelex==2021.5"
 
 
 if [[ "$VERSION" == "stable" ]]; then
@@ -28,7 +28,7 @@ elif [[ "$VERSION" =~ ^[0-9] ]]; then
     PIP install --no-cache-dir -U ${PKG}==${VERSION}
 else
     # FIXME: HACK::
-    VERSION="refactor_refit_full"
+    VERSION="rf_enable_daal"
     # REPO="https://github.com/yinweisu/autogluon.git"
 
     TARGET_DIR="${HERE}/lib/${PKG}"
