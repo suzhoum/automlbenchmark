@@ -26,6 +26,15 @@ log = logging.getLogger(__name__)
 
 def run(dataset, config):
     log.info(f"\n**** AutoGluon [v{__version__}] ****\n")
+    try:
+        from pip._internal.operations import freeze
+        pip_dependencies = freeze.freeze()
+        print('===== pip freeze =====')
+        for p in pip_dependencies:
+            print(p)
+        print('======================\n')
+    except:
+        pass
 
     metrics_mapping = dict(
         acc=metrics.accuracy,

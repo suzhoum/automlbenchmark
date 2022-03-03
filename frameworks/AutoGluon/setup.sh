@@ -19,7 +19,7 @@ fi
 
 PIP install --upgrade pip
 PIP install --upgrade setuptools wheel
-PIP install "scikit-learn-intelex==2021.5"
+PIP install "scikit-learn-intelex<2021.6"
 
 
 if [[ "$VERSION" == "stable" ]]; then
