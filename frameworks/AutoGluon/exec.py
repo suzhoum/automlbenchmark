@@ -29,10 +29,10 @@ def run(dataset, config):
     try:
         from pip._internal.operations import freeze
         pip_dependencies = freeze.freeze()
-        print('===== pip freeze =====')
+        log.info('===== pip freeze =====')
         for p in pip_dependencies:
-            print(p)
-        print('======================\n')
+            log.info(p)
+        log.info('======================\n')
     except:
         pass
 
@@ -74,6 +74,8 @@ def run(dataset, config):
         )
 
     del train
+
+    predictor.persist_models('best')
 
     if is_classification:
         with Timer() as predict:
