@@ -76,7 +76,7 @@ def run(dataset, config):
     test_data = TabularDataset(test)
 
     with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', 1000):
-        log.info(test_data)
+        log.info(test_data.head(3))
     with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', 1000):
         log.info(train)
 
@@ -115,7 +115,7 @@ def run(dataset, config):
 
 
     with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', 1000):
-        log.info(test_data)
+        log.info(test_data.head(3))
 
     return result(output_file=config.output_predictions_file,
                   predictions=predictions,
