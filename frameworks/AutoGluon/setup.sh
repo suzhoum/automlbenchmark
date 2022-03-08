@@ -28,7 +28,7 @@ elif [[ "$VERSION" =~ ^[0-9] ]]; then
     PIP install --no-cache-dir -U ${PKG}==${VERSION}
 else
     # FIXME: HACK::
-    VERSION="rf_enable_daal"
+    VERSION="remove_timm-clean"
     # REPO="https://github.com/yinweisu/autogluon.git"
 
     TARGET_DIR="${HERE}/lib/${PKG}"
