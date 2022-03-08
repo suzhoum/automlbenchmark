@@ -74,9 +74,9 @@ def run(dataset, config):
         )
 
     with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', 1000):
-        log.info(test.head(5))
+        log.info(test)
     with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', 1000):
-        log.info(train.head(5))
+        log.info(train)
 
     del train
 
@@ -115,7 +115,7 @@ def run(dataset, config):
 
 
     with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', 1000):
-        log.info(test.head(5))
+        log.info(test)
 
     return result(output_file=config.output_predictions_file,
                   predictions=predictions,
