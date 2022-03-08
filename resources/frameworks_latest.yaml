@@ -57,6 +57,12 @@ AutoGluon_gq:
     presets: good_quality_faster_inference_only_refit
     _leaderboard_test: True
 
+AutoGluon_CatBoost:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: True
+    hyperparameters: {"CAT": {}}
+
 AutoGluon_holdout:
   extends: AutoGluon
   params:
