@@ -13,7 +13,7 @@ import matplotlib
 import pandas as pd
 matplotlib.use('agg')  # no need for tk
 
-from autogluon.tabular import TabularPredictor
+from autogluon.tabular import TabularPredictor, TabularDataset
 from autogluon.core.utils.savers import save_pd, save_pkl
 import autogluon.core.metrics as metrics
 from autogluon.tabular.version import __version__
@@ -73,22 +73,22 @@ def run(dataset, config):
             **training_params
         )
 
+    test_data = TabularDataset(test)
+
     with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', 1000):
-        log.info(test)
+        log.info(test_data)
     with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', 1000):
         log.info(train)
-
-    del train
 
     # predictor.persist_models('best')
 
     if is_classification:
         with Timer() as predict:
-            probabilities = predictor.predict_proba(test, as_multiclass=True)
+            probabilities = predictor.predict_proba(test_data, as_multiclass=True)
         predictions = probabilities.idxmax(axis=1).to_numpy()
     else:
         with Timer() as predict:
-            predictions = predictor.predict(test, as_pandas=False)
+            predictions = predictor.predict(test_data, as_pandas=False)
         probabilities = None
 
     prob_labels = probabilities.columns.values.astype(str).tolist() if probabilities is not None else None
@@ -98,7 +98,7 @@ def run(dataset, config):
     leaderboard_kwargs = dict(silent=True, extra_info=_leaderboard_extra_info)
     # Disabled leaderboard test data input by default to avoid long running computation, remove 7200s timeout limitation to re-enable
     if _leaderboard_test:
-        leaderboard_kwargs['data'] = test
+        leaderboard_kwargs['data'] = test_data
 
     leaderboard = predictor.leaderboard(**leaderboard_kwargs)
     with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', 1000):
@@ -115,7 +115,7 @@ def run(dataset, config):
 
 
     with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', 1000):
-        log.info(test)
+        log.info(test_data)
 
     return result(output_file=config.output_predictions_file,
                   predictions=predictions,
