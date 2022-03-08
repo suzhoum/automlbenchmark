@@ -55,7 +55,7 @@ def run(dataset, config):
     is_classification = config.type == 'classification'
     training_params = {k: v for k, v in config.framework_params.items() if not k.startswith('_')}
 
-    train, test = dataset.train.path, dataset.test.path
+    train_path, test_path = dataset.train.path, dataset.test.path
     label = dataset.target.name
     problem_type = dataset.problem_type
 
@@ -68,17 +68,12 @@ def run(dataset, config):
             path=models_dir,
             problem_type=problem_type,
         ).fit(
-            train_data=train,
+            train_data=train_path,
             time_limit=config.max_runtime_seconds,
             **training_params
         )
 
-    test_data = TabularDataset(test)
-
-    with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', 1000):
-        log.info(test_data.head(3))
-    with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', 1000):
-        log.info(train)
+    test_data = TabularDataset(test_path)
 
     predictor.persist_models('best')
 
@@ -113,14 +108,11 @@ def run(dataset, config):
     save_artifacts(predictor, leaderboard, config)
     shutil.rmtree(predictor.path, ignore_errors=True)
 
-
-    with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', 1000):
-        log.info(test_data.head(3))
-
     return result(output_file=config.output_predictions_file,
                   predictions=predictions,
                   probabilities=probabilities,
                   probabilities_labels=prob_labels,
+                  truth=test_data[label].values,
                   target_is_encoded=False,
                   models_count=num_models_trained,
                   models_ensemble_count=num_models_ensemble,
