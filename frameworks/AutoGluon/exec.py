@@ -73,6 +73,11 @@ def run(dataset, config):
             **training_params
         )
 
+    with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', 1000):
+        log.info(test.head(5))
+    with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', 1000):
+        log.info(train.head(5))
+
     del train
 
     # predictor.persist_models('best')
@@ -107,6 +112,10 @@ def run(dataset, config):
 
     save_artifacts(predictor, leaderboard, config)
     shutil.rmtree(predictor.path, ignore_errors=True)
+
+
+    with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', 1000):
+        log.info(test.head(5))
 
     return result(output_file=config.output_predictions_file,
                   predictions=predictions,
