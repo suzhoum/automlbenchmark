@@ -80,7 +80,7 @@ def run(dataset, config):
     with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', 1000):
         log.info(train)
 
-    # predictor.persist_models('best')
+    predictor.persist_models('best')
 
     if is_classification:
         with Timer() as predict:
