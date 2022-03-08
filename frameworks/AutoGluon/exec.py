@@ -75,7 +75,7 @@ def run(dataset, config):
 
     del train
 
-    predictor.persist_models('best')
+    # predictor.persist_models('best')
 
     if is_classification:
         with Timer() as predict:
