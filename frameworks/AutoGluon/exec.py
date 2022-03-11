@@ -74,7 +74,6 @@ def run(dataset, config):
         )
 
     test_data = TabularDataset(test_path)
-
     predictor.persist_models('best')
 
     if is_classification:
@@ -108,14 +107,10 @@ def run(dataset, config):
     save_artifacts(predictor, leaderboard, config)
     shutil.rmtree(predictor.path, ignore_errors=True)
 
-    y_test = dataset.test.y.squeeze()
-    log.info(y_test)
-
     return result(output_file=config.output_predictions_file,
                   predictions=predictions,
                   probabilities=probabilities,
                   probabilities_labels=prob_labels,
-                  truth=y_test,
                   target_is_encoded=False,
                   models_count=num_models_trained,
                   models_ensemble_count=num_models_ensemble,
