@@ -65,7 +65,7 @@ job_scheduler:           # configuration namespace
   exit_on_job_failure:   # if true, the entire run will be aborted on the first job failure (mainly used for testing) : set by caller (runbenchmark.py)
   parallel_jobs: 1       # the number of jobs being run in parallel in a benchmark session, set by caller (runbenchmark.py)
   max_parallel_jobs: 2000  # safety limit: increase this if you want to be able to run many jobs in parallel, especially in aws mode. Defaults to 10 to allow running the usual 10 folds in parallel with no problem.
-  delay_between_jobs: 12  # delay in seconds between each parallel job start
+  delay_between_jobs: 8  # delay in seconds between each parallel job start
 
 monitoring:               # configuration namespace describing the basic monitoring features: currently, the app only logs each statistic at a given interval.
   interval_seconds: 120   # set to <= 0 to disable monitoring
