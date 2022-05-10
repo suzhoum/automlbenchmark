@@ -30,10 +30,9 @@ AutoGluon:
 #  params:
 #    _save_artifacts: ['leaderboard', 'models', 'info']
 
-AutoGluon_bestquality:
+AutoGluon_bq:
   extends: AutoGluon
-  description: |
-    AutoGluon with 'best_quality' preset provides the most accurate overall predictor.
+  description: "AutoGluon with 'best_quality' preset provides the most accurate overall predictor"
   params:
     presets: best_quality
     _leaderboard_test: True
@@ -41,13 +40,19 @@ AutoGluon_bestquality:
 AutoGluon_hq:
   extends: AutoGluon
   params:
-    presets: high_quality_fast_inference_only_refit
+    presets: high_quality
     _leaderboard_test: True
 
 AutoGluon_gq:
   extends: AutoGluon
   params:
-    presets: good_quality_faster_inference_only_refit
+    presets: good_quality
+    _leaderboard_test: True
+
+AutoGluon_mq:
+  extends: AutoGluon
+  params:
+    presets: medium_quality
     _leaderboard_test: True
 
 autosklearn:
