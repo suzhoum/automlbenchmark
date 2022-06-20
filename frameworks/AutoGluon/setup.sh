@@ -28,7 +28,7 @@ elif [[ "$VERSION" =~ ^[0-9] ]]; then
     PIP install --no-cache-dir -U ${PKG}==${VERSION}
 else
     # FIXME: HACK:
-    VERSION="rf_limit_leaf"
+    VERSION="bench_v5"
     # REPO="https://github.com/yinweisu/autogluon.git"
 
     TARGET_DIR="${HERE}/lib/${PKG}"
@@ -39,8 +39,10 @@ else
     PIP install -e features/
     PIP install -e core/[all]
     PIP install -e tabular/[all]
+    PIP install -e multimodal/
     PIP install -e text/
     PIP install -e vision/
+    PIP install -e timeseries/
     PIP install -e autogluon/
 fi
 
