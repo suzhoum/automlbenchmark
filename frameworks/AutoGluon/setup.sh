@@ -28,7 +28,7 @@ elif [[ "$VERSION" =~ ^[0-9] ]]; then
     PIP install --no-cache-dir -U ${PKG}==${VERSION}
 else
     # FIXME: HACK:
-    VERSION="bench_v5"
+    VERSION="gbm_increase_rounds"
     # REPO="https://github.com/yinweisu/autogluon.git"
 
     TARGET_DIR="${HERE}/lib/${PKG}"
