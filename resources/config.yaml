@@ -109,7 +109,7 @@ singularity:                   # configuration namespace for docker: it inherits
   library: 'automlbenchmark/default'
 
 aws:                    # configuration namespace for AWS mode.
-  region: ''            # the AWS region to use. By default, the app will use the region set in ~/.aws/config when configuring AWS CLI.
+  region: 'us-east-1'            # the AWS region to use. By default, the app will use the region set in ~/.aws/config when configuring AWS CLI.
 
   iam:                                               # sub-namespace for AWS IAM service.
                                                      # Mainly used to allow secure communication between S3 storage and EC2 instances.
