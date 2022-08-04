@@ -125,7 +125,7 @@ aws:                    # configuration namespace for AWS mode.
                                                      # This should be a number between 900 (15mn) to 43200 (12h).
 
   s3:                               # sub-namespace for AWS S3 service.
-    bucket: automl-benchmark        # must be unique im whole Amazon s3, max 40 chars, and include only numbers, lowercase characters and hyphens.
+    bucket: automl-benchmark-ag        # must be unique im whole Amazon s3, max 40 chars, and include only numbers, lowercase characters and hyphens.
                                     # if temporary is set to true, the generated bucket name will be `<bucket>-<now>`.
                                     # cf. complete restrictions: https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html
     temporary: false                # if true, the S3 bucket is created during setup and deleted at the end of the benchmark run.
