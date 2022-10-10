@@ -79,7 +79,7 @@ def run(dataset, config):
 
     test_data = TabularDataset(test_path)
     # Persist model in memory that is going to be predicting to get correct inference latency
-    predictor.persist_models('best', max_memory=0.4)
+    predictor.persist_models('best')
 
     if is_classification:
         with Timer() as predict:
