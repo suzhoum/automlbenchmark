@@ -56,6 +56,8 @@ aws:                    # configuration namespace for AWS mode.
   resource_files:               # additional resource files or directories that are made available to benchmark runs on ec2, from remote input or user directory.
     - '{user}/config.yaml'
     - '{user}/frameworks.yaml'
+    - '{user}/frameworks_latest.yaml'
+    - '{user}/frameworks_2022AG.yaml'
     - '{user}/frameworks_zeroshot.yaml'
     - '{user}/constraints.yaml'
     - '{user}/benchmarks'
