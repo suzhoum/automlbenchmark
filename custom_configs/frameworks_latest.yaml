@@ -11,36 +11,42 @@
 AutoGluon:
   version: "latest"
   params:
+    _save_artifacts: ['leaderboard', 'infer_speed']
     _leaderboard_test: True
 
 AutoGluon_bq:
   extends: AutoGluon
   description: "AutoGluon with 'best_quality' preset provides the most accurate overall predictor"
   params:
+    _save_artifacts: ['leaderboard', 'infer_speed']
     presets: best_quality
     _leaderboard_test: True
 
 AutoGluon_hq:
   extends: AutoGluon
   params:
+    _save_artifacts: ['leaderboard', 'infer_speed']
     presets: high_quality
     _leaderboard_test: True
 
 AutoGluon_gq:
   extends: AutoGluon
   params:
+    _save_artifacts: ['leaderboard', 'infer_speed']
     presets: good_quality
     _leaderboard_test: True
 
 AutoGluon_mq:
   extends: AutoGluon
   params:
+    _save_artifacts: ['leaderboard', 'infer_speed']
     presets: medium_quality
     _leaderboard_test: True
 
 AutoGluon_bestquality_prune:
   extends: AutoGluon
   params:
+    _save_artifacts: ['leaderboard', 'infer_speed']
     presets: best_quality
     feature_prune_kwargs: {}
     _leaderboard_test: True
@@ -48,18 +54,21 @@ AutoGluon_bestquality_prune:
 AutoGluon_prune:
   extends: AutoGluon
   params:
+    _save_artifacts: ['leaderboard', 'infer_speed']
     feature_prune_kwargs: {}
     _leaderboard_test: True
 
 AutoGluon_CatBoost:
   extends: AutoGluon
   params:
+    _save_artifacts: ['leaderboard', 'infer_speed']
     _leaderboard_test: True
     hyperparameters: {"CAT": {}}
 
 AutoGluon_holdout:
   extends: AutoGluon
   params:
+    _save_artifacts: ['leaderboard', 'infer_speed']
     presets: best_quality
     use_bag_holdout: True
     _leaderboard_test: True
@@ -67,32 +76,38 @@ AutoGluon_holdout:
 AutoGluon_hpo_auto:
   extends: AutoGluon
   params:
+    _save_artifacts: ['leaderboard', 'infer_speed']
     hyperparameter_tune_kwargs: 'auto'
 
 AutoGluon_bestquality_hpo_auto:
   extends: AutoGluon
   params:
+    _save_artifacts: ['leaderboard', 'infer_speed']
     presets: best_quality
     hyperparameter_tune_kwargs: 'auto'
 
 AutoGluon_random:
   extends: AutoGluon
   params:
+    _save_artifacts: ['leaderboard', 'infer_speed']
     hyperparameter_tune_kwargs: 'random'
 
 AutoGluon_bestquality_random:
   extends: AutoGluon
   params:
+    _save_artifacts: ['leaderboard', 'infer_speed']
     presets: best_quality
     hyperparameter_tune_kwargs: 'random'
 
 AutoGluon_bayesopt:
   extends: AutoGluon
   params:
+    _save_artifacts: ['leaderboard', 'infer_speed']
     hyperparameter_tune_kwargs: 'bayesopt'
 
 AutoGluon_bestquality_bayesopt:
   extends: AutoGluon
   params:
+    _save_artifacts: ['leaderboard', 'infer_speed']
     presets: best_quality
     hyperparameter_tune_kwargs: 'bayesopt'

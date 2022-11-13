@@ -120,7 +120,7 @@ def run(dataset, config):
 
 
 def save_artifacts(predictor, leaderboard, config, test_data):
-    artifacts = config.framework_params.get('_save_artifacts', ['leaderboard', 'zeroshot'])
+    artifacts = config.framework_params.get('_save_artifacts', ['leaderboard'])
     try:
         if 'leaderboard' in artifacts:
             leaderboard_dir = output_subdir("leaderboard", config)
@@ -131,15 +131,22 @@ def save_artifacts(predictor, leaderboard, config, test_data):
             info_dir = output_subdir("info", config)
             save_pkl.save(path=os.path.join(info_dir, "info.pkl"), object=ag_info)
 
-        if 'models' in artifacts:
-            shutil.rmtree(os.path.join(predictor.path, "utils"), ignore_errors=True)
-            models_dir = output_subdir("models", config)
-            zip_path(predictor.path, os.path.join(models_dir, "models.zip"))
+        if 'infer_speed' in artifacts:
+            infer_speed_dir = output_subdir("infer_speed", config)
+            infer_speed_df = get_infer_speed_real(predictor=predictor, test_data=test_data)
+            with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', 1000):
+                log.info(infer_speed_df)
+            save_pd.save(path=os.path.join(infer_speed_dir, "infer_speed.csv"), df=infer_speed_df)
 
         if 'zeroshot' in artifacts:
             zeroshot_dir = output_subdir("zeroshot", config)
             zeroshot_dict = get_zeroshot_artifact(predictor=predictor, test_data=test_data)
             save_pkl.save(path=os.path.join(zeroshot_dir, "zeroshot_metadata.pkl"), object=zeroshot_dict)
+
+        if 'models' in artifacts:
+            shutil.rmtree(os.path.join(predictor.path, "utils"), ignore_errors=True)
+            models_dir = output_subdir("models", config)
+            zip_path(predictor.path, os.path.join(models_dir, "models.zip"))
     except Exception:
         log.warning("Error when saving artifacts.", exc_info=True)
 
@@ -170,6 +177,38 @@ def get_zeroshot_artifact(predictor, test_data) -> dict:
     )
 
     return zeroshot_dict
+
+
+def get_infer_speed_real(predictor, test_data, batch_sizes=None, repeats=2):
+    from autogluon.core.utils.infer_utils import get_model_true_infer_speed_per_row_batch
+
+    if batch_sizes is None:
+        batch_sizes = [1, 10, 100, 1000, 10000, 100000]
+
+    best_model = predictor.get_model_best()
+
+    infer_dfs = dict()
+    for batch_size in batch_sizes:
+        infer_df, time_per_row_transform = get_model_true_infer_speed_per_row_batch(data=test_data, predictor=predictor, batch_size=batch_size, repeats=repeats)
+        infer_df_best = infer_df[infer_df.index == best_model].copy()
+        assert len(infer_df_best) == 1
+        infer_df_best.index = ['best']
+
+        infer_df_full_transform = pd.Series({
+            'pred_time_test': time_per_row_transform,
+            'pred_time_test_marginal': time_per_row_transform,
+            'pred_time_test_with_transform': time_per_row_transform,
+        }, name='transform_features').to_frame()
+        infer_df_full_transform.index.rename('model', inplace=True)
+
+        infer_df = pd.concat([infer_df, infer_df_best, infer_df_full_transform])
+        infer_df.index.name = 'model'
+        infer_dfs[batch_size] = infer_df
+    for key in infer_dfs.keys():
+        infer_dfs[key] = infer_dfs[key].reset_index()
+        infer_dfs[key]['batch_size'] = key
+    infer_speed_df = pd.concat([infer_dfs[key] for key in infer_dfs.keys()])
+    return infer_speed_df
 
 
 if __name__ == '__main__':
