@@ -179,7 +179,7 @@ def get_zeroshot_artifact(predictor, test_data) -> dict:
     return zeroshot_dict
 
 
-def get_infer_speed_real(predictor, test_data, batch_sizes=None, repeats=2):
+def get_infer_speed_real(predictor, test_data, batch_sizes=None, repeats=None):
     from autogluon.core.utils.infer_utils import get_model_true_infer_speed_per_row_batch
 
     if batch_sizes is None:
@@ -189,19 +189,23 @@ def get_infer_speed_real(predictor, test_data, batch_sizes=None, repeats=2):
 
     infer_dfs = dict()
     for batch_size in batch_sizes:
-        infer_df, time_per_row_transform = get_model_true_infer_speed_per_row_batch(data=test_data, predictor=predictor, batch_size=batch_size, repeats=repeats)
+        if repeats is None:
+            repeat = 2 if batch_size <= 1000 else 1
+        else:
+            repeat = repeats
+        infer_df, time_per_row_transform = get_model_true_infer_speed_per_row_batch(data=test_data, predictor=predictor, batch_size=batch_size, repeats=repeat)
         infer_df_best = infer_df[infer_df.index == best_model].copy()
         assert len(infer_df_best) == 1
         infer_df_best.index = ['best']
 
-        infer_df_full_transform = pd.Series({
+        infer_df_transform = pd.Series({
             'pred_time_test': time_per_row_transform,
             'pred_time_test_marginal': time_per_row_transform,
             'pred_time_test_with_transform': time_per_row_transform,
-        }, name='transform_features').to_frame()
-        infer_df_full_transform.index.rename('model', inplace=True)
+        }, name='transform_features').to_frame().T
+        infer_df_transform.index.rename('model', inplace=True)
 
-        infer_df = pd.concat([infer_df, infer_df_best, infer_df_full_transform])
+        infer_df = pd.concat([infer_df, infer_df_best, infer_df_transform])
         infer_df.index.name = 'model'
         infer_dfs[batch_size] = infer_df
     for key in infer_dfs.keys():
