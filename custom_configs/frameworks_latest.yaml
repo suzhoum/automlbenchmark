@@ -111,3 +111,27 @@ AutoGluon_bestquality_bayesopt:
     _save_artifacts: ['leaderboard', 'infer_speed']
     presets: best_quality
     hyperparameter_tune_kwargs: 'bayesopt'
+
+AutoGluon_hq_il001:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'infer_speed']
+    presets: high_quality
+    _leaderboard_test: True
+    infer_limit: 0.01
+
+AutoGluon_hq_il0005:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'infer_speed']
+    presets: high_quality
+    _leaderboard_test: True
+    infer_limit: 0.005
+
+AutoGluon_hq_il0002:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'infer_speed']
+    presets: high_quality
+    _leaderboard_test: True
+    infer_limit: 0.002

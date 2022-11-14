@@ -183,7 +183,14 @@ def get_infer_speed_real(predictor, test_data, batch_sizes=None, repeats=None):
     from autogluon.core.utils.infer_utils import get_model_true_infer_speed_per_row_batch
 
     if batch_sizes is None:
-        batch_sizes = [1, 10, 100, 1000, 10000, 100000]
+        batch_sizes = [
+            1,
+            10,
+            100,
+            1000,
+            10000,
+            # 100000,  # Too big to safely fit into 32 GB memory on datasets with 10,000+ columns.
+        ]
 
     best_model = predictor.get_model_best()
 
