@@ -135,3 +135,24 @@ AutoGluon_hq_il0002:
     presets: high_quality
     _leaderboard_test: True
     infer_limit: 0.002
+
+AutoGluon_ebq:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'infer_speed']
+    presets: experimental_best_quality
+    _leaderboard_test: True
+
+AutoGluon_ehq:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'infer_speed']
+    presets: experimental_high_quality
+    _leaderboard_test: True
+
+AutoGluon_euq:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'infer_speed']
+    presets: experimental_ultra_quality
+    _leaderboard_test: True
