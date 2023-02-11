@@ -154,10 +154,10 @@ def save_artifacts(predictor, leaderboard, config, test_data):
 def get_zeroshot_artifact(predictor, test_data) -> dict:
     models = predictor.get_model_names(can_infer=True)
 
-    pred_proba_dict_val = predictor.get_model_pred_proba_dict(inverse_transform=False, models=models)
-    pred_proba_dict_test = predictor.get_model_pred_proba_dict(test_data, inverse_transform=False, models=models)
+    pred_proba_dict_val = predictor.predict_proba_multi(inverse_transform=False, models=models)
+    pred_proba_dict_test = predictor.predict_proba_multi(test_data, inverse_transform=False, models=models)
 
-    val_data_source = 'train' if predictor._trainer.bagged_mode else 'val'
+    val_data_source = 'val' if predictor._trainer.has_val else 'train'
     _, y_val = predictor.load_data_internal(data=val_data_source, return_X=False, return_y=True)
     y_test = test_data[predictor.label]
     y_test = predictor.transform_labels(y_test, inverse=False)
