@@ -27,7 +27,7 @@ job_scheduler:           # configuration namespace
 
 versions:              # configuration namespace for versions enforcement (libraries versions are usually enforced in requirements.txt for the app and for each framework).
   pip:
-  python: 3.8          # the Python minor version that will be used by the application in containers and cloud instances, , also used as a based version for virtual environments created for each framework.
+  python: 3.9          # the Python minor version that will be used by the application in containers and cloud instances, , also used as a based version for virtual environments created for each framework.
 
 aws:                    # configuration namespace for AWS mode.
   region: 'us-east-1'            # the AWS region to use. By default, the app will use the region set in ~/.aws/config when configuring AWS CLI.
