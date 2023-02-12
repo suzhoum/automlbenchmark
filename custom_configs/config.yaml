@@ -53,6 +53,7 @@ aws:                    # configuration namespace for AWS mode.
         '32': 8xlarge
         '64': 16xlarge
     volume_type: gp3                # one of gp2, io1, st1, sc1, or standard (default).
+    key_name: neerick_dev           # the name of the key pair passed to EC2 instances (if not set, user can't ssh the running instances)
 
   max_timeout_seconds: 72000    #
   overhead_time_seconds: 28800   # amount of additional time allowed for the job to complete on aws before the instance is stopped.
