@@ -18,7 +18,7 @@ from autogluon.core.utils.savers import save_pd, save_pkl
 import autogluon.core.metrics as metrics
 from autogluon.tabular.version import __version__
 
-from frameworks.shared.callee import call_run, result, output_subdir
+from frameworks.shared.callee import call_run, result, touch
 from frameworks.shared.utils import Timer, zip_path
 
 log = logging.getLogger(__name__)
@@ -119,34 +119,40 @@ def run(dataset, config):
                   predict_duration=predict.duration)
 
 
+def get_save_path(config, suffix: str, create_dir: bool = True, as_dir: bool = False) -> str:
+    path = os.path.join(config.output_dir, suffix)
+    if create_dir:
+        touch(path, as_dir=as_dir)
+    return path
+
+
 def save_artifacts(predictor, leaderboard, config, test_data):
     artifacts = config.framework_params.get('_save_artifacts', ['leaderboard'])
     try:
         if 'leaderboard' in artifacts:
-            leaderboard_dir = output_subdir("leaderboard", config)
-            save_pd.save(path=os.path.join(leaderboard_dir, "leaderboard.csv"), df=leaderboard)
+            save_pd.save(path=get_save_path(config, "leaderboard.csv"), df=leaderboard)
 
         if 'info' in artifacts:
+            info_path = get_save_path(config, 'info', as_dir=True)
             ag_info = predictor.info()
-            info_dir = output_subdir("info", config)
-            save_pkl.save(path=os.path.join(info_dir, "info.pkl"), object=ag_info)
+            ag_size_df = predictor.get_size_disk_per_file().to_frame().reset_index(names='file')
+            save_pd.save(path=os.path.join(info_path, "file_sizes.csv"), df=ag_size_df)
+            save_pkl.save(path=os.path.join(info_path, "info.pkl"), object=ag_info)
 
         if 'infer_speed' in artifacts:
-            infer_speed_dir = output_subdir("infer_speed", config)
             infer_speed_df = get_infer_speed_real(predictor=predictor, test_data=test_data)
             with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', 1000):
                 log.info(infer_speed_df)
-            save_pd.save(path=os.path.join(infer_speed_dir, "infer_speed.csv"), df=infer_speed_df)
+            save_pd.save(path=get_save_path(config, "infer_speed.csv"), df=infer_speed_df)
 
         if 'zeroshot' in artifacts:
-            zeroshot_dir = output_subdir("zeroshot", config)
+            zeroshot_path = get_save_path(config, 'zeroshot', as_dir=True)
             zeroshot_dict = get_zeroshot_artifact(predictor=predictor, test_data=test_data)
-            save_pkl.save(path=os.path.join(zeroshot_dir, "zeroshot_metadata.pkl"), object=zeroshot_dict)
+            save_pkl.save(path=os.path.join(zeroshot_path, "zeroshot_metadata.pkl"), object=zeroshot_dict)
 
         if 'models' in artifacts:
             shutil.rmtree(os.path.join(predictor.path, "utils"), ignore_errors=True)
-            models_dir = output_subdir("models", config)
-            zip_path(predictor.path, os.path.join(models_dir, "models.zip"))
+            zip_path(predictor.path, get_save_path(config, "models.zip"))
     except Exception:
         log.warning("Error when saving artifacts.", exc_info=True)
 

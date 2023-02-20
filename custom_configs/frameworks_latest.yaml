@@ -11,42 +11,42 @@
 AutoGluon:
   version: "latest"
   params:
-    _save_artifacts: ['leaderboard', 'infer_speed']
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     _leaderboard_test: True
 
 AutoGluon_bq:
   extends: AutoGluon
   description: "AutoGluon with 'best_quality' preset provides the most accurate overall predictor"
   params:
-    _save_artifacts: ['leaderboard', 'infer_speed']
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     presets: best_quality
     _leaderboard_test: True
 
 AutoGluon_hq:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'infer_speed']
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     presets: high_quality
     _leaderboard_test: True
 
 AutoGluon_gq:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'infer_speed']
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     presets: good_quality
     _leaderboard_test: True
 
 AutoGluon_mq:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'infer_speed']
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     presets: medium_quality
     _leaderboard_test: True
 
 AutoGluon_bestquality_prune:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'infer_speed']
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     presets: best_quality
     feature_prune_kwargs: {}
     _leaderboard_test: True
@@ -54,21 +54,21 @@ AutoGluon_bestquality_prune:
 AutoGluon_prune:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'infer_speed']
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     feature_prune_kwargs: {}
     _leaderboard_test: True
 
 AutoGluon_CatBoost:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'infer_speed']
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     _leaderboard_test: True
     hyperparameters: {"CAT": {}}
 
 AutoGluon_holdout:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'infer_speed']
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     presets: best_quality
     use_bag_holdout: True
     _leaderboard_test: True
@@ -76,46 +76,46 @@ AutoGluon_holdout:
 AutoGluon_hpo_auto:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'infer_speed']
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     hyperparameter_tune_kwargs: 'auto'
 
 AutoGluon_bestquality_hpo_auto:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'infer_speed']
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     presets: best_quality
     hyperparameter_tune_kwargs: 'auto'
 
 AutoGluon_random:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'infer_speed']
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     hyperparameter_tune_kwargs: 'random'
 
 AutoGluon_bestquality_random:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'infer_speed']
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     presets: best_quality
     hyperparameter_tune_kwargs: 'random'
 
 AutoGluon_bayesopt:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'infer_speed']
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     hyperparameter_tune_kwargs: 'bayesopt'
 
 AutoGluon_bestquality_bayesopt:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'infer_speed']
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     presets: best_quality
     hyperparameter_tune_kwargs: 'bayesopt'
 
 AutoGluon_hq_il001:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'infer_speed']
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     presets: high_quality
     _leaderboard_test: True
     infer_limit: 0.01
@@ -123,7 +123,7 @@ AutoGluon_hq_il001:
 AutoGluon_hq_il0005:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'infer_speed']
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     presets: high_quality
     _leaderboard_test: True
     infer_limit: 0.005
@@ -131,7 +131,7 @@ AutoGluon_hq_il0005:
 AutoGluon_hq_il0002:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'infer_speed']
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     presets: high_quality
     _leaderboard_test: True
     infer_limit: 0.002
@@ -139,20 +139,20 @@ AutoGluon_hq_il0002:
 AutoGluon_ebq:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'infer_speed']
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     presets: experimental_best_quality
     _leaderboard_test: True
 
 AutoGluon_ehq:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'infer_speed']
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     presets: experimental_high_quality
     _leaderboard_test: True
 
 AutoGluon_euq:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'infer_speed']
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     presets: experimental_ultra_quality
     _leaderboard_test: True
