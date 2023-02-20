@@ -27,7 +27,7 @@ elif [[ "$VERSION" =~ ^[0-9] ]]; then
     PIP install --no-cache-dir -U "${PKG}==${VERSION}"
     PIP install --no-cache-dir -U "${PKG}.tabular[skex]==${VERSION}"
 else
-    VERSION="v07bench"
+    VERSION="accel_preprocess_bool"
     REPO="https://github.com/innixma/autogluon.git"
 
     TARGET_DIR="${HERE}/lib/${PKG}"
@@ -38,9 +38,6 @@ else
     PY_EXEC_DIR=$(dirname "$PY_EXEC_NO_ARGS")
     env PATH="$PY_EXEC_DIR:$PATH" bash -c ./full_install.sh
     PIP install -e tabular/[skex]
-
-    # FIXME FIXME FIXME FIXME: REMOVE, THIS IS ONLY FOR TESTING
-    PIP install scikit-learn==1.0.2
 fi
 
 if [[ ${MODULE} == "timeseries" ]]; then
