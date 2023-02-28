@@ -60,6 +60,12 @@ test:
   cores: 64
   min_vol_size_mb: 100000
 
+24h64c:
+  folds: 10
+  max_runtime_seconds: 86400
+  cores: 64
+  min_vol_size_mb: 100000
+
 1h8c_gp3:
   folds: 10
   max_runtime_seconds: 3600
