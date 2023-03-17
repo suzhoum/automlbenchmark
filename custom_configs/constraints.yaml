@@ -1,5 +1,11 @@
 ---
 
+test100f:
+  folds: 100
+  max_runtime_seconds: 600
+  cores: 4
+  min_vol_size_mb: 100000
+
 toy:
   folds: 1
   max_runtime_seconds: 20

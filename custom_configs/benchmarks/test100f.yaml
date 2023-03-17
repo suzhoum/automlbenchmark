@@ -1,0 +1,6 @@
+---
+# 10 times 10-fold Crossvalidation tasks
+
+
+- name: Australian
+  openml_task_id: 168824
