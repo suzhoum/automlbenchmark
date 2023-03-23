@@ -61,9 +61,6 @@
 - name: satimage
   openml_task_id: 2074
 
-- name: abalone
-  openml_task_id: 2075
-
 - name: kropt
   openml_task_id: 2076
 
@@ -124,9 +121,6 @@
 - name: rmftsa_ladata
   openml_task_id: 3583
 
-- name: pol
-  openml_task_id: 3588
-
 - name: bank8FM
   openml_task_id: 3591
 
@@ -141,9 +135,6 @@
 
 - name: cpu_small
   openml_task_id: 3601
-
-- name: space_ga
-  openml_task_id: 3603
 
 - name: fri_c3_1000_10
   openml_task_id: 3606
@@ -166,9 +157,6 @@
 - name: strikes
   openml_task_id: 3636
 
-- name: quake
-  openml_task_id: 3638
-
 - name: fri_c0_1000_5
   openml_task_id: 3664
 
@@ -187,17 +175,11 @@
 - name: delta_elevators
   openml_task_id: 3684
 
-- name: house_16H
-  openml_task_id: 3686
-
 - name: houses
   openml_task_id: 3688
 
 - name: boston_corrected
   openml_task_id: 3690
-
-- name: sensory
-  openml_task_id: 3691
 
 - name: bank32nh
   openml_task_id: 3698
@@ -210,9 +192,6 @@
 
 - name: stock
   openml_task_id: 3706
-
-- name: elevators
-  openml_task_id: 3711
 
 - name: wind
   openml_task_id: 3712
@@ -246,9 +225,6 @@
 
 - name: colleges_usnews
   openml_task_id: 3793
-
-- name: socmob
-  openml_task_id: 3797
 
 - name: fri_c3_500_10
   openml_task_id: 3799
@@ -406,9 +382,6 @@
 - name: spoken-arabic-digit
   openml_task_id: 9966
 
-- name: steel-plates-fault
-  openml_task_id: 9967
-
 - name: hill-valley
   openml_task_id: 9970
 
@@ -552,9 +525,6 @@
 
 - name: arcene
   openml_task_id: 190412
-
-- name: porto-seguro
-  openml_task_id: 211976
 
 - name: Kuzushiji-49
   openml_task_id: 211978
