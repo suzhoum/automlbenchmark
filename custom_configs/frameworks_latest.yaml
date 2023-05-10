@@ -22,6 +22,17 @@ AutoGluon_bq:
     presets: best_quality
     _leaderboard_test: True
 
+AutoGluon_bq_simple:
+  extends: AutoGluon
+  description: "AutoGluon with 'best_quality' preset (no repeat, no stack, no calibrate)"
+  params:
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
+    presets: best_quality
+    calibrate: False
+    num_stack_levels: 0
+    num_bag_sets: 1
+    _leaderboard_test: True
+
 AutoGluon_hq:
   extends: AutoGluon
   params:
