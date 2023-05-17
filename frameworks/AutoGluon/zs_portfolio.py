@@ -100,8 +100,8 @@ class ZeroshotHyperparametersVendor:
 
 def get_zs_hpo_vendor(
     framework: str,
-    zeroshot_results_path='s3://autogluon-zeroshot/config_results/zs_Bag244_test.csv',
-    config_hyperparameters_dict_path='s3://autogluon-zeroshot/config_dict.pkl',
+    zeroshot_results_path='s3://automl-benchmark-ag/ec2/zs_data/zs_Bag244_test.csv',
+    config_hyperparameters_dict_path='s3://automl-benchmark-ag/ec2/zs_data/config_dict.pkl',
 ):
     zeroshot_results_df = load_pd.load(path=zeroshot_results_path)
     config_hyperparameters_dict = load_pkl.load(path=config_hyperparameters_dict_path)
