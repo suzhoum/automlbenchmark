@@ -40,6 +40,9 @@ else
     PIP install -e tabular/[skex]
 fi
 
+PIP install s3fs
+PIP install "boto3==1.26.90"
+
 if [[ ${MODULE} == "timeseries" ]]; then
     PY -c "from autogluon.timeseries.version import __version__; print(__version__)" >> "${HERE}/.setup/installed"
     # TODO: GPU version install

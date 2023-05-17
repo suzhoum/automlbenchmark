@@ -20,6 +20,7 @@ from autogluon.tabular.version import __version__
 
 from frameworks.shared.callee import call_run, result, touch
 from frameworks.shared.utils import Timer, zip_path
+from zs_portfolio import get_zs_hpo_vendor
 
 log = logging.getLogger(__name__)
 
@@ -60,6 +61,23 @@ def run(dataset, config):
     problem_type = dataset.problem_type
 
     models_dir = tempfile.mkdtemp() + os.sep  # passed to AG
+
+    _zeroshot_framework = config.framework_params.get('_zeroshot_framework', None)
+    if _zeroshot_framework is not None:
+        log.info(f'ZEROSHOT FRAMEWORK: {_zeroshot_framework}')
+        zs_vendor = get_zs_hpo_vendor(framework=_zeroshot_framework)
+        dataset_name = config.name
+        fold = config.fold
+        log.info(f'fold={fold}, dataset_name={dataset_name}')
+        portfolio = zs_vendor.get_portfolio_for_dataset(dataset=dataset_name, fold=fold)
+        log.info(f'Zeroshot Portfolio: {portfolio}')
+        hyperparameters = zs_vendor.get_ag_hyperparameters_for_dataset(dataset=dataset_name, fold=fold)
+        log.info(hyperparameters)
+    else:
+        hyperparameters = None
+
+    if hyperparameters is not None:
+        training_params['hyperparameters'] = hyperparameters
 
     with Timer() as training:
         predictor = TabularPredictor(
