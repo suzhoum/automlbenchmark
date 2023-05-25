@@ -175,11 +175,15 @@ def save_artifacts(predictor, leaderboard, config, test_data):
         log.warning("Error when saving artifacts.", exc_info=True)
 
 
-def get_zeroshot_artifact(predictor, test_data) -> dict:
+def get_zeroshot_artifact(predictor: TabularPredictor, test_data) -> dict:
     models = predictor.get_model_names(can_infer=True)
 
-    pred_proba_dict_val = predictor.predict_proba_multi(inverse_transform=False, models=models)
-    pred_proba_dict_test = predictor.predict_proba_multi(test_data, inverse_transform=False, models=models)
+    if predictor.can_predict_proba:
+        pred_proba_dict_val = predictor.predict_proba_multi(inverse_transform=False, models=models)
+        pred_proba_dict_test = predictor.predict_proba_multi(test_data, inverse_transform=False, models=models)
+    else:
+        pred_proba_dict_val = predictor.predict_multi(inverse_transform=False, models=models)
+        pred_proba_dict_test = predictor.predict_multi(test_data, inverse_transform=False, models=models)
 
     val_data_source = 'val' if predictor._trainer.has_val else 'train'
     _, y_val = predictor.load_data_internal(data=val_data_source, return_X=False, return_y=True)
