@@ -28,7 +28,7 @@ AutoGluon_bq_simple:
   params:
     _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     presets: best_quality
-    calibrate: False
+    # calibrate: False
     num_stack_levels: 0
     num_bag_sets: 1
     _leaderboard_test: True

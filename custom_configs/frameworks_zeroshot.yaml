@@ -14,7 +14,7 @@ AutoGluon_bq_zs_20:
   params:
     _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     presets: best_quality
-    _zeroshot_framework: 'Zeroshot-20-40 (ensemble)'
+    _zeroshot_framework: 'Zeroshot-N20-C40'
     _leaderboard_test: True
 
 AutoGluon_bq_simple_zs_20:
@@ -22,10 +22,10 @@ AutoGluon_bq_simple_zs_20:
   params:
     _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     presets: best_quality
-    calibrate: False
+    # calibrate: False
     num_stack_levels: 0
     num_bag_sets: 1
-    _zeroshot_framework: 'Zeroshot-20-40 (ensemble)'
+    _zeroshot_framework: 'Zeroshot-N20-C40'
     _leaderboard_test: True
 
 AutoGluon_bq_zs_20_defcat:
@@ -41,7 +41,7 @@ AutoGluon_bq_simple_zs_20_defcat:
   params:
     _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     presets: best_quality
-    calibrate: False
+    # calibrate: False
     num_stack_levels: 0
     num_bag_sets: 1
     _zeroshot_framework: 'Zeroshot-defcat-20-40 (ensemble)'
@@ -60,7 +60,7 @@ AutoGluon_bq_simple_zs_20_nocat:
   params:
     _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     presets: best_quality
-    calibrate: False
+    # calibrate: False
     num_stack_levels: 0
     num_bag_sets: 1
     _zeroshot_framework: 'Zeroshot-nocat-20-40 (ensemble)'
@@ -79,7 +79,7 @@ AutoGluon_bq_simple_zs_10_defcat:
   params:
     _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     presets: best_quality
-    calibrate: False
+    # calibrate: False
     num_stack_levels: 0
     num_bag_sets: 1
     _zeroshot_framework: 'Zeroshot-defcat-10-40 (ensemble)'
@@ -98,7 +98,7 @@ AutoGluon_bq_simple_zs_5_defcat:
   params:
     _save_artifacts: ['leaderboard', 'infer_speed', 'info']
     presets: best_quality
-    calibrate: False
+    # calibrate: False
     num_stack_levels: 0
     num_bag_sets: 1
     _zeroshot_framework: 'Zeroshot-defcat-5-40 (ensemble)'
