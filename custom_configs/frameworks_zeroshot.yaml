@@ -28,6 +28,24 @@ AutoGluon_bq_simple_zs_20:
     _zeroshot_framework: 'Zeroshot-N20-C40'
     _leaderboard_test: True
 
+AutoGluon_mq_zs_20:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
+    presets: medium_quality
+    _zeroshot_framework: 'Zeroshot-N20-C40'
+    _leaderboard_test: True
+
+AutoGluon_hq_simple_zs_20:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
+    presets: high_quality
+    num_stack_levels: 0
+    num_bag_sets: 1
+    _zeroshot_framework: 'Zeroshot-N20-C40'
+    _leaderboard_test: True
+
 AutoGluon_bq_zs_20_defcat:
   extends: AutoGluon
   params:
