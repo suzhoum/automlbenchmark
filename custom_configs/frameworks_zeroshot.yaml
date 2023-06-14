@@ -9,6 +9,22 @@ AutoGluon:
   params:
     _leaderboard_test: True
 
+AutoGluon_zshpoh:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
+    presets: experimental_zeroshot_hpo_hybrid
+    _leaderboard_test: True
+
+AutoGluon_zshpoh_simple:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info']
+    presets: experimental_zeroshot_hpo_hybrid
+    num_stack_levels: 0
+    num_bag_sets: 1
+    _leaderboard_test: True
+
 AutoGluon_bq_zs_20:
   extends: AutoGluon
   params:
