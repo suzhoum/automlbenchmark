@@ -904,6 +904,896 @@ ZS_BAG_catboost_b6:
         learning_rate: 0.014617684064276193
         max_ctr_complexity: 1
         one_hot_max_size: 5
+      - ag_args:
+          name_suffix: _r101
+        depth: 7
+        grow_policy: Depthwise
+        l2_leaf_reg: 4.526880849335359
+        learning_rate: 0.011308853479273757
+        max_ctr_complexity: 4
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r102
+        depth: 5
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 3.9951530301605325
+        learning_rate: 0.010194463143057771
+        max_ctr_complexity: 3
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r103
+        depth: 7
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 4.543849076008472
+        learning_rate: 0.014347101100812646
+        max_ctr_complexity: 1
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r104
+        depth: 6
+        grow_policy: Depthwise
+        l2_leaf_reg: 1.8060708532928733
+        learning_rate: 0.02585888541862217
+        max_ctr_complexity: 4
+        one_hot_max_size: 5
+      - ag_args:
+          name_suffix: _r105
+        depth: 8
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 1.595317213772701
+        learning_rate: 0.007421872015054291
+        max_ctr_complexity: 3
+        one_hot_max_size: 5
+      - ag_args:
+          name_suffix: _r106
+        depth: 8
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 3.4469936577318316
+        learning_rate: 0.037423222939481186
+        max_ctr_complexity: 2
+        one_hot_max_size: 5
+      - ag_args:
+          name_suffix: _r107
+        depth: 8
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 3.416471216083528
+        learning_rate: 0.015740364020680228
+        max_ctr_complexity: 5
+        one_hot_max_size: 5
+      - ag_args:
+          name_suffix: _r108
+        depth: 8
+        grow_policy: Depthwise
+        l2_leaf_reg: 3.1875396066776887
+        learning_rate: 0.011389999689744251
+        max_ctr_complexity: 1
+        one_hot_max_size: 5
+      - ag_args:
+          name_suffix: _r109
+        depth: 5
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 3.2083131067678834
+        learning_rate: 0.011282319739054197
+        max_ctr_complexity: 3
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r110
+        depth: 8
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 4.5521748216708415
+        learning_rate: 0.04177258564262711
+        max_ctr_complexity: 3
+        one_hot_max_size: 10
+      - ag_args:
+          name_suffix: _r111
+        depth: 8
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 1.106090210395903
+        learning_rate: 0.03257931958535658
+        max_ctr_complexity: 1
+        one_hot_max_size: 5
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_catboost_b7:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      CAT:
+      - ag_args:
+          name_suffix: _r112
+        depth: 7
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 4.605931945253685
+        learning_rate: 0.01343464462043561
+        max_ctr_complexity: 4
+        one_hot_max_size: 5
+      - ag_args:
+          name_suffix: _r113
+        depth: 6
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 3.04251562774472
+        learning_rate: 0.01593102555449195
+        max_ctr_complexity: 1
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r114
+        depth: 5
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 1.819694747838807
+        learning_rate: 0.013916483250636722
+        max_ctr_complexity: 2
+        one_hot_max_size: 10
+      - ag_args:
+          name_suffix: _r115
+        depth: 8
+        grow_policy: Depthwise
+        l2_leaf_reg: 3.174712215312381
+        learning_rate: 0.011661938048053478
+        max_ctr_complexity: 4
+        one_hot_max_size: 5
+      - ag_args:
+          name_suffix: _r116
+        depth: 6
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 4.688445847068772
+        learning_rate: 0.006537400499387117
+        max_ctr_complexity: 2
+        one_hot_max_size: 10
+      - ag_args:
+          name_suffix: _r117
+        depth: 4
+        grow_policy: Depthwise
+        l2_leaf_reg: 2.3704439373663613
+        learning_rate: 0.03224863049304437
+        max_ctr_complexity: 4
+        one_hot_max_size: 10
+      - ag_args:
+          name_suffix: _r118
+        depth: 8
+        grow_policy: Depthwise
+        l2_leaf_reg: 1.3976655774456335
+        learning_rate: 0.0119117922642152
+        max_ctr_complexity: 2
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r119
+        depth: 8
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 1.0108128555740108
+        learning_rate: 0.03475299710232501
+        max_ctr_complexity: 1
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r120
+        depth: 6
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 4.85108127936097
+        learning_rate: 0.005259210544337227
+        max_ctr_complexity: 4
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r121
+        depth: 4
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 2.3358594783872366
+        learning_rate: 0.05344127100047807
+        max_ctr_complexity: 5
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r122
+        depth: 4
+        grow_policy: Depthwise
+        l2_leaf_reg: 3.079809498283353
+        learning_rate: 0.03997864870036295
+        max_ctr_complexity: 5
+        one_hot_max_size: 10
+      - ag_args:
+          name_suffix: _r123
+        depth: 8
+        grow_policy: Depthwise
+        l2_leaf_reg: 3.4931786920805226
+        learning_rate: 0.07127423845243538
+        max_ctr_complexity: 4
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r124
+        depth: 8
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 4.487142939021972
+        learning_rate: 0.022543679111584062
+        max_ctr_complexity: 3
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r125
+        depth: 7
+        grow_policy: Depthwise
+        l2_leaf_reg: 4.693224271556653
+        learning_rate: 0.06007466728599504
+        max_ctr_complexity: 5
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r126
+        depth: 4
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 1.6990880166437599
+        learning_rate: 0.016041533833318244
+        max_ctr_complexity: 2
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r127
+        depth: 8
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 1.6418705755504042
+        learning_rate: 0.0711342832991347
+        max_ctr_complexity: 5
+        one_hot_max_size: 2
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_catboost_b8:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      CAT:
+      - ag_args:
+          name_suffix: _r128
+        depth: 8
+        grow_policy: Depthwise
+        l2_leaf_reg: 1.640921865280573
+        learning_rate: 0.036232951900213306
+        max_ctr_complexity: 3
+        one_hot_max_size: 5
+      - ag_args:
+          name_suffix: _r129
+        depth: 4
+        grow_policy: Depthwise
+        l2_leaf_reg: 1.158462090318071
+        learning_rate: 0.005983555648510833
+        max_ctr_complexity: 3
+        one_hot_max_size: 5
+      - ag_args:
+          name_suffix: _r130
+        depth: 5
+        grow_policy: Depthwise
+        l2_leaf_reg: 3.860831336049435
+        learning_rate: 0.023956148954137495
+        max_ctr_complexity: 5
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r131
+        depth: 7
+        grow_policy: Depthwise
+        l2_leaf_reg: 2.512980699693847
+        learning_rate: 0.0940511090171024
+        max_ctr_complexity: 5
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r132
+        depth: 5
+        grow_policy: Depthwise
+        l2_leaf_reg: 3.721394664060006
+        learning_rate: 0.006042337948547526
+        max_ctr_complexity: 1
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r133
+        depth: 7
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 4.562611237600825
+        learning_rate: 0.018272747425249793
+        max_ctr_complexity: 4
+        one_hot_max_size: 5
+      - ag_args:
+          name_suffix: _r134
+        depth: 8
+        grow_policy: Depthwise
+        l2_leaf_reg: 2.7271397105006483
+        learning_rate: 0.029525340671532455
+        max_ctr_complexity: 5
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r135
+        depth: 7
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 3.609235810966101
+        learning_rate: 0.05862063297323188
+        max_ctr_complexity: 2
+        one_hot_max_size: 5
+      - ag_args:
+          name_suffix: _r136
+        depth: 4
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 3.88562667183981
+        learning_rate: 0.03376635753131018
+        max_ctr_complexity: 2
+        one_hot_max_size: 10
+      - ag_args:
+          name_suffix: _r137
+        depth: 4
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 4.559174625782161
+        learning_rate: 0.04939557741379516
+        max_ctr_complexity: 3
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r138
+        depth: 5
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 1.5907423128268294
+        learning_rate: 0.006031999864769463
+        max_ctr_complexity: 2
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r139
+        depth: 4
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 3.08798509451993
+        learning_rate: 0.050672799391249086
+        max_ctr_complexity: 4
+        one_hot_max_size: 10
+      - ag_args:
+          name_suffix: _r140
+        depth: 7
+        grow_policy: Depthwise
+        l2_leaf_reg: 3.358778892054203
+        learning_rate: 0.04663964727051135
+        max_ctr_complexity: 1
+        one_hot_max_size: 10
+      - ag_args:
+          name_suffix: _r141
+        depth: 4
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 2.5992067688981035
+        learning_rate: 0.01562418909718754
+        max_ctr_complexity: 3
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r142
+        depth: 6
+        grow_policy: Depthwise
+        l2_leaf_reg: 3.6270478337633483
+        learning_rate: 0.06615143957780696
+        max_ctr_complexity: 4
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r143
+        depth: 7
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 1.6761016245166451
+        learning_rate: 0.06566144806528762
+        max_ctr_complexity: 2
+        one_hot_max_size: 10
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_catboost_b9:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      CAT:
+      - ag_args:
+          name_suffix: _r144
+        depth: 8
+        grow_policy: Depthwise
+        l2_leaf_reg: 1.4633360052035411
+        learning_rate: 0.019661523314752107
+        max_ctr_complexity: 4
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r145
+        depth: 7
+        grow_policy: Depthwise
+        l2_leaf_reg: 4.428499670018269
+        learning_rate: 0.007105605177797098
+        max_ctr_complexity: 3
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r146
+        depth: 8
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 1.235481133204206
+        learning_rate: 0.007245949556557377
+        max_ctr_complexity: 2
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r147
+        depth: 8
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 1.087894541971687
+        learning_rate: 0.01536506898200533
+        max_ctr_complexity: 2
+        one_hot_max_size: 5
+      - ag_args:
+          name_suffix: _r148
+        depth: 7
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 4.655964870852863
+        learning_rate: 0.037410588536449234
+        max_ctr_complexity: 2
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r149
+        depth: 7
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 2.2841719601728676
+        learning_rate: 0.005469357044326918
+        max_ctr_complexity: 3
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r150
+        depth: 6
+        grow_policy: Depthwise
+        l2_leaf_reg: 1.3409322411780802
+        learning_rate: 0.0367313338793234
+        max_ctr_complexity: 4
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r151
+        depth: 7
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 1.116760939395653
+        learning_rate: 0.024826350230633065
+        max_ctr_complexity: 2
+        one_hot_max_size: 10
+      - ag_args:
+          name_suffix: _r152
+        depth: 7
+        grow_policy: Depthwise
+        l2_leaf_reg: 2.460399508240039
+        learning_rate: 0.008849185047855538
+        max_ctr_complexity: 5
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r153
+        depth: 8
+        grow_policy: Depthwise
+        l2_leaf_reg: 4.37110745073937
+        learning_rate: 0.015294495555682951
+        max_ctr_complexity: 4
+        one_hot_max_size: 5
+      - ag_args:
+          name_suffix: _r154
+        depth: 6
+        grow_policy: Depthwise
+        l2_leaf_reg: 2.098300195377959
+        learning_rate: 0.005131872392321647
+        max_ctr_complexity: 4
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r155
+        depth: 7
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 1.8906317310415557
+        learning_rate: 0.015124714256051051
+        max_ctr_complexity: 4
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r156
+        depth: 6
+        grow_policy: Depthwise
+        l2_leaf_reg: 4.539807571661758
+        learning_rate: 0.07351134874426507
+        max_ctr_complexity: 2
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r157
+        depth: 6
+        grow_policy: Depthwise
+        l2_leaf_reg: 2.70777364159328
+        learning_rate: 0.012344711709400321
+        max_ctr_complexity: 4
+        one_hot_max_size: 5
+      - ag_args:
+          name_suffix: _r158
+        depth: 4
+        grow_policy: Depthwise
+        l2_leaf_reg: 1.6415741452262562
+        learning_rate: 0.014275790157318976
+        max_ctr_complexity: 2
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r159
+        depth: 7
+        grow_policy: Depthwise
+        l2_leaf_reg: 3.7631391046261182
+        learning_rate: 0.09628094704738965
+        max_ctr_complexity: 3
+        one_hot_max_size: 3
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_catboost_b10:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      CAT:
+      - ag_args:
+          name_suffix: _r160
+        depth: 4
+        grow_policy: Depthwise
+        l2_leaf_reg: 3.569406997453843
+        learning_rate: 0.010701987751242613
+        max_ctr_complexity: 1
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r161
+        depth: 6
+        grow_policy: Depthwise
+        l2_leaf_reg: 3.0562178873223145
+        learning_rate: 0.006695944134152835
+        max_ctr_complexity: 1
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r162
+        depth: 7
+        grow_policy: Depthwise
+        l2_leaf_reg: 3.987345486994396
+        learning_rate: 0.030994344683619102
+        max_ctr_complexity: 3
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r163
+        depth: 5
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 3.7454481983750014
+        learning_rate: 0.09328642499990342
+        max_ctr_complexity: 1
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r164
+        depth: 5
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 4.210768559587111
+        learning_rate: 0.061249802320555
+        max_ctr_complexity: 3
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r165
+        depth: 8
+        grow_policy: Depthwise
+        l2_leaf_reg: 4.509595156696479
+        learning_rate: 0.01523517517387529
+        max_ctr_complexity: 1
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r166
+        depth: 6
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 3.3008498805396993
+        learning_rate: 0.0343886006405424
+        max_ctr_complexity: 5
+        one_hot_max_size: 10
+      - ag_args:
+          name_suffix: _r167
+        depth: 7
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 4.522712492188319
+        learning_rate: 0.08481607830570326
+        max_ctr_complexity: 3
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r168
+        depth: 8
+        grow_policy: Depthwise
+        l2_leaf_reg: 1.9242802037265738
+        learning_rate: 0.025121993040996608
+        max_ctr_complexity: 1
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r169
+        depth: 6
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 3.885720440568824
+        learning_rate: 0.021243520491570463
+        max_ctr_complexity: 1
+        one_hot_max_size: 5
+      - ag_args:
+          name_suffix: _r170
+        depth: 8
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 4.376939846212096
+        learning_rate: 0.007584164776950924
+        max_ctr_complexity: 3
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r171
+        depth: 4
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 4.901696537625293
+        learning_rate: 0.05205851115876207
+        max_ctr_complexity: 2
+        one_hot_max_size: 10
+      - ag_args:
+          name_suffix: _r172
+        depth: 7
+        grow_policy: Depthwise
+        l2_leaf_reg: 2.6276877256517914
+        learning_rate: 0.0693346150637165
+        max_ctr_complexity: 2
+        one_hot_max_size: 10
+      - ag_args:
+          name_suffix: _r173
+        depth: 7
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 4.730244815429362
+        learning_rate: 0.016169983383440105
+        max_ctr_complexity: 4
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r174
+        depth: 5
+        grow_policy: Depthwise
+        l2_leaf_reg: 1.099012316465163
+        learning_rate: 0.005113126174208246
+        max_ctr_complexity: 4
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r175
+        depth: 6
+        grow_policy: Depthwise
+        l2_leaf_reg: 4.237459885956794
+        learning_rate: 0.041826007021208714
+        max_ctr_complexity: 4
+        one_hot_max_size: 10
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_catboost_b11:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      CAT:
+      - ag_args:
+          name_suffix: _r176
+        depth: 5
+        grow_policy: Depthwise
+        l2_leaf_reg: 4.5901710585976225
+        learning_rate: 0.05020192948228066
+        max_ctr_complexity: 5
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r177
+        depth: 6
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 2.1542798306067823
+        learning_rate: 0.06864209415792857
+        max_ctr_complexity: 4
+        one_hot_max_size: 10
+      - ag_args:
+          name_suffix: _r178
+        depth: 7
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 3.904908732381685
+        learning_rate: 0.03811936310425941
+        max_ctr_complexity: 5
+        one_hot_max_size: 10
+      - ag_args:
+          name_suffix: _r179
+        depth: 6
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 1.2577417809830238
+        learning_rate: 0.011037605082550014
+        max_ctr_complexity: 1
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r180
+        depth: 7
+        grow_policy: Depthwise
+        l2_leaf_reg: 4.43335055453705
+        learning_rate: 0.055406199833457785
+        max_ctr_complexity: 5
+        one_hot_max_size: 10
+      - ag_args:
+          name_suffix: _r181
+        depth: 7
+        grow_policy: Depthwise
+        l2_leaf_reg: 1.4626474876200533
+        learning_rate: 0.04425622148046195
+        max_ctr_complexity: 5
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r182
+        depth: 6
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 1.1973957871537588
+        learning_rate: 0.012023386632805262
+        max_ctr_complexity: 1
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r183
+        depth: 5
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 4.299190822458588
+        learning_rate: 0.037054953070982596
+        max_ctr_complexity: 4
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r184
+        depth: 4
+        grow_policy: Depthwise
+        l2_leaf_reg: 3.300311249784416
+        learning_rate: 0.017691695775300626
+        max_ctr_complexity: 1
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r185
+        depth: 8
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 4.89164697340961
+        learning_rate: 0.06821214946228545
+        max_ctr_complexity: 5
+        one_hot_max_size: 5
+      - ag_args:
+          name_suffix: _r186
+        depth: 6
+        grow_policy: Depthwise
+        l2_leaf_reg: 3.8418230380179663
+        learning_rate: 0.008496886862009426
+        max_ctr_complexity: 4
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r187
+        depth: 4
+        grow_policy: Depthwise
+        l2_leaf_reg: 3.485892144951732
+        learning_rate: 0.010241289096531206
+        max_ctr_complexity: 2
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r188
+        depth: 7
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 1.4250196397367971
+        learning_rate: 0.02086848472304868
+        max_ctr_complexity: 3
+        one_hot_max_size: 5
+      - ag_args:
+          name_suffix: _r189
+        depth: 5
+        grow_policy: Depthwise
+        l2_leaf_reg: 3.5514229980675047
+        learning_rate: 0.04883376416865989
+        max_ctr_complexity: 1
+        one_hot_max_size: 2
+      - ag_args:
+          name_suffix: _r190
+        depth: 8
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 3.3495012320956477
+        learning_rate: 0.05652951747489659
+        max_ctr_complexity: 3
+        one_hot_max_size: 5
+      - ag_args:
+          name_suffix: _r191
+        depth: 7
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 2.0656316088839435
+        learning_rate: 0.012218586354874052
+        max_ctr_complexity: 2
+        one_hot_max_size: 5
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_catboost_b12:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      CAT:
+      - ag_args:
+          name_suffix: _r192
+        depth: 7
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 3.0834991806062884
+        learning_rate: 0.015422324219874065
+        max_ctr_complexity: 3
+        one_hot_max_size: 5
+      - ag_args:
+          name_suffix: _r193
+        depth: 4
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 3.676947855081342
+        learning_rate: 0.0897069202257901
+        max_ctr_complexity: 2
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r194
+        depth: 7
+        grow_policy: Depthwise
+        l2_leaf_reg: 2.451551986972137
+        learning_rate: 0.005725605650118888
+        max_ctr_complexity: 2
+        one_hot_max_size: 10
+      - ag_args:
+          name_suffix: _r195
+        depth: 6
+        grow_policy: Depthwise
+        l2_leaf_reg: 3.484676989468219
+        learning_rate: 0.022239066967791522
+        max_ctr_complexity: 3
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r196
+        depth: 5
+        grow_policy: Depthwise
+        l2_leaf_reg: 2.60571179722208
+        learning_rate: 0.017422018838989178
+        max_ctr_complexity: 5
+        one_hot_max_size: 10
+      - ag_args:
+          name_suffix: _r197
+        depth: 4
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 2.0584781187588925
+        learning_rate: 0.02803863431710781
+        max_ctr_complexity: 3
+        one_hot_max_size: 5
+      - ag_args:
+          name_suffix: _r198
+        depth: 6
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 3.637071465711953
+        learning_rate: 0.04387418552563314
+        max_ctr_complexity: 4
+        one_hot_max_size: 5
+      - ag_args:
+          name_suffix: _r199
+        depth: 4
+        grow_policy: SymmetricTree
+        l2_leaf_reg: 1.3858034427895367
+        learning_rate: 0.06643106566617134
+        max_ctr_complexity: 1
+        one_hot_max_size: 3
+      - ag_args:
+          name_suffix: _r200
+        depth: 6
+        grow_policy: Depthwise
+        l2_leaf_reg: 3.2961273585132744
+        learning_rate: 0.08479636738875393
+        max_ctr_complexity: 5
+        one_hot_max_size: 2
     num_bag_folds: 8
     num_bag_sets: 1
   version: latest
@@ -5755,6 +6645,996 @@ ZS_BAG_nn_torch_b6:
         num_layers: 2
         use_batchnorm: true
         weight_decay: 1.851165282762072e-12
+      - activation: relu
+        ag_args:
+          name_suffix: _r101
+        dropout_prob: 0.36246873623797615
+        hidden_size: 201
+        learning_rate: 0.0004912302988870844
+        num_layers: 5
+        use_batchnorm: true
+        weight_decay: 1.240453069138099e-11
+      - activation: relu
+        ag_args:
+          name_suffix: _r102
+        dropout_prob: 0.27810800236187444
+        hidden_size: 21
+        learning_rate: 0.006220166742030405
+        num_layers: 5
+        use_batchnorm: true
+        weight_decay: 3.1471952024185805e-10
+      - activation: relu
+        ag_args:
+          name_suffix: _r103
+        dropout_prob: 0.24015689483905583
+        hidden_size: 162
+        learning_rate: 0.011627032075982516
+        num_layers: 4
+        use_batchnorm: true
+        weight_decay: 3.435673630099911e-05
+      - activation: relu
+        ag_args:
+          name_suffix: _r104
+        dropout_prob: 0.13358594783872366
+        hidden_size: 70
+        learning_rate: 0.01895792772597188
+        num_layers: 1
+        use_batchnorm: true
+        weight_decay: 5.241747784191724e-07
+      - activation: relu
+        ag_args:
+          name_suffix: _r105
+        dropout_prob: 0.32266773012544436
+        hidden_size: 44
+        learning_rate: 0.0003665961521464768
+        num_layers: 5
+        use_batchnorm: true
+        weight_decay: 7.181933891847883e-06
+      - activation: relu
+        ag_args:
+          name_suffix: _r106
+        dropout_prob: 0.35204274540789776
+        hidden_size: 148
+        learning_rate: 0.00021409190489351274
+        num_layers: 5
+        use_batchnorm: false
+        weight_decay: 0.0038872554606542323
+      - activation: elu
+        ag_args:
+          name_suffix: _r107
+        dropout_prob: 0.15174243128999465
+        hidden_size: 139
+        learning_rate: 0.00019931129897237073
+        num_layers: 1
+        use_batchnorm: false
+        weight_decay: 1.4398321892260892e-09
+      - activation: relu
+        ag_args:
+          name_suffix: _r108
+        dropout_prob: 0.3679131243112634
+        hidden_size: 64
+        learning_rate: 0.00018350104666113104
+        num_layers: 1
+        use_batchnorm: true
+        weight_decay: 5.150895467005849e-10
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_nn_torch_b7:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      NN_TORCH:
+      - activation: elu
+        ag_args:
+          name_suffix: _r109
+        dropout_prob: 0.12001156779037184
+        hidden_size: 87
+        learning_rate: 0.002735238272770215
+        num_layers: 2
+        use_batchnorm: false
+        weight_decay: 4.154117342644561e-10
+      - activation: elu
+        ag_args:
+          name_suffix: _r110
+        dropout_prob: 0.0640921865280573
+        hidden_size: 99
+        learning_rate: 0.0006782637890310819
+        num_layers: 3
+        use_batchnorm: false
+        weight_decay: 0.010493826135728967
+      - activation: elu
+        ag_args:
+          name_suffix: _r111
+        dropout_prob: 0.01584620903180709
+        hidden_size: 122
+        learning_rate: 0.0019150844717632787
+        num_layers: 3
+        use_batchnorm: false
+        weight_decay: 0.007562857707074949
+      - activation: elu
+        ag_args:
+          name_suffix: _r112
+        dropout_prob: 0.28608313360494353
+        hidden_size: 67
+        learning_rate: 0.0005677413943604146
+        num_layers: 5
+        use_batchnorm: true
+        weight_decay: 9.640058032479043e-09
+      - activation: elu
+        ag_args:
+          name_suffix: _r113
+        dropout_prob: 0.25963133388234727
+        hidden_size: 104
+        learning_rate: 0.026693589421445882
+        num_layers: 5
+        use_batchnorm: false
+        weight_decay: 4.05385312736977e-09
+      - activation: elu
+        ag_args:
+          name_suffix: _r114
+        dropout_prob: 0.08014572877647762
+        hidden_size: 238
+        learning_rate: 0.003193230959659184
+        num_layers: 4
+        use_batchnorm: false
+        weight_decay: 0.006268749322131784
+      - activation: relu
+        ag_args:
+          name_suffix: _r115
+        dropout_prob: 0.14717103221481653
+        hidden_size: 222
+        learning_rate: 0.002928569897768998
+        num_layers: 3
+        use_batchnorm: true
+        weight_decay: 3.3157591552416304e-06
+      - activation: relu
+        ag_args:
+          name_suffix: _r116
+        dropout_prob: 0.038721581271349684
+        hidden_size: 48
+        learning_rate: 0.004129033167607574
+        num_layers: 2
+        use_batchnorm: false
+        weight_decay: 2.5894979857895842e-12
+      - activation: relu
+        ag_args:
+          name_suffix: _r117
+        dropout_prob: 0.14075719847721704
+        hidden_size: 107
+        learning_rate: 0.02102016621542758
+        num_layers: 5
+        use_batchnorm: true
+        weight_decay: 8.583524549723169e-10
+      - activation: relu
+        ag_args:
+          name_suffix: _r118
+        dropout_prob: 0.3559174625782161
+        hidden_size: 119
+        learning_rate: 0.0001910373885060826
+        num_layers: 2
+        use_batchnorm: true
+        weight_decay: 7.991626880739822e-12
+      - activation: elu
+        ag_args:
+          name_suffix: _r119
+        dropout_prob: 0.025054401223923908
+        hidden_size: 49
+        learning_rate: 0.00021877023716885017
+        num_layers: 1
+        use_batchnorm: true
+        weight_decay: 0.003818636301528233
+      - activation: relu
+        ag_args:
+          name_suffix: _r120
+        dropout_prob: 0.3834963692226372
+        hidden_size: 30
+        learning_rate: 0.0006387876089505596
+        num_layers: 4
+        use_batchnorm: true
+        weight_decay: 0.020005485780993044
+      - activation: relu
+        ag_args:
+          name_suffix: _r121
+        dropout_prob: 0.33926015213879396
+        hidden_size: 247
+        learning_rate: 0.0029983839090226075
+        num_layers: 5
+        use_batchnorm: false
+        weight_decay: 0.00038926240517691234
+      - activation: relu
+        ag_args:
+          name_suffix: _r122
+        dropout_prob: 0.059123470678908954
+        hidden_size: 18
+        learning_rate: 0.0002939890353572163
+        num_layers: 5
+        use_batchnorm: true
+        weight_decay: 1.1744592227570546e-11
+      - activation: relu
+        ag_args:
+          name_suffix: _r123
+        dropout_prob: 0.24767311984623053
+        hidden_size: 46
+        learning_rate: 0.00039661220813551443
+        num_layers: 2
+        use_batchnorm: true
+        weight_decay: 0.002853574402712006
+      - activation: elu
+        ag_args:
+          name_suffix: _r124
+        dropout_prob: 0.10844535669869454
+        hidden_size: 185
+        learning_rate: 0.00019361315706453524
+        num_layers: 3
+        use_batchnorm: true
+        weight_decay: 0.060198488901806194
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_nn_torch_b8:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      NN_TORCH:
+      - activation: elu
+        ag_args:
+          name_suffix: _r125
+        dropout_prob: 0.03998340623714003
+        hidden_size: 89
+        learning_rate: 0.0001952562200339946
+        num_layers: 3
+        use_batchnorm: true
+        weight_decay: 3.871607153416254e-10
+      - activation: relu
+        ag_args:
+          name_suffix: _r126
+        dropout_prob: 0.2685533914680613
+        hidden_size: 109
+        learning_rate: 0.013252158837752942
+        num_layers: 5
+        use_batchnorm: false
+        weight_decay: 1.7446567314008454e-12
+      - activation: elu
+        ag_args:
+          name_suffix: _r127
+        dropout_prob: 0.24581107992412832
+        hidden_size: 246
+        learning_rate: 0.003540691510147295
+        num_layers: 4
+        use_batchnorm: true
+        weight_decay: 2.453224582898467e-05
+      - activation: elu
+        ag_args:
+          name_suffix: _r128
+        dropout_prob: 0.2147692004329562
+        hidden_size: 97
+        learning_rate: 0.011593759814651834
+        num_layers: 4
+        use_batchnorm: false
+        weight_decay: 3.3999528196050355e-09
+      - activation: elu
+        ag_args:
+          name_suffix: _r129
+        dropout_prob: 0.22463091235534619
+        hidden_size: 130
+        learning_rate: 0.00018704642608484274
+        num_layers: 2
+        use_batchnorm: true
+        weight_decay: 2.101140243617949e-05
+      - activation: elu
+        ag_args:
+          name_suffix: _r130
+        dropout_prob: 0.38365690079119
+        hidden_size: 126
+        learning_rate: 0.00489430884292369
+        num_layers: 2
+        use_batchnorm: true
+        weight_decay: 7.657471766198364e-07
+      - activation: elu
+        ag_args:
+          name_suffix: _r131
+        dropout_prob: 0.38332294381911713
+        hidden_size: 213
+        learning_rate: 0.0008024106155128003
+        num_layers: 1
+        use_batchnorm: true
+        weight_decay: 1.623124644807376e-12
+      - activation: relu
+        ag_args:
+          name_suffix: _r132
+        dropout_prob: 0.3082697982870843
+        hidden_size: 222
+        learning_rate: 0.0008404292839594869
+        num_layers: 4
+        use_batchnorm: false
+        weight_decay: 8.129601897136886e-07
+      - activation: relu
+        ag_args:
+          name_suffix: _r133
+        dropout_prob: 0.0885585785171089
+        hidden_size: 143
+        learning_rate: 0.00011528985887435902
+        num_layers: 4
+        use_batchnorm: true
+        weight_decay: 4.4808154805614466e-07
+      - activation: relu
+        ag_args:
+          name_suffix: _r134
+        dropout_prob: 0.34251047184911276
+        hidden_size: 199
+        learning_rate: 0.00013693277454657866
+        num_layers: 3
+        use_batchnorm: true
+        weight_decay: 0.005425887964567897
+      - activation: elu
+        ag_args:
+          name_suffix: _r135
+        dropout_prob: 0.06134755114373829
+        hidden_size: 144
+        learning_rate: 0.005834535148903801
+        num_layers: 5
+        use_batchnorm: true
+        weight_decay: 2.0826540090463355e-09
+      - activation: elu
+        ag_args:
+          name_suffix: _r136
+        dropout_prob: 0.31259184009386454
+        hidden_size: 114
+        learning_rate: 0.0009160406444124038
+        num_layers: 5
+        use_batchnorm: false
+        weight_decay: 7.116719857580524e-09
+      - activation: elu
+        ag_args:
+          name_suffix: _r137
+        dropout_prob: 0.15702751538486043
+        hidden_size: 19
+        learning_rate: 0.00450515322663588
+        num_layers: 4
+        use_batchnorm: false
+        weight_decay: 0.012560631109033752
+      - activation: elu
+        ag_args:
+          name_suffix: _r138
+        dropout_prob: 0.14581785039871464
+        hidden_size: 9
+        learning_rate: 0.0039010648627217323
+        num_layers: 2
+        use_batchnorm: false
+        weight_decay: 1.153109721592167e-06
+      - activation: relu
+        ag_args:
+          name_suffix: _r139
+        dropout_prob: 0.19838811814938784
+        hidden_size: 91
+        learning_rate: 0.0018766153235863243
+        num_layers: 5
+        use_batchnorm: true
+        weight_decay: 1.9551641972196325e-11
+      - activation: elu
+        ag_args:
+          name_suffix: _r140
+        dropout_prob: 0.09323112978579506
+        hidden_size: 91
+        learning_rate: 0.02538747387557311
+        num_layers: 2
+        use_batchnorm: false
+        weight_decay: 9.212545559762475e-11
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_nn_torch_b9:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      NN_TORCH:
+      - activation: relu
+        ag_args:
+          name_suffix: _r141
+        dropout_prob: 0.06803985560348509
+        hidden_size: 78
+        learning_rate: 0.015295531483371897
+        num_layers: 4
+        use_batchnorm: false
+        weight_decay: 0.0426864153454402
+      - activation: relu
+        ag_args:
+          name_suffix: _r142
+        dropout_prob: 0.32107685595871116
+        hidden_size: 218
+        learning_rate: 0.0010683136627183342
+        num_layers: 5
+        use_batchnorm: true
+        weight_decay: 0.004481121102662048
+      - activation: elu
+        ag_args:
+          name_suffix: _r143
+        dropout_prob: 0.1703783780377607
+        hidden_size: 212
+        learning_rate: 0.0004107199833213839
+        num_layers: 5
+        use_batchnorm: true
+        weight_decay: 1.105439140660822e-07
+      - activation: elu
+        ag_args:
+          name_suffix: _r144
+        dropout_prob: 0.2670859555485912
+        hidden_size: 52
+        learning_rate: 0.015189605588375414
+        num_layers: 4
+        use_batchnorm: true
+        weight_decay: 2.801378488324428e-08
+      - activation: elu
+        ag_args:
+          name_suffix: _r145
+        dropout_prob: 0.38645897825086856
+        hidden_size: 140
+        learning_rate: 0.0049889665276811246
+        num_layers: 2
+        use_batchnorm: true
+        weight_decay: 8.463568964275069e-07
+      - activation: relu
+        ag_args:
+          name_suffix: _r146
+        dropout_prob: 0.06641912980849828
+        hidden_size: 248
+        learning_rate: 0.006124489009464521
+        num_layers: 2
+        use_batchnorm: false
+        weight_decay: 1.362231667225633e-10
+      - activation: relu
+        ag_args:
+          name_suffix: _r147
+        dropout_prob: 0.3112686381801017
+        hidden_size: 87
+        learning_rate: 0.0012148397347990234
+        num_layers: 1
+        use_batchnorm: false
+        weight_decay: 2.037338458192976e-09
+      - activation: relu
+        ag_args:
+          name_suffix: _r148
+        dropout_prob: 0.3272133223023354
+        hidden_size: 178
+        learning_rate: 0.026076173122454065
+        num_layers: 4
+        use_batchnorm: true
+        weight_decay: 5.217918994392099e-10
+      - activation: elu
+        ag_args:
+          name_suffix: _r149
+        dropout_prob: 0.16986520113623715
+        hidden_size: 135
+        learning_rate: 0.01493809215308263
+        num_layers: 2
+        use_batchnorm: true
+        weight_decay: 1.3333601922675858e-09
+      - activation: elu
+        ag_args:
+          name_suffix: _r150
+        dropout_prob: 0.047010257161455064
+        hidden_size: 131
+        learning_rate: 0.003262027854239785
+        num_layers: 3
+        use_batchnorm: true
+        weight_decay: 0.01764230681516961
+      - activation: elu
+        ag_args:
+          name_suffix: _r151
+        dropout_prob: 0.10015928514142912
+        hidden_size: 223
+        learning_rate: 0.00011516390388668528
+        num_layers: 2
+        use_batchnorm: false
+        weight_decay: 0.015901132881391125
+      - activation: relu
+        ag_args:
+          name_suffix: _r152
+        dropout_prob: 0.15096262903555493
+        hidden_size: 248
+        learning_rate: 0.002995885811230032
+        num_layers: 2
+        use_batchnorm: true
+        weight_decay: 1.0265123256836642e-07
+      - activation: elu
+        ag_args:
+          name_suffix: _r153
+        dropout_prob: 0.3590171058597622
+        hidden_size: 216
+        learning_rate: 0.0008395851744113051
+        num_layers: 3
+        use_batchnorm: false
+        weight_decay: 1.4937211631986914e-09
+      - activation: elu
+        ag_args:
+          name_suffix: _r154
+        dropout_prob: 0.09326950047143492
+        hidden_size: 253
+        learning_rate: 0.0003359121182590391
+        num_layers: 4
+        use_batchnorm: true
+        weight_decay: 2.711977152639999e-08
+      - activation: relu
+        ag_args:
+          name_suffix: _r155
+        dropout_prob: 0.2904908732381685
+        hidden_size: 64
+        learning_rate: 0.0016144826656775987
+        num_layers: 3
+        use_batchnorm: false
+        weight_decay: 5.11434354779987e-12
+      - activation: elu
+        ag_args:
+          name_suffix: _r156
+        dropout_prob: 0.08330130084859354
+        hidden_size: 152
+        learning_rate: 0.00016542517012016353
+        num_layers: 5
+        use_batchnorm: true
+        weight_decay: 0.0006789332638989115
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_nn_torch_b10:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      NN_TORCH:
+      - activation: relu
+        ag_args:
+          name_suffix: _r157
+        dropout_prob: 0.13685500504288658
+        hidden_size: 229
+        learning_rate: 0.0001934231631502052
+        num_layers: 5
+        use_batchnorm: true
+        weight_decay: 1.0282176418614337e-05
+      - activation: elu
+        ag_args:
+          name_suffix: _r158
+        dropout_prob: 0.01030258381183309
+        hidden_size: 111
+        learning_rate: 0.01845979186513771
+        num_layers: 5
+        use_batchnorm: true
+        weight_decay: 0.00020238017476912164
+      - activation: relu
+        ag_args:
+          name_suffix: _r159
+        dropout_prob: 0.16724368469920037
+        hidden_size: 44
+        learning_rate: 0.011043937174833162
+        num_layers: 4
+        use_batchnorm: false
+        weight_decay: 0.007265742373924624
+      - activation: elu
+        ag_args:
+          name_suffix: _r160
+        dropout_prob: 0.16389048225229744
+        hidden_size: 233
+        learning_rate: 0.005511840274559015
+        num_layers: 5
+        use_batchnorm: false
+        weight_decay: 0.05035344362232967
+      - activation: relu
+        ag_args:
+          name_suffix: _r161
+        dropout_prob: 0.002061185707609292
+        hidden_size: 44
+        learning_rate: 0.004950651809389083
+        num_layers: 4
+        use_batchnorm: false
+        weight_decay: 0.005461098605668499
+      - activation: relu
+        ag_args:
+          name_suffix: _r162
+        dropout_prob: 0.1934072509709835
+        hidden_size: 68
+        learning_rate: 0.00020715730284920114
+        num_layers: 4
+        use_batchnorm: true
+        weight_decay: 4.2924677967128144e-10
+      - activation: elu
+        ag_args:
+          name_suffix: _r163
+        dropout_prob: 0.11313474087043317
+        hidden_size: 126
+        learning_rate: 0.00018331850035247923
+        num_layers: 1
+        use_batchnorm: true
+        weight_decay: 2.7639309718041677e-06
+      - activation: relu
+        ag_args:
+          name_suffix: _r164
+        dropout_prob: 0.10276665747466765
+        hidden_size: 165
+        learning_rate: 0.0038022969797074676
+        num_layers: 1
+        use_batchnorm: false
+        weight_decay: 8.916967887098654e-09
+      - activation: relu
+        ag_args:
+          name_suffix: _r165
+        dropout_prob: 0.2130674349885443
+        hidden_size: 21
+        learning_rate: 0.010126537466759239
+        num_layers: 3
+        use_batchnorm: false
+        weight_decay: 0.0005759229948783316
+      - activation: relu
+        ag_args:
+          name_suffix: _r166
+        dropout_prob: 0.14293875187118177
+        hidden_size: 47
+        learning_rate: 0.026488116750517193
+        num_layers: 2
+        use_batchnorm: false
+        weight_decay: 1.2226151746393677e-10
+      - activation: elu
+        ag_args:
+          name_suffix: _r167
+        dropout_prob: 0.23108376972673617
+        hidden_size: 172
+        learning_rate: 0.0003978417285476807
+        num_layers: 1
+        use_batchnorm: false
+        weight_decay: 2.2993580380437687e-05
+      - activation: relu
+        ag_args:
+          name_suffix: _r168
+        dropout_prob: 0.2943575587230932
+        hidden_size: 213
+        learning_rate: 0.029564479119167947
+        num_layers: 2
+        use_batchnorm: false
+        weight_decay: 3.1447012328662413e-12
+      - activation: relu
+        ag_args:
+          name_suffix: _r169
+        dropout_prob: 0.17934767155919895
+        hidden_size: 26
+        learning_rate: 0.0002670236000453949
+        num_layers: 5
+        use_batchnorm: false
+        weight_decay: 9.550309584226972e-08
+      - activation: elu
+        ag_args:
+          name_suffix: _r170
+        dropout_prob: 0.25109390247811375
+        hidden_size: 128
+        learning_rate: 0.0005910017417670681
+        num_layers: 5
+        use_batchnorm: true
+        weight_decay: 6.762563719292168e-09
+      - activation: relu
+        ag_args:
+          name_suffix: _r171
+        dropout_prob: 0.10584781187588926
+        hidden_size: 89
+        learning_rate: 0.014791925972420345
+        num_layers: 3
+        use_batchnorm: false
+        weight_decay: 2.0956656927351057e-11
+      - activation: relu
+        ag_args:
+          name_suffix: _r172
+        dropout_prob: 0.2637071465711953
+        hidden_size: 140
+        learning_rate: 0.0001936843634052158
+        num_layers: 4
+        use_batchnorm: false
+        weight_decay: 2.9575032643856555e-07
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_nn_torch_b11:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      NN_TORCH:
+      - activation: relu
+        ag_args:
+          name_suffix: _r173
+        dropout_prob: 0.038580344278953675
+        hidden_size: 146
+        learning_rate: 0.006411083415958184
+        num_layers: 1
+        use_batchnorm: true
+        weight_decay: 5.831310177026172e-09
+      - activation: elu
+        ag_args:
+          name_suffix: _r174
+        dropout_prob: 0.22961273585132747
+        hidden_size: 168
+        learning_rate: 0.004248725365133254
+        num_layers: 5
+        use_batchnorm: false
+        weight_decay: 2.1608374431872337e-07
+      - activation: relu
+        ag_args:
+          name_suffix: _r175
+        dropout_prob: 0.04163150654627397
+        hidden_size: 24
+        learning_rate: 0.011174714895209348
+        num_layers: 1
+        use_batchnorm: false
+        weight_decay: 2.6553985064606487e-12
+      - activation: relu
+        ag_args:
+          name_suffix: _r176
+        dropout_prob: 0.2964952296521373
+        hidden_size: 151
+        learning_rate: 0.017266773273339253
+        num_layers: 3
+        use_batchnorm: true
+        weight_decay: 1.2504387383609203e-11
+      - activation: elu
+        ag_args:
+          name_suffix: _r177
+        dropout_prob: 0.3026614869237615
+        hidden_size: 85
+        learning_rate: 0.0005478305491210884
+        num_layers: 2
+        use_batchnorm: true
+        weight_decay: 0.0008967710116340299
+      - activation: relu
+        ag_args:
+          name_suffix: _r178
+        dropout_prob: 0.34539048739481704
+        hidden_size: 73
+        learning_rate: 0.0001480998656936944
+        num_layers: 1
+        use_batchnorm: false
+        weight_decay: 2.226207691520546e-08
+      - activation: relu
+        ag_args:
+          name_suffix: _r179
+        dropout_prob: 0.20149912750311608
+        hidden_size: 107
+        learning_rate: 0.0006796058541463188
+        num_layers: 2
+        use_batchnorm: true
+        weight_decay: 0.0009272425410636394
+      - activation: elu
+        ag_args:
+          name_suffix: _r180
+        dropout_prob: 0.12756693057363835
+        hidden_size: 108
+        learning_rate: 0.00025245287658532474
+        num_layers: 3
+        use_batchnorm: true
+        weight_decay: 9.500537995499408e-11
+      - activation: elu
+        ag_args:
+          name_suffix: _r181
+        dropout_prob: 0.08291839206236862
+        hidden_size: 108
+        learning_rate: 0.0019655900444258924
+        num_layers: 3
+        use_batchnorm: true
+        weight_decay: 0.00608032785004547
+      - activation: relu
+        ag_args:
+          name_suffix: _r182
+        dropout_prob: 0.04721662587789899
+        hidden_size: 72
+        learning_rate: 0.00018888142620511825
+        num_layers: 1
+        use_batchnorm: false
+        weight_decay: 3.5129253291473462e-09
+      - activation: elu
+        ag_args:
+          name_suffix: _r183
+        dropout_prob: 0.38603575373466087
+        hidden_size: 207
+        learning_rate: 0.0001483794765158179
+        num_layers: 4
+        use_batchnorm: false
+        weight_decay: 0.00012104630054493226
+      - activation: elu
+        ag_args:
+          name_suffix: _r184
+        dropout_prob: 0.38803124111640724
+        hidden_size: 218
+        learning_rate: 0.0017955469752230133
+        num_layers: 2
+        use_batchnorm: false
+        weight_decay: 6.780038876723199e-12
+      - activation: relu
+        ag_args:
+          name_suffix: _r185
+        dropout_prob: 0.12166942295569863
+        hidden_size: 151
+        learning_rate: 0.0018866871631794007
+        num_layers: 4
+        use_batchnorm: true
+        weight_decay: 9.190843763153802e-05
+      - activation: relu
+        ag_args:
+          name_suffix: _r186
+        dropout_prob: 0.23634301996916085
+        hidden_size: 224
+        learning_rate: 0.001658207616107725
+        num_layers: 4
+        use_batchnorm: false
+        weight_decay: 0.001492100523160736
+      - activation: elu
+        ag_args:
+          name_suffix: _r187
+        dropout_prob: 0.16552040806777912
+        hidden_size: 232
+        learning_rate: 0.00010718880558354465
+        num_layers: 2
+        use_batchnorm: false
+        weight_decay: 3.3515205884103125e-10
+      - activation: relu
+        ag_args:
+          name_suffix: _r188
+        dropout_prob: 0.27821021597639667
+        hidden_size: 255
+        learning_rate: 0.00017456461136699722
+        num_layers: 2
+        use_batchnorm: false
+        weight_decay: 0.021015137632632207
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_nn_torch_b12:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      NN_TORCH:
+      - activation: relu
+        ag_args:
+          name_suffix: _r189
+        dropout_prob: 0.23518685006243328
+        hidden_size: 189
+        learning_rate: 0.0029419569967404804
+        num_layers: 5
+        use_batchnorm: false
+        weight_decay: 0.017347384272984472
+      - activation: relu
+        ag_args:
+          name_suffix: _r190
+        dropout_prob: 0.01759017280963624
+        hidden_size: 250
+        learning_rate: 0.00027701426675638685
+        num_layers: 3
+        use_batchnorm: true
+        weight_decay: 2.941370491259882e-10
+      - activation: elu
+        ag_args:
+          name_suffix: _r191
+        dropout_prob: 0.08931666786169923
+        hidden_size: 184
+        learning_rate: 0.00018459612574175892
+        num_layers: 1
+        use_batchnorm: true
+        weight_decay: 1.0561847304036605e-07
+      - activation: elu
+        ag_args:
+          name_suffix: _r192
+        dropout_prob: 0.2794229638922677
+        hidden_size: 241
+        learning_rate: 0.0016309790747771574
+        num_layers: 3
+        use_batchnorm: true
+        weight_decay: 0.00019303733601173896
+      - activation: elu
+        ag_args:
+          name_suffix: _r193
+        dropout_prob: 0.2976404923811552
+        hidden_size: 131
+        learning_rate: 0.003840801415673976
+        num_layers: 3
+        use_batchnorm: false
+        weight_decay: 0.017451892061132148
+      - activation: relu
+        ag_args:
+          name_suffix: _r194
+        dropout_prob: 0.19616796337451006
+        hidden_size: 89
+        learning_rate: 0.0003763927510525367
+        num_layers: 5
+        use_batchnorm: true
+        weight_decay: 7.138008183452644e-09
+      - activation: relu
+        ag_args:
+          name_suffix: _r195
+        dropout_prob: 0.027237239696842643
+        hidden_size: 168
+        learning_rate: 0.003948688587775097
+        num_layers: 1
+        use_batchnorm: false
+        weight_decay: 7.078174740043011e-09
+      - activation: elu
+        ag_args:
+          name_suffix: _r196
+        dropout_prob: 0.368476883367608
+        hidden_size: 116
+        learning_rate: 0.0002066915566055742
+        num_layers: 1
+        use_batchnorm: false
+        weight_decay: 3.630697220359368e-11
+      - activation: elu
+        ag_args:
+          name_suffix: _r197
+        dropout_prob: 0.18109219857068798
+        hidden_size: 250
+        learning_rate: 0.00634181748507711
+        num_layers: 1
+        use_batchnorm: false
+        weight_decay: 5.3861175580695396e-08
+      - activation: elu
+        ag_args:
+          name_suffix: _r198
+        dropout_prob: 0.19705297307147376
+        hidden_size: 256
+        learning_rate: 0.001504655652290843
+        num_layers: 2
+        use_batchnorm: false
+        weight_decay: 8.355222563263864e-10
+      - activation: elu
+        ag_args:
+          name_suffix: _r199
+        dropout_prob: 0.36466270233319065
+        hidden_size: 154
+        learning_rate: 0.00043094805531991044
+        num_layers: 4
+        use_batchnorm: false
+        weight_decay: 3.63495797329344e-10
+      - activation: elu
+        ag_args:
+          name_suffix: _r200
+        dropout_prob: 0.3717900746799333
+        hidden_size: 154
+        learning_rate: 0.005908762713584694
+        num_layers: 2
+        use_batchnorm: true
+        weight_decay: 5.681050909765253e-05
     num_bag_folds: 8
     num_bag_sets: 1
   version: latest
@@ -6067,6 +7947,891 @@ ZS_BAG_rf_b3:
         max_features: 1.0
         max_leaf_nodes: 45899
         min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r51
+        max_features: log2
+        max_leaf_nodes: 31221
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r52
+        max_features: sqrt
+        max_leaf_nodes: 24608
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r53
+        max_features: log2
+        max_leaf_nodes: 47448
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r54
+        max_features: 0.75
+        max_leaf_nodes: 40489
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r55
+        max_features: sqrt
+        max_leaf_nodes: 20588
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r56
+        max_features: sqrt
+        max_leaf_nodes: 43040
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r57
+        max_features: sqrt
+        max_leaf_nodes: 33086
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r58
+        max_features: log2
+        max_leaf_nodes: 47870
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r59
+        max_features: sqrt
+        max_leaf_nodes: 33739
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r60
+        max_features: 0.75
+        max_leaf_nodes: 40050
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r61
+        max_features: 0.75
+        max_leaf_nodes: 10846
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r62
+        max_features: 0.75
+        max_leaf_nodes: 35752
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r63
+        max_features: 1.0
+        max_leaf_nodes: 38930
+        min_samples_leaf: 20
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_rf_b4:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      RF:
+      - ag_args:
+          name_suffix: _r64
+        max_features: 0.75
+        max_leaf_nodes: 20997
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r65
+        max_features: 0.5
+        max_leaf_nodes: 25435
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r66
+        max_features: 0.75
+        max_leaf_nodes: 22582
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r67
+        max_features: 0.75
+        max_leaf_nodes: 15787
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r68
+        max_features: log2
+        max_leaf_nodes: 7121
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r69
+        max_features: 0.75
+        max_leaf_nodes: 8886
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r70
+        max_features: 1.0
+        max_leaf_nodes: 14987
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r71
+        max_features: log2
+        max_leaf_nodes: 16042
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r72
+        max_features: sqrt
+        max_leaf_nodes: 11177
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r73
+        max_features: sqrt
+        max_leaf_nodes: 9863
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r74
+        max_features: sqrt
+        max_leaf_nodes: 13389
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r75
+        max_features: sqrt
+        max_leaf_nodes: 35142
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r76
+        max_features: log2
+        max_leaf_nodes: 30968
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r77
+        max_features: sqrt
+        max_leaf_nodes: 8419
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r78
+        max_features: 1.0
+        max_leaf_nodes: 40620
+        min_samples_leaf: 1
+      - ag_args:
+          name_suffix: _r79
+        max_features: log2
+        max_leaf_nodes: 25803
+        min_samples_leaf: 40
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_rf_b5:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      RF:
+      - ag_args:
+          name_suffix: _r80
+        max_features: 1.0
+        max_leaf_nodes: 20139
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r81
+        max_features: log2
+        max_leaf_nodes: 46106
+        min_samples_leaf: 2
+      - ag_args:
+          name_suffix: _r82
+        max_features: 1.0
+        max_leaf_nodes: 25989
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r83
+        max_features: 1.0
+        max_leaf_nodes: 42420
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r84
+        max_features: 0.5
+        max_leaf_nodes: 33271
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r85
+        max_features: 0.75
+        max_leaf_nodes: 33310
+        min_samples_leaf: 2
+      - ag_args:
+          name_suffix: _r86
+        max_features: 0.5
+        max_leaf_nodes: 46820
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r87
+        max_features: log2
+        max_leaf_nodes: 18097
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r88
+        max_features: log2
+        max_leaf_nodes: 49889
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r89
+        max_features: sqrt
+        max_leaf_nodes: 19299
+        min_samples_leaf: 2
+      - ag_args:
+          name_suffix: _r90
+        max_features: log2
+        max_leaf_nodes: 41736
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r91
+        max_features: sqrt
+        max_leaf_nodes: 11250
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r92
+        max_features: sqrt
+        max_leaf_nodes: 11772
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r93
+        max_features: 0.75
+        max_leaf_nodes: 14144
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r94
+        max_features: sqrt
+        max_leaf_nodes: 7195
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r95
+        max_features: 0.5
+        max_leaf_nodes: 43008
+        min_samples_leaf: 5
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_rf_b6:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      RF:
+      - ag_args:
+          name_suffix: _r96
+        max_features: sqrt
+        max_leaf_nodes: 48723
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r97
+        max_features: log2
+        max_leaf_nodes: 28978
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r98
+        max_features: 1.0
+        max_leaf_nodes: 45212
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r99
+        max_features: 1.0
+        max_leaf_nodes: 28418
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r100
+        max_features: sqrt
+        max_leaf_nodes: 21957
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r101
+        max_features: sqrt
+        max_leaf_nodes: 32784
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r102
+        max_features: 0.75
+        max_leaf_nodes: 46988
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r103
+        max_features: 1.0
+        max_leaf_nodes: 38354
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r104
+        max_features: log2
+        max_leaf_nodes: 32867
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r105
+        max_features: 0.75
+        max_leaf_nodes: 34545
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r106
+        max_features: 0.5
+        max_leaf_nodes: 21821
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r107
+        max_features: 1.0
+        max_leaf_nodes: 28314
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r108
+        max_features: log2
+        max_leaf_nodes: 16590
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r109
+        max_features: sqrt
+        max_leaf_nodes: 36838
+        min_samples_leaf: 1
+      - ag_args:
+          name_suffix: _r110
+        max_features: 0.5
+        max_leaf_nodes: 35332
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r111
+        max_features: 0.5
+        max_leaf_nodes: 22329
+        min_samples_leaf: 20
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_rf_b7:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      RF:
+      - ag_args:
+          name_suffix: _r112
+        max_features: sqrt
+        max_leaf_nodes: 5903
+        min_samples_leaf: 1
+      - ag_args:
+          name_suffix: _r113
+        max_features: sqrt
+        max_leaf_nodes: 30080
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r114
+        max_features: 0.75
+        max_leaf_nodes: 12942
+        min_samples_leaf: 2
+      - ag_args:
+          name_suffix: _r115
+        max_features: 1.0
+        max_leaf_nodes: 43361
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r116
+        max_features: 1.0
+        max_leaf_nodes: 44794
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r117
+        max_features: sqrt
+        max_leaf_nodes: 6028
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r118
+        max_features: 1.0
+        max_leaf_nodes: 7353
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r119
+        max_features: log2
+        max_leaf_nodes: 33436
+        min_samples_leaf: 2
+      - ag_args:
+          name_suffix: _r120
+        max_features: log2
+        max_leaf_nodes: 37155
+        min_samples_leaf: 2
+      - ag_args:
+          name_suffix: _r121
+        max_features: 0.75
+        max_leaf_nodes: 41661
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r122
+        max_features: 0.75
+        max_leaf_nodes: 9950
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r123
+        max_features: log2
+        max_leaf_nodes: 24441
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r124
+        max_features: sqrt
+        max_leaf_nodes: 5851
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r125
+        max_features: 1.0
+        max_leaf_nodes: 25177
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r126
+        max_features: sqrt
+        max_leaf_nodes: 29702
+        min_samples_leaf: 2
+      - ag_args:
+          name_suffix: _r127
+        max_features: 1.0
+        max_leaf_nodes: 38572
+        min_samples_leaf: 5
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_rf_b8:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      RF:
+      - ag_args:
+          name_suffix: _r128
+        max_features: sqrt
+        max_leaf_nodes: 21496
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r129
+        max_features: 0.75
+        max_leaf_nodes: 18867
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r130
+        max_features: log2
+        max_leaf_nodes: 24055
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r131
+        max_features: 0.75
+        max_leaf_nodes: 31444
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r132
+        max_features: log2
+        max_leaf_nodes: 13010
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r133
+        max_features: log2
+        max_leaf_nodes: 10763
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r134
+        max_features: 0.5
+        max_leaf_nodes: 19705
+        min_samples_leaf: 1
+      - ag_args:
+          name_suffix: _r135
+        max_features: sqrt
+        max_leaf_nodes: 30274
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r136
+        max_features: 0.75
+        max_leaf_nodes: 10346
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r137
+        max_features: 1.0
+        max_leaf_nodes: 18729
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r138
+        max_features: 0.5
+        max_leaf_nodes: 5736
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r139
+        max_features: 0.75
+        max_leaf_nodes: 16465
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r140
+        max_features: log2
+        max_leaf_nodes: 39439
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r141
+        max_features: 1.0
+        max_leaf_nodes: 20835
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r142
+        max_features: 1.0
+        max_leaf_nodes: 31951
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r143
+        max_features: sqrt
+        max_leaf_nodes: 16909
+        min_samples_leaf: 4
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_rf_b9:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      RF:
+      - ag_args:
+          name_suffix: _r144
+        max_features: 1.0
+        max_leaf_nodes: 18704
+        min_samples_leaf: 1
+      - ag_args:
+          name_suffix: _r145
+        max_features: sqrt
+        max_leaf_nodes: 38459
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r146
+        max_features: log2
+        max_leaf_nodes: 32722
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r147
+        max_features: 0.5
+        max_leaf_nodes: 7683
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r148
+        max_features: sqrt
+        max_leaf_nodes: 11995
+        min_samples_leaf: 1
+      - ag_args:
+          name_suffix: _r149
+        max_features: 0.75
+        max_leaf_nodes: 44366
+        min_samples_leaf: 2
+      - ag_args:
+          name_suffix: _r150
+        max_features: 1.0
+        max_leaf_nodes: 38595
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r151
+        max_features: log2
+        max_leaf_nodes: 8204
+        min_samples_leaf: 2
+      - ag_args:
+          name_suffix: _r152
+        max_features: 0.75
+        max_leaf_nodes: 41546
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r153
+        max_features: log2
+        max_leaf_nodes: 5375
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r154
+        max_features: log2
+        max_leaf_nodes: 15942
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r155
+        max_features: log2
+        max_leaf_nodes: 28757
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r156
+        max_features: 0.5
+        max_leaf_nodes: 9515
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r157
+        max_features: 0.5
+        max_leaf_nodes: 34718
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r158
+        max_features: 0.5
+        max_leaf_nodes: 36718
+        min_samples_leaf: 1
+      - ag_args:
+          name_suffix: _r159
+        max_features: 1.0
+        max_leaf_nodes: 9736
+        min_samples_leaf: 40
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_rf_b10:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      RF:
+      - ag_args:
+          name_suffix: _r160
+        max_features: log2
+        max_leaf_nodes: 44078
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r161
+        max_features: 0.75
+        max_leaf_nodes: 26074
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r162
+        max_features: 1.0
+        max_leaf_nodes: 43569
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r163
+        max_features: 0.5
+        max_leaf_nodes: 16100
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r164
+        max_features: 0.75
+        max_leaf_nodes: 36990
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r165
+        max_features: 0.5
+        max_leaf_nodes: 45444
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r166
+        max_features: log2
+        max_leaf_nodes: 42644
+        min_samples_leaf: 1
+      - ag_args:
+          name_suffix: _r167
+        max_features: log2
+        max_leaf_nodes: 46808
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r168
+        max_features: sqrt
+        max_leaf_nodes: 34683
+        min_samples_leaf: 1
+      - ag_args:
+          name_suffix: _r169
+        max_features: 0.5
+        max_leaf_nodes: 22563
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r170
+        max_features: sqrt
+        max_leaf_nodes: 23880
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r171
+        max_features: sqrt
+        max_leaf_nodes: 28842
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r172
+        max_features: 1.0
+        max_leaf_nodes: 12845
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r173
+        max_features: sqrt
+        max_leaf_nodes: 12828
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r174
+        max_features: 1.0
+        max_leaf_nodes: 26107
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r175
+        max_features: 0.5
+        max_leaf_nodes: 41454
+        min_samples_leaf: 10
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_rf_b11:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      RF:
+      - ag_args:
+          name_suffix: _r176
+        max_features: 0.75
+        max_leaf_nodes: 25165
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r177
+        max_features: 0.75
+        max_leaf_nodes: 30247
+        min_samples_leaf: 2
+      - ag_args:
+          name_suffix: _r178
+        max_features: 0.75
+        max_leaf_nodes: 29813
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r179
+        max_features: 0.5
+        max_leaf_nodes: 36112
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r180
+        max_features: sqrt
+        max_leaf_nodes: 34849
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r181
+        max_features: log2
+        max_leaf_nodes: 44308
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r182
+        max_features: sqrt
+        max_leaf_nodes: 35919
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r183
+        max_features: 0.75
+        max_leaf_nodes: 26674
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r184
+        max_features: 0.5
+        max_leaf_nodes: 6337
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r185
+        max_features: 0.5
+        max_leaf_nodes: 6221
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r186
+        max_features: log2
+        max_leaf_nodes: 13901
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r187
+        max_features: 0.75
+        max_leaf_nodes: 33997
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r188
+        max_features: 1.0
+        max_leaf_nodes: 47161
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r189
+        max_features: sqrt
+        max_leaf_nodes: 5673
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r190
+        max_features: log2
+        max_leaf_nodes: 30329
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r191
+        max_features: 0.75
+        max_leaf_nodes: 36732
+        min_samples_leaf: 2
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_rf_b12:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      RF:
+      - ag_args:
+          name_suffix: _r192
+        max_features: log2
+        max_leaf_nodes: 33172
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r193
+        max_features: sqrt
+        max_leaf_nodes: 45738
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r194
+        max_features: 1.0
+        max_leaf_nodes: 34081
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r195
+        max_features: 0.75
+        max_leaf_nodes: 37308
+        min_samples_leaf: 1
+      - ag_args:
+          name_suffix: _r196
+        max_features: 1.0
+        max_leaf_nodes: 15825
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r197
+        max_features: 1.0
+        max_leaf_nodes: 40459
+        min_samples_leaf: 1
+      - ag_args:
+          name_suffix: _r198
+        max_features: 1.0
+        max_leaf_nodes: 11437
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r199
+        max_features: sqrt
+        max_leaf_nodes: 44021
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r200
+        max_features: 0.75
+        max_leaf_nodes: 48569
+        min_samples_leaf: 40
     num_bag_folds: 8
     num_bag_sets: 1
   version: latest
@@ -6884,6 +9649,796 @@ ZS_BAG_xgboost_b6:
         learning_rate: 0.00671572401924916
         max_depth: 9
         min_child_weight: 0.9541623969075518
+      - ag_args:
+          name_suffix: _r101
+        colsample_bytree: 0.66335044088413
+        enable_categorical: true
+        learning_rate: 0.010175120791031946
+        max_depth: 7
+        min_child_weight: 0.5330745914755056
+      - ag_args:
+          name_suffix: _r102
+        colsample_bytree: 0.5078030322234142
+        enable_categorical: true
+        learning_rate: 0.03502844787947471
+        max_depth: 9
+        min_child_weight: 0.7519409882460929
+      - ag_args:
+          name_suffix: _r103
+        colsample_bytree: 0.6105804576730419
+        enable_categorical: false
+        learning_rate: 0.050370931856809735
+        max_depth: 5
+        min_child_weight: 0.9910247409007272
+      - ag_args:
+          name_suffix: _r104
+        colsample_bytree: 0.9908198402020345
+        enable_categorical: true
+        learning_rate: 0.09257773702810602
+        max_depth: 9
+        min_child_weight: 0.5456596419889784
+      - ag_args:
+          name_suffix: _r105
+        colsample_bytree: 0.6550338199844749
+        enable_categorical: false
+        learning_rate: 0.03388583647852578
+        max_depth: 9
+        min_child_weight: 1.1400241552994383
+      - ag_args:
+          name_suffix: _r106
+        colsample_bytree: 0.6840512009907671
+        enable_categorical: true
+        learning_rate: 0.05223739392014652
+        max_depth: 7
+        min_child_weight: 0.5704471859441594
+      - ag_args:
+          name_suffix: _r107
+        colsample_bytree: 0.8417864801827988
+        enable_categorical: false
+        learning_rate: 0.010449742500899953
+        max_depth: 7
+        min_child_weight: 1.0173085172022889
+      - ag_args:
+          name_suffix: _r108
+        colsample_bytree: 0.7120444942179247
+        enable_categorical: false
+        learning_rate: 0.018013386372078645
+        max_depth: 7
+        min_child_weight: 1.206574706272979
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_xgboost_b7:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      XGB:
+      - ag_args:
+          name_suffix: _r109
+        colsample_bytree: 0.7074284346667821
+        enable_categorical: true
+        learning_rate: 0.0911049394241642
+        max_depth: 9
+        min_child_weight: 1.424966911953192
+      - ag_args:
+          name_suffix: _r110
+        colsample_bytree: 0.5230036554436485
+        enable_categorical: false
+        learning_rate: 0.01919733812917742
+        max_depth: 6
+        min_child_weight: 1.3149664793702474
+      - ag_args:
+          name_suffix: _r111
+        colsample_bytree: 0.9927457138216488
+        enable_categorical: true
+        learning_rate: 0.04036195176473009
+        max_depth: 5
+        min_child_weight: 0.7965562650640299
+      - ag_args:
+          name_suffix: _r112
+        colsample_bytree: 0.996005621707237
+        enable_categorical: true
+        learning_rate: 0.00990712876706623
+        max_depth: 5
+        min_child_weight: 1.450952611055394
+      - ag_args:
+          name_suffix: _r113
+        colsample_bytree: 0.6167101277340481
+        enable_categorical: true
+        learning_rate: 0.01585533568837928
+        max_depth: 6
+        min_child_weight: 1.230709099127476
+      - ag_args:
+          name_suffix: _r114
+        colsample_bytree: 0.9408601061669198
+        enable_categorical: true
+        learning_rate: 0.007443313336648343
+        max_depth: 8
+        min_child_weight: 0.8742961833209161
+      - ag_args:
+          name_suffix: _r115
+        colsample_bytree: 0.8743941287700665
+        enable_categorical: true
+        learning_rate: 0.05419816361213759
+        max_depth: 8
+        min_child_weight: 0.9492916486877381
+      - ag_args:
+          name_suffix: _r116
+        colsample_bytree: 0.6522342036886597
+        enable_categorical: false
+        learning_rate: 0.014347101100812646
+        max_depth: 4
+        min_child_weight: 1.0023894574892616
+      - ag_args:
+          name_suffix: _r117
+        colsample_bytree: 0.9712917998489652
+        enable_categorical: false
+        learning_rate: 0.02585888541862217
+        max_depth: 10
+        min_child_weight: 1.4402096893547673
+      - ag_args:
+          name_suffix: _r118
+        colsample_bytree: 0.8753824309431759
+        enable_categorical: true
+        learning_rate: 0.007809107338010628
+        max_depth: 8
+        min_child_weight: 1.4944007896476794
+      - ag_args:
+          name_suffix: _r119
+        colsample_bytree: 0.7259108413348798
+        enable_categorical: true
+        learning_rate: 0.031251656439648626
+        max_depth: 4
+        min_child_weight: 0.6523547056877305
+      - ag_args:
+          name_suffix: _r120
+        colsample_bytree: 0.7087431873980059
+        enable_categorical: true
+        learning_rate: 0.015530436668047817
+        max_depth: 5
+        min_child_weight: 0.8828080591578541
+      - ag_args:
+          name_suffix: _r121
+        colsample_bytree: 0.9476929421441049
+        enable_categorical: true
+        learning_rate: 0.005297618405313564
+        max_depth: 8
+        min_child_weight: 0.7748235698675966
+      - ag_args:
+          name_suffix: _r122
+        colsample_bytree: 0.7961152093809184
+        enable_categorical: true
+        learning_rate: 0.009536290078048163
+        max_depth: 6
+        min_child_weight: 1.052078276691971
+      - ag_args:
+          name_suffix: _r123
+        colsample_bytree: 0.6358263838030729
+        enable_categorical: true
+        learning_rate: 0.09142537986292115
+        max_depth: 8
+        min_child_weight: 0.748413465082971
+      - ag_args:
+          name_suffix: _r124
+        colsample_bytree: 0.7529331919126542
+        enable_categorical: false
+        learning_rate: 0.011491107452845381
+        max_depth: 8
+        min_child_weight: 1.0249704422542643
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_xgboost_b8:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      XGB:
+      - ag_args:
+          name_suffix: _r125
+        colsample_bytree: 0.8752975114644937
+        enable_categorical: false
+        learning_rate: 0.013418839423966707
+        max_depth: 4
+        min_child_weight: 1.3623185468359025
+      - ag_args:
+          name_suffix: _r126
+        colsample_bytree: 0.5243451479877643
+        enable_categorical: false
+        learning_rate: 0.01343464462043561
+        max_depth: 7
+        min_child_weight: 0.6046278887424741
+      - ag_args:
+          name_suffix: _r127
+        colsample_bytree: 0.6742379945167485
+        enable_categorical: true
+        learning_rate: 0.01593102555449195
+        max_depth: 4
+        min_child_weight: 1.1223844285660047
+      - ag_args:
+          name_suffix: _r128
+        colsample_bytree: 0.8552642013611729
+        enable_categorical: false
+        learning_rate: 0.03801159987082329
+        max_depth: 10
+        min_child_weight: 1.1762424822774629
+      - ag_args:
+          name_suffix: _r129
+        colsample_bytree: 0.9396173815156635
+        enable_categorical: true
+        learning_rate: 0.007796002239217821
+        max_depth: 10
+        min_child_weight: 0.5302352580059826
+      - ag_args:
+          name_suffix: _r130
+        colsample_bytree: 0.8551684144871067
+        enable_categorical: false
+        learning_rate: 0.01984858936348865
+        max_depth: 10
+        min_child_weight: 1.0305372145627818
+      - ag_args:
+          name_suffix: _r131
+        colsample_bytree: 0.9610557308835965
+        enable_categorical: true
+        learning_rate: 0.0225429213581465
+        max_depth: 7
+        min_child_weight: 0.5243131997101578
+      - ag_args:
+          name_suffix: _r132
+        colsample_bytree: 0.6713054921707952
+        enable_categorical: false
+        learning_rate: 0.005129131555710073
+        max_depth: 10
+        min_child_weight: 1.1908937254227938
+      - ag_args:
+          name_suffix: _r133
+        colsample_bytree: 0.5497081971807042
+        enable_categorical: true
+        learning_rate: 0.040136281786810175
+        max_depth: 9
+        min_child_weight: 1.2241478484039083
+      - ag_args:
+          name_suffix: _r134
+        colsample_bytree: 0.6944337152045339
+        enable_categorical: false
+        learning_rate: 0.03475299710232501
+        max_depth: 4
+        min_child_weight: 1.4720825075264246
+      - ag_args:
+          name_suffix: _r135
+        colsample_bytree: 0.9169091171129432
+        enable_categorical: false
+        learning_rate: 0.005259210544337227
+        max_depth: 9
+        min_child_weight: 0.9406660930341381
+      - ag_args:
+          name_suffix: _r136
+        colsample_bytree: 0.8425459955252974
+        enable_categorical: true
+        learning_rate: 0.013597789605406566
+        max_depth: 10
+        min_child_weight: 1.419531435498915
+      - ag_args:
+          name_suffix: _r137
+        colsample_bytree: 0.7712285013572708
+        enable_categorical: false
+        learning_rate: 0.02373797346123184
+        max_depth: 10
+        min_child_weight: 1.3066693253136108
+      - ag_args:
+          name_suffix: _r138
+        colsample_bytree: 0.7305034146746974
+        enable_categorical: false
+        learning_rate: 0.017091675731819213
+        max_depth: 8
+        min_child_weight: 1.3872648394626437
+      - ag_args:
+          name_suffix: _r139
+        colsample_bytree: 0.9400534317598721
+        enable_categorical: true
+        learning_rate: 0.007457742453106153
+        max_depth: 8
+        min_child_weight: 1.0446473574026356
+      - ag_args:
+          name_suffix: _r140
+        colsample_bytree: 0.8108464498174219
+        enable_categorical: false
+        learning_rate: 0.07924509585998261
+        max_depth: 7
+        min_child_weight: 0.620919361139134
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_xgboost_b9:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      XGB:
+      - ag_args:
+          name_suffix: _r141
+        colsample_bytree: 0.8403486193340173
+        enable_categorical: false
+        learning_rate: 0.09093680018685556
+        max_depth: 9
+        min_child_weight: 0.6160983371439115
+      - ag_args:
+          name_suffix: _r142
+        colsample_bytree: 0.5532147034062892
+        enable_categorical: true
+        learning_rate: 0.016041533833318244
+        max_depth: 5
+        min_child_weight: 1.0627831242980728
+      - ag_args:
+          name_suffix: _r143
+        colsample_bytree: 0.9531771136837737
+        enable_categorical: true
+        learning_rate: 0.0711342832991347
+        max_depth: 8
+        min_child_weight: 0.7380435236385136
+      - ag_args:
+          name_suffix: _r144
+        colsample_bytree: 0.7904436370738985
+        enable_categorical: false
+        learning_rate: 0.036232951900213306
+        max_depth: 9
+        min_child_weight: 0.5764867690302854
+      - ag_args:
+          name_suffix: _r145
+        colsample_bytree: 0.8482315723262503
+        enable_categorical: true
+        learning_rate: 0.06948887152579379
+        max_depth: 6
+        min_child_weight: 1.0176121001025926
+      - ag_args:
+          name_suffix: _r146
+        colsample_bytree: 0.7373339940150565
+        enable_categorical: true
+        learning_rate: 0.045875538455631436
+        max_depth: 10
+        min_child_weight: 0.6875519355578892
+      - ag_args:
+          name_suffix: _r147
+        colsample_bytree: 0.8576039170061793
+        enable_categorical: false
+        learning_rate: 0.012446976122406065
+        max_depth: 8
+        min_child_weight: 0.5030995410843868
+      - ag_args:
+          name_suffix: _r148
+        colsample_bytree: 0.7986514697620606
+        enable_categorical: false
+        learning_rate: 0.015526669996831215
+        max_depth: 5
+        min_child_weight: 1.4702218038935837
+      - ag_args:
+          name_suffix: _r149
+        colsample_bytree: 0.8319330339431316
+        enable_categorical: false
+        learning_rate: 0.03838168407094391
+        max_depth: 4
+        min_child_weight: 1.425702151710163
+      - ag_args:
+          name_suffix: _r150
+        colsample_bytree: 0.654625644824082
+        enable_categorical: true
+        learning_rate: 0.011707454884455378
+        max_depth: 8
+        min_child_weight: 1.3906528094002062
+      - ag_args:
+          name_suffix: _r151
+        colsample_bytree: 0.716303178548543
+        enable_categorical: false
+        learning_rate: 0.019629809117249968
+        max_depth: 9
+        min_child_weight: 0.9317849276251621
+      - ag_args:
+          name_suffix: _r152
+        colsample_bytree: 0.7963901353383043
+        enable_categorical: true
+        learning_rate: 0.006682128932061623
+        max_depth: 4
+        min_child_weight: 1.1523089527415253
+      - ag_args:
+          name_suffix: _r153
+        colsample_bytree: 0.9108592817901688
+        enable_categorical: false
+        learning_rate: 0.016436636410810883
+        max_depth: 9
+        min_child_weight: 1.484631622969307
+      - ag_args:
+          name_suffix: _r154
+        colsample_bytree: 0.7240714159660289
+        enable_categorical: false
+        learning_rate: 0.03376635753131018
+        max_depth: 5
+        min_child_weight: 0.7666968776004438
+      - ag_args:
+          name_suffix: _r155
+        colsample_bytree: 0.7820321801669659
+        enable_categorical: false
+        learning_rate: 0.04939557741379516
+        max_depth: 6
+        min_child_weight: 0.7722293610535426
+      - ag_args:
+          name_suffix: _r156
+        colsample_bytree: 0.541028872682473
+        enable_categorical: false
+        learning_rate: 0.006031999864769463
+        max_depth: 5
+        min_child_weight: 0.6372513505241385
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_xgboost_b10:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      XGB:
+      - ag_args:
+          name_suffix: _r157
+        colsample_bytree: 0.6303143334463099
+        enable_categorical: true
+        learning_rate: 0.050672799391249086
+        max_depth: 7
+        min_child_weight: 0.9332787328758871
+      - ag_args:
+          name_suffix: _r158
+        colsample_bytree: 0.6625589546077107
+        enable_categorical: false
+        learning_rate: 0.029253681403599203
+        max_depth: 6
+        min_child_weight: 1.348150380346985
+      - ag_args:
+          name_suffix: _r159
+        colsample_bytree: 0.9679160401083943
+        enable_categorical: true
+        learning_rate: 0.07231523643035528
+        max_depth: 9
+        min_child_weight: 0.7115338977263024
+      - ag_args:
+          name_suffix: _r160
+        colsample_bytree: 0.8824972237830402
+        enable_categorical: false
+        learning_rate: 0.035763252772842695
+        max_depth: 8
+        min_child_weight: 0.5089312650059014
+      - ag_args:
+          name_suffix: _r161
+        colsample_bytree: 0.5451164897448454
+        enable_categorical: false
+        learning_rate: 0.02850854317072428
+        max_depth: 7
+        min_child_weight: 0.5965628785567387
+      - ag_args:
+          name_suffix: _r162
+        colsample_bytree: 0.992466654105413
+        enable_categorical: true
+        learning_rate: 0.005958345656330413
+        max_depth: 8
+        min_child_weight: 0.9731900477098971
+      - ag_args:
+          name_suffix: _r163
+        colsample_bytree: 0.7398769350985391
+        enable_categorical: false
+        learning_rate: 0.09417386300823408
+        max_depth: 7
+        min_child_weight: 0.5999585155928501
+      - ag_args:
+          name_suffix: _r164
+        colsample_bytree: 0.5198252279956473
+        enable_categorical: true
+        learning_rate: 0.011268784990522284
+        max_depth: 9
+        min_child_weight: 0.7352628439650843
+      - ag_args:
+          name_suffix: _r165
+        colsample_bytree: 0.5294351416505257
+        enable_categorical: false
+        learning_rate: 0.014042959007222243
+        max_depth: 8
+        min_child_weight: 0.8996673721014476
+      - ag_args:
+          name_suffix: _r166
+        colsample_bytree: 0.6906985767154439
+        enable_categorical: false
+        learning_rate: 0.018226483272588027
+        max_depth: 6
+        min_child_weight: 1.161607288346009
+      - ag_args:
+          name_suffix: _r167
+        colsample_bytree: 0.8126791001200926
+        enable_categorical: false
+        learning_rate: 0.03540711444625304
+        max_depth: 5
+        min_child_weight: 0.824082691497527
+      - ag_args:
+          name_suffix: _r168
+        colsample_bytree: 0.6581099931540977
+        enable_categorical: true
+        learning_rate: 0.01682416374418089
+        max_depth: 7
+        min_child_weight: 0.7811529660302623
+      - ag_args:
+          name_suffix: _r169
+        colsample_bytree: 0.8569635973496375
+        enable_categorical: true
+        learning_rate: 0.04551555978504112
+        max_depth: 9
+        min_child_weight: 1.0308601305358718
+      - ag_args:
+          name_suffix: _r170
+        colsample_bytree: 0.5426165301472601
+        enable_categorical: false
+        learning_rate: 0.03348467216655235
+        max_depth: 8
+        min_child_weight: 1.3892873160786787
+      - ag_args:
+          name_suffix: _r171
+        colsample_bytree: 0.8410594793676106
+        enable_categorical: true
+        learning_rate: 0.0054569173425712495
+        max_depth: 9
+        min_child_weight: 1.4372188255507021
+      - ag_args:
+          name_suffix: _r172
+        colsample_bytree: 0.9791536797738964
+        enable_categorical: false
+        learning_rate: 0.014927115588601441
+        max_depth: 4
+        min_child_weight: 0.8552251981133437
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_xgboost_b11:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      XGB:
+      - ag_args:
+          name_suffix: _r173
+        colsample_bytree: 0.9241700750520445
+        enable_categorical: false
+        learning_rate: 0.06243785608051008
+        max_depth: 5
+        min_child_weight: 1.1334148214970812
+      - ag_args:
+          name_suffix: _r174
+        colsample_bytree: 0.6536880585571081
+        enable_categorical: true
+        learning_rate: 0.0064559784830906354
+        max_depth: 7
+        min_child_weight: 0.5086899183691596
+      - ag_args:
+          name_suffix: _r175
+        colsample_bytree: 0.5124723623135674
+        enable_categorical: false
+        learning_rate: 0.006095824270652253
+        max_depth: 4
+        min_child_weight: 0.7226579327603889
+      - ag_args:
+          name_suffix: _r176
+        colsample_bytree: 0.6847448466797182
+        enable_categorical: false
+        learning_rate: 0.026738288342510762
+        max_depth: 9
+        min_child_weight: 1.3849518929154394
+      - ag_args:
+          name_suffix: _r177
+        colsample_bytree: 0.9486385366073582
+        enable_categorical: false
+        learning_rate: 0.009091814625737323
+        max_depth: 7
+        min_child_weight: 0.92694341039832
+      - ag_args:
+          name_suffix: _r178
+        colsample_bytree: 0.6508462330305587
+        enable_categorical: false
+        learning_rate: 0.05196350119204188
+        max_depth: 6
+        min_child_weight: 0.8883196035564825
+      - ag_args:
+          name_suffix: _r179
+        colsample_bytree: 0.580196768153282
+        enable_categorical: false
+        learning_rate: 0.07316295551380712
+        max_depth: 5
+        min_child_weight: 1.3711025333283282
+      - ag_args:
+          name_suffix: _r180
+        colsample_bytree: 0.8337966527446536
+        enable_categorical: false
+        learning_rate: 0.09628094704738965
+        max_depth: 6
+        min_child_weight: 1.0796808925609636
+      - ag_args:
+          name_suffix: _r181
+        colsample_bytree: 0.7279492188284664
+        enable_categorical: true
+        learning_rate: 0.015440579126180683
+        max_depth: 8
+        min_child_weight: 1.0510791485078967
+      - ag_args:
+          name_suffix: _r182
+        colsample_bytree: 0.5659516248701897
+        enable_categorical: true
+        learning_rate: 0.03854198891044999
+        max_depth: 4
+        min_child_weight: 0.5974933842150852
+      - ag_args:
+          name_suffix: _r183
+        colsample_bytree: 0.9259268496833007
+        enable_categorical: true
+        learning_rate: 0.00807111466306163
+        max_depth: 7
+        min_child_weight: 1.4707314427706328
+      - ag_args:
+          name_suffix: _r184
+        colsample_bytree: 0.5019301757551305
+        enable_categorical: false
+        learning_rate: 0.028332242590352767
+        max_depth: 5
+        min_child_weight: 0.5813695988533053
+      - ag_args:
+          name_suffix: _r185
+        colsample_bytree: 0.9409482515484162
+        enable_categorical: false
+        learning_rate: 0.03095766185026811
+        max_depth: 5
+        min_child_weight: 1.0076355472407648
+      - ag_args:
+          name_suffix: _r186
+        colsample_bytree: 0.6502018415792437
+        enable_categorical: true
+        learning_rate: 0.017348489660584773
+        max_depth: 10
+        min_child_weight: 1.0207614372418605
+      - ag_args:
+          name_suffix: _r187
+        colsample_bytree: 0.6336035159311593
+        enable_categorical: false
+        learning_rate: 0.005517922894233117
+        max_depth: 6
+        min_child_weight: 0.5013833499989991
+      - ag_args:
+          name_suffix: _r188
+        colsample_bytree: 0.623842511246158
+        enable_categorical: true
+        learning_rate: 0.02801164939208965
+        max_depth: 8
+        min_child_weight: 0.9445872878113007
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_xgboost_b12:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      XGB:
+      - ag_args:
+          name_suffix: _r189
+        colsample_bytree: 0.6680511331999437
+        enable_categorical: false
+        learning_rate: 0.05091625379277939
+        max_depth: 7
+        min_child_weight: 1.4918903291546295
+      - ag_args:
+          name_suffix: _r190
+        colsample_bytree: 0.6883706334804933
+        enable_categorical: true
+        learning_rate: 0.006076370755478014
+        max_depth: 8
+        min_child_weight: 1.1756891476442668
+      - ag_args:
+          name_suffix: _r191
+        colsample_bytree: 0.6224447397100497
+        enable_categorical: false
+        learning_rate: 0.05066542570086252
+        max_depth: 6
+        min_child_weight: 1.4227566102253655
+      - ag_args:
+          name_suffix: _r192
+        colsample_bytree: 0.647038331191583
+        enable_categorical: true
+        learning_rate: 0.00894127613156403
+        max_depth: 10
+        min_child_weight: 1.2781715954502542
+      - ag_args:
+          name_suffix: _r193
+        colsample_bytree: 0.922117480776512
+        enable_categorical: true
+        learning_rate: 0.09278141584600721
+        max_depth: 10
+        min_child_weight: 1.3428548878354571
+      - ag_args:
+          name_suffix: _r194
+        colsample_bytree: 0.9090166528779192
+        enable_categorical: true
+        learning_rate: 0.09290221350439203
+        max_depth: 7
+        min_child_weight: 0.8041986915994078
+      - ag_args:
+          name_suffix: _r195
+        colsample_bytree: 0.5376795345416702
+        enable_categorical: false
+        learning_rate: 0.016919504606685957
+        max_depth: 6
+        min_child_weight: 1.068217593669845
+      - ag_args:
+          name_suffix: _r196
+        colsample_bytree: 0.623278469905578
+        enable_categorical: true
+        learning_rate: 0.08238076354142443
+        max_depth: 10
+        min_child_weight: 1.4758838684185334
+      - ag_args:
+          name_suffix: _r197
+        colsample_bytree: 0.9662806019286703
+        enable_categorical: false
+        learning_rate: 0.0814490445794655
+        max_depth: 7
+        min_child_weight: 0.7503982128535728
+      - ag_args:
+          name_suffix: _r198
+        colsample_bytree: 0.7416967676011961
+        enable_categorical: true
+        learning_rate: 0.005113126174208246
+        max_depth: 7
+        min_child_weight: 0.9083029083397448
+      - ag_args:
+          name_suffix: _r199
+        colsample_bytree: 0.6887032862944437
+        enable_categorical: true
+        learning_rate: 0.02981730830048495
+        max_depth: 5
+        min_child_weight: 1.4543338153926921
+      - ag_args:
+          name_suffix: _r200
+        colsample_bytree: 0.6759681202478454
+        enable_categorical: false
+        learning_rate: 0.03547727193043587
+        max_depth: 6
+        min_child_weight: 0.857424651594713
     num_bag_folds: 8
     num_bag_sets: 1
   version: latest
@@ -7196,6 +10751,891 @@ ZS_BAG_xt_b3:
         max_features: 1.0
         max_leaf_nodes: 45899
         min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r51
+        max_features: log2
+        max_leaf_nodes: 31221
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r52
+        max_features: sqrt
+        max_leaf_nodes: 24608
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r53
+        max_features: log2
+        max_leaf_nodes: 47448
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r54
+        max_features: 0.75
+        max_leaf_nodes: 40489
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r55
+        max_features: sqrt
+        max_leaf_nodes: 20588
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r56
+        max_features: sqrt
+        max_leaf_nodes: 43040
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r57
+        max_features: sqrt
+        max_leaf_nodes: 33086
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r58
+        max_features: log2
+        max_leaf_nodes: 47870
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r59
+        max_features: sqrt
+        max_leaf_nodes: 33739
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r60
+        max_features: 0.75
+        max_leaf_nodes: 40050
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r61
+        max_features: 0.75
+        max_leaf_nodes: 10846
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r62
+        max_features: 0.75
+        max_leaf_nodes: 35752
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r63
+        max_features: 1.0
+        max_leaf_nodes: 38930
+        min_samples_leaf: 20
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_xt_b4:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      XT:
+      - ag_args:
+          name_suffix: _r64
+        max_features: 0.75
+        max_leaf_nodes: 20997
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r65
+        max_features: 0.5
+        max_leaf_nodes: 25435
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r66
+        max_features: 0.75
+        max_leaf_nodes: 22582
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r67
+        max_features: 0.75
+        max_leaf_nodes: 15787
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r68
+        max_features: log2
+        max_leaf_nodes: 7121
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r69
+        max_features: 0.75
+        max_leaf_nodes: 8886
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r70
+        max_features: 1.0
+        max_leaf_nodes: 14987
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r71
+        max_features: log2
+        max_leaf_nodes: 16042
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r72
+        max_features: sqrt
+        max_leaf_nodes: 11177
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r73
+        max_features: sqrt
+        max_leaf_nodes: 9863
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r74
+        max_features: sqrt
+        max_leaf_nodes: 13389
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r75
+        max_features: sqrt
+        max_leaf_nodes: 35142
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r76
+        max_features: log2
+        max_leaf_nodes: 30968
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r77
+        max_features: sqrt
+        max_leaf_nodes: 8419
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r78
+        max_features: 1.0
+        max_leaf_nodes: 40620
+        min_samples_leaf: 1
+      - ag_args:
+          name_suffix: _r79
+        max_features: log2
+        max_leaf_nodes: 25803
+        min_samples_leaf: 40
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_xt_b5:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      XT:
+      - ag_args:
+          name_suffix: _r80
+        max_features: 1.0
+        max_leaf_nodes: 20139
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r81
+        max_features: log2
+        max_leaf_nodes: 46106
+        min_samples_leaf: 2
+      - ag_args:
+          name_suffix: _r82
+        max_features: 1.0
+        max_leaf_nodes: 25989
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r83
+        max_features: 1.0
+        max_leaf_nodes: 42420
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r84
+        max_features: 0.5
+        max_leaf_nodes: 33271
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r85
+        max_features: 0.75
+        max_leaf_nodes: 33310
+        min_samples_leaf: 2
+      - ag_args:
+          name_suffix: _r86
+        max_features: 0.5
+        max_leaf_nodes: 46820
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r87
+        max_features: log2
+        max_leaf_nodes: 18097
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r88
+        max_features: log2
+        max_leaf_nodes: 49889
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r89
+        max_features: sqrt
+        max_leaf_nodes: 19299
+        min_samples_leaf: 2
+      - ag_args:
+          name_suffix: _r90
+        max_features: log2
+        max_leaf_nodes: 41736
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r91
+        max_features: sqrt
+        max_leaf_nodes: 11250
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r92
+        max_features: sqrt
+        max_leaf_nodes: 11772
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r93
+        max_features: 0.75
+        max_leaf_nodes: 14144
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r94
+        max_features: sqrt
+        max_leaf_nodes: 7195
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r95
+        max_features: 0.5
+        max_leaf_nodes: 43008
+        min_samples_leaf: 5
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_xt_b6:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      XT:
+      - ag_args:
+          name_suffix: _r96
+        max_features: sqrt
+        max_leaf_nodes: 48723
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r97
+        max_features: log2
+        max_leaf_nodes: 28978
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r98
+        max_features: 1.0
+        max_leaf_nodes: 45212
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r99
+        max_features: 1.0
+        max_leaf_nodes: 28418
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r100
+        max_features: sqrt
+        max_leaf_nodes: 21957
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r101
+        max_features: sqrt
+        max_leaf_nodes: 32784
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r102
+        max_features: 0.75
+        max_leaf_nodes: 46988
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r103
+        max_features: 1.0
+        max_leaf_nodes: 38354
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r104
+        max_features: log2
+        max_leaf_nodes: 32867
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r105
+        max_features: 0.75
+        max_leaf_nodes: 34545
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r106
+        max_features: 0.5
+        max_leaf_nodes: 21821
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r107
+        max_features: 1.0
+        max_leaf_nodes: 28314
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r108
+        max_features: log2
+        max_leaf_nodes: 16590
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r109
+        max_features: sqrt
+        max_leaf_nodes: 36838
+        min_samples_leaf: 1
+      - ag_args:
+          name_suffix: _r110
+        max_features: 0.5
+        max_leaf_nodes: 35332
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r111
+        max_features: 0.5
+        max_leaf_nodes: 22329
+        min_samples_leaf: 20
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_xt_b7:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      XT:
+      - ag_args:
+          name_suffix: _r112
+        max_features: sqrt
+        max_leaf_nodes: 5903
+        min_samples_leaf: 1
+      - ag_args:
+          name_suffix: _r113
+        max_features: sqrt
+        max_leaf_nodes: 30080
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r114
+        max_features: 0.75
+        max_leaf_nodes: 12942
+        min_samples_leaf: 2
+      - ag_args:
+          name_suffix: _r115
+        max_features: 1.0
+        max_leaf_nodes: 43361
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r116
+        max_features: 1.0
+        max_leaf_nodes: 44794
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r117
+        max_features: sqrt
+        max_leaf_nodes: 6028
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r118
+        max_features: 1.0
+        max_leaf_nodes: 7353
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r119
+        max_features: log2
+        max_leaf_nodes: 33436
+        min_samples_leaf: 2
+      - ag_args:
+          name_suffix: _r120
+        max_features: log2
+        max_leaf_nodes: 37155
+        min_samples_leaf: 2
+      - ag_args:
+          name_suffix: _r121
+        max_features: 0.75
+        max_leaf_nodes: 41661
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r122
+        max_features: 0.75
+        max_leaf_nodes: 9950
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r123
+        max_features: log2
+        max_leaf_nodes: 24441
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r124
+        max_features: sqrt
+        max_leaf_nodes: 5851
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r125
+        max_features: 1.0
+        max_leaf_nodes: 25177
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r126
+        max_features: sqrt
+        max_leaf_nodes: 29702
+        min_samples_leaf: 2
+      - ag_args:
+          name_suffix: _r127
+        max_features: 1.0
+        max_leaf_nodes: 38572
+        min_samples_leaf: 5
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_xt_b8:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      XT:
+      - ag_args:
+          name_suffix: _r128
+        max_features: sqrt
+        max_leaf_nodes: 21496
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r129
+        max_features: 0.75
+        max_leaf_nodes: 18867
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r130
+        max_features: log2
+        max_leaf_nodes: 24055
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r131
+        max_features: 0.75
+        max_leaf_nodes: 31444
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r132
+        max_features: log2
+        max_leaf_nodes: 13010
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r133
+        max_features: log2
+        max_leaf_nodes: 10763
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r134
+        max_features: 0.5
+        max_leaf_nodes: 19705
+        min_samples_leaf: 1
+      - ag_args:
+          name_suffix: _r135
+        max_features: sqrt
+        max_leaf_nodes: 30274
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r136
+        max_features: 0.75
+        max_leaf_nodes: 10346
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r137
+        max_features: 1.0
+        max_leaf_nodes: 18729
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r138
+        max_features: 0.5
+        max_leaf_nodes: 5736
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r139
+        max_features: 0.75
+        max_leaf_nodes: 16465
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r140
+        max_features: log2
+        max_leaf_nodes: 39439
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r141
+        max_features: 1.0
+        max_leaf_nodes: 20835
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r142
+        max_features: 1.0
+        max_leaf_nodes: 31951
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r143
+        max_features: sqrt
+        max_leaf_nodes: 16909
+        min_samples_leaf: 4
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_xt_b9:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      XT:
+      - ag_args:
+          name_suffix: _r144
+        max_features: 1.0
+        max_leaf_nodes: 18704
+        min_samples_leaf: 1
+      - ag_args:
+          name_suffix: _r145
+        max_features: sqrt
+        max_leaf_nodes: 38459
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r146
+        max_features: log2
+        max_leaf_nodes: 32722
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r147
+        max_features: 0.5
+        max_leaf_nodes: 7683
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r148
+        max_features: sqrt
+        max_leaf_nodes: 11995
+        min_samples_leaf: 1
+      - ag_args:
+          name_suffix: _r149
+        max_features: 0.75
+        max_leaf_nodes: 44366
+        min_samples_leaf: 2
+      - ag_args:
+          name_suffix: _r150
+        max_features: 1.0
+        max_leaf_nodes: 38595
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r151
+        max_features: log2
+        max_leaf_nodes: 8204
+        min_samples_leaf: 2
+      - ag_args:
+          name_suffix: _r152
+        max_features: 0.75
+        max_leaf_nodes: 41546
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r153
+        max_features: log2
+        max_leaf_nodes: 5375
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r154
+        max_features: log2
+        max_leaf_nodes: 15942
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r155
+        max_features: log2
+        max_leaf_nodes: 28757
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r156
+        max_features: 0.5
+        max_leaf_nodes: 9515
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r157
+        max_features: 0.5
+        max_leaf_nodes: 34718
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r158
+        max_features: 0.5
+        max_leaf_nodes: 36718
+        min_samples_leaf: 1
+      - ag_args:
+          name_suffix: _r159
+        max_features: 1.0
+        max_leaf_nodes: 9736
+        min_samples_leaf: 40
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_xt_b10:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      XT:
+      - ag_args:
+          name_suffix: _r160
+        max_features: log2
+        max_leaf_nodes: 44078
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r161
+        max_features: 0.75
+        max_leaf_nodes: 26074
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r162
+        max_features: 1.0
+        max_leaf_nodes: 43569
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r163
+        max_features: 0.5
+        max_leaf_nodes: 16100
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r164
+        max_features: 0.75
+        max_leaf_nodes: 36990
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r165
+        max_features: 0.5
+        max_leaf_nodes: 45444
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r166
+        max_features: log2
+        max_leaf_nodes: 42644
+        min_samples_leaf: 1
+      - ag_args:
+          name_suffix: _r167
+        max_features: log2
+        max_leaf_nodes: 46808
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r168
+        max_features: sqrt
+        max_leaf_nodes: 34683
+        min_samples_leaf: 1
+      - ag_args:
+          name_suffix: _r169
+        max_features: 0.5
+        max_leaf_nodes: 22563
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r170
+        max_features: sqrt
+        max_leaf_nodes: 23880
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r171
+        max_features: sqrt
+        max_leaf_nodes: 28842
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r172
+        max_features: 1.0
+        max_leaf_nodes: 12845
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r173
+        max_features: sqrt
+        max_leaf_nodes: 12828
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r174
+        max_features: 1.0
+        max_leaf_nodes: 26107
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r175
+        max_features: 0.5
+        max_leaf_nodes: 41454
+        min_samples_leaf: 10
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_xt_b11:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      XT:
+      - ag_args:
+          name_suffix: _r176
+        max_features: 0.75
+        max_leaf_nodes: 25165
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r177
+        max_features: 0.75
+        max_leaf_nodes: 30247
+        min_samples_leaf: 2
+      - ag_args:
+          name_suffix: _r178
+        max_features: 0.75
+        max_leaf_nodes: 29813
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r179
+        max_features: 0.5
+        max_leaf_nodes: 36112
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r180
+        max_features: sqrt
+        max_leaf_nodes: 34849
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r181
+        max_features: log2
+        max_leaf_nodes: 44308
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r182
+        max_features: sqrt
+        max_leaf_nodes: 35919
+        min_samples_leaf: 10
+      - ag_args:
+          name_suffix: _r183
+        max_features: 0.75
+        max_leaf_nodes: 26674
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r184
+        max_features: 0.5
+        max_leaf_nodes: 6337
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r185
+        max_features: 0.5
+        max_leaf_nodes: 6221
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r186
+        max_features: log2
+        max_leaf_nodes: 13901
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r187
+        max_features: 0.75
+        max_leaf_nodes: 33997
+        min_samples_leaf: 80
+      - ag_args:
+          name_suffix: _r188
+        max_features: 1.0
+        max_leaf_nodes: 47161
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r189
+        max_features: sqrt
+        max_leaf_nodes: 5673
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r190
+        max_features: log2
+        max_leaf_nodes: 30329
+        min_samples_leaf: 40
+      - ag_args:
+          name_suffix: _r191
+        max_features: 0.75
+        max_leaf_nodes: 36732
+        min_samples_leaf: 2
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_xt_b12:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      XT:
+      - ag_args:
+          name_suffix: _r192
+        max_features: log2
+        max_leaf_nodes: 33172
+        min_samples_leaf: 20
+      - ag_args:
+          name_suffix: _r193
+        max_features: sqrt
+        max_leaf_nodes: 45738
+        min_samples_leaf: 4
+      - ag_args:
+          name_suffix: _r194
+        max_features: 1.0
+        max_leaf_nodes: 34081
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r195
+        max_features: 0.75
+        max_leaf_nodes: 37308
+        min_samples_leaf: 1
+      - ag_args:
+          name_suffix: _r196
+        max_features: 1.0
+        max_leaf_nodes: 15825
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r197
+        max_features: 1.0
+        max_leaf_nodes: 40459
+        min_samples_leaf: 1
+      - ag_args:
+          name_suffix: _r198
+        max_features: 1.0
+        max_leaf_nodes: 11437
+        min_samples_leaf: 5
+      - ag_args:
+          name_suffix: _r199
+        max_features: sqrt
+        max_leaf_nodes: 44021
+        min_samples_leaf: 3
+      - ag_args:
+          name_suffix: _r200
+        max_features: 0.75
+        max_leaf_nodes: 48569
+        min_samples_leaf: 40
     num_bag_folds: 8
     num_bag_sets: 1
   version: latest
