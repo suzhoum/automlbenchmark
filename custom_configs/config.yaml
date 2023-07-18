@@ -1,5 +1,5 @@
 ---
-project_repository: https://github.com/Innixma/automlbenchmark#2023_07_15    # this is also the url used to clone the repository on ec2 instances
+project_repository: https://github.com/Innixma/automlbenchmark#2023_07_18    # this is also the url used to clone the repository on ec2 instances
                                                                           # when running those without docker.
                                                                           # to clone a specific branch/tag, add a url fragment, e.g.:
                                                                           # https://github.com/openml/automlbenchmark#stable
@@ -33,12 +33,12 @@ aws:                    # configuration namespace for AWS mode.
   region: 'us-east-1'            # the AWS region to use. By default, the app will use the region set in ~/.aws/config when configuring AWS CLI.
 
   iam:                                               # sub-namespace for AWS IAM service.
-    max_role_session_duration_secs: 72000             # the max duration (in seconds) during which the ec2 instance will have access to s3.
+    max_role_session_duration_secs: 259200             # the max duration (in seconds) during which the ec2 instance will have access to s3.
                                                      # This should be a number between 900 (15mn) to 43200 (12h).
 
   s3:                               # sub-namespace for AWS S3 service.
     bucket: automl-benchmark-ag        # must be unique im whole Amazon s3, max 40 chars, and include only numbers, lowercase characters and hyphens.
-    root_key: ec2/2023_07_15/                  #
+    root_key: ec2/2023_07_18/                  #
 
   ec2:
     instance_type:                       #
@@ -61,8 +61,8 @@ aws:                    # configuration namespace for AWS mode.
         ami: ami-09cd747c78a9add63
         description: Canonical, Ubuntu, 20.04 LTS, amd64 focal image build on 2023-02-07
 
-  max_timeout_seconds: 72000    #
-  overhead_time_seconds: 28800   # amount of additional time allowed for the job to complete on aws before the instance is stopped.
+  max_timeout_seconds: 259200    #
+  overhead_time_seconds: 36000   # amount of additional time allowed for the job to complete on aws before the instance is stopped.
 
   resource_files:               # additional resource files or directories that are made available to benchmark runs on ec2, from remote input or user directory.
     - '{user}/config.yaml'

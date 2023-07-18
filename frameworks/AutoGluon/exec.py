@@ -30,10 +30,11 @@ def run(dataset, config):
     try:
         from pip._internal.operations import freeze
         pip_dependencies = freeze.freeze()
-        log.info('===== pip freeze =====')
+        log_pip_str = '\n===== pip freeze =====\n'
         for p in pip_dependencies:
-            log.info(p)
-        log.info('======================\n')
+            log_pip_str += f'{p}\n'
+        log_pip_str += '======================\n'
+        log.info(log_pip_str)
     except:
         pass
 
