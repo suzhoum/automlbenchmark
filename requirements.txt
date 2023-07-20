@@ -22,7 +22,7 @@ minio==7.1.13
 multidict==6.0.4
 numexpr==2.8.4
 numpy==1.21.6
-openml==0.12.2
+openml==0.14.1
 pandas==1.2.4
 psutil==5.8.0
 pyarrow==4.0.0
