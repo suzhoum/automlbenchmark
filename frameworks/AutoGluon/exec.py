@@ -14,29 +14,22 @@ import pandas as pd
 matplotlib.use('agg')  # no need for tk
 
 from autogluon.tabular import TabularPredictor, TabularDataset
-from autogluon.core.utils.savers import save_pd, save_pkl
 import autogluon.core.metrics as metrics
 from autogluon.tabular.version import __version__
 
-from frameworks.shared.callee import call_run, result, touch
-from frameworks.shared.utils import Timer, zip_path
-from zs_portfolio import get_zs_hpo_vendor
+from frameworks.shared.callee import call_run, result
+from frameworks.shared.utils import Timer
+
+from ag_utils.save_artifacts import save_artifacts
+from ag_utils.zs_portfolio import get_hyperparameters_from_zeroshot_framework
+
 
 log = logging.getLogger(__name__)
 
 
 def run(dataset, config):
     log.info(f"\n**** AutoGluon [v{__version__}] ****\n")
-    try:
-        from pip._internal.operations import freeze
-        pip_dependencies = freeze.freeze()
-        log_pip_str = '\n===== pip freeze =====\n'
-        for p in pip_dependencies:
-            log_pip_str += f'{p}\n'
-        log_pip_str += '======================\n'
-        log.info(log_pip_str)
-    except:
-        pass
+    log_pip_freeze()
 
     metrics_mapping = dict(
         acc=metrics.accuracy,
@@ -65,20 +58,12 @@ def run(dataset, config):
 
     _zeroshot_framework = config.framework_params.get('_zeroshot_framework', None)
     if _zeroshot_framework is not None:
-        log.info(f'ZEROSHOT FRAMEWORK: {_zeroshot_framework}')
-        zs_vendor = get_zs_hpo_vendor(framework=_zeroshot_framework)
-        dataset_name = config.name
-        fold = config.fold
-        log.info(f'fold={fold}, dataset_name={dataset_name}')
-        portfolio = zs_vendor.get_portfolio_for_dataset(dataset=dataset_name, fold=fold)
-        log.info(f'Zeroshot Portfolio: {portfolio}')
-        hyperparameters = zs_vendor.get_ag_hyperparameters_for_dataset(dataset=dataset_name, fold=fold)
-        log.info(hyperparameters)
-    else:
-        hyperparameters = None
-
-    if hyperparameters is not None:
-        training_params['hyperparameters'] = hyperparameters
+        _hyperparameters = get_hyperparameters_from_zeroshot_framework(
+            zeroshot_framework=_zeroshot_framework,
+            config=config,
+        )
+        if _hyperparameters is not None:
+            training_params['hyperparameters'] = _hyperparameters
 
     with Timer() as training:
         predictor = TabularPredictor(
@@ -138,117 +123,17 @@ def run(dataset, config):
                   predict_duration=predict.duration)
 
 
-def get_save_path(config, suffix: str, create_dir: bool = True, as_dir: bool = False) -> str:
-    path = os.path.join(config.output_dir, suffix)
-    if create_dir:
-        touch(path, as_dir=as_dir)
-    return path
-
-
-def save_artifacts(predictor, leaderboard, config, test_data):
-    artifacts = config.framework_params.get('_save_artifacts', ['leaderboard'])
+def log_pip_freeze():
     try:
-        if 'leaderboard' in artifacts:
-            save_pd.save(path=get_save_path(config, "leaderboard.csv"), df=leaderboard)
-
-        if 'info' in artifacts:
-            info_path = get_save_path(config, 'info', as_dir=True)
-            ag_info = predictor.info()
-            ag_size_df = predictor.get_size_disk_per_file().to_frame().reset_index(names='file')
-            save_pd.save(path=os.path.join(info_path, "file_sizes.csv"), df=ag_size_df)
-            save_pkl.save(path=os.path.join(info_path, "info.pkl"), object=ag_info)
-
-        if 'infer_speed' in artifacts:
-            infer_speed_df = get_infer_speed_real(predictor=predictor, test_data=test_data)
-            with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', 1000):
-                log.info(infer_speed_df)
-            save_pd.save(path=get_save_path(config, "infer_speed.csv"), df=infer_speed_df)
-
-        if 'zeroshot' in artifacts:
-            zeroshot_path = get_save_path(config, 'zeroshot', as_dir=True)
-            zeroshot_dict = get_zeroshot_artifact(predictor=predictor, test_data=test_data)
-            save_pkl.save(path=os.path.join(zeroshot_path, "zeroshot_metadata.pkl"), object=zeroshot_dict)
-
-        if 'models' in artifacts:
-            shutil.rmtree(os.path.join(predictor.path, "utils"), ignore_errors=True)
-            zip_path(predictor.path, get_save_path(config, "models.zip"))
-    except Exception:
-        log.warning("Error when saving artifacts.", exc_info=True)
-
-
-def get_zeroshot_artifact(predictor: TabularPredictor, test_data) -> dict:
-    models = predictor.get_model_names(can_infer=True)
-
-    if predictor.can_predict_proba:
-        pred_proba_dict_val = predictor.predict_proba_multi(inverse_transform=False, models=models)
-        pred_proba_dict_test = predictor.predict_proba_multi(test_data, inverse_transform=False, models=models)
-    else:
-        pred_proba_dict_val = predictor.predict_multi(inverse_transform=False, models=models)
-        pred_proba_dict_test = predictor.predict_multi(test_data, inverse_transform=False, models=models)
-
-    val_data_source = 'val' if predictor._trainer.has_val else 'train'
-    _, y_val = predictor.load_data_internal(data=val_data_source, return_X=False, return_y=True)
-    y_test = test_data[predictor.label]
-    y_test = predictor.transform_labels(y_test, inverse=False)
-
-    zeroshot_dict = dict(
-        pred_proba_dict_val=pred_proba_dict_val,
-        pred_proba_dict_test=pred_proba_dict_test,
-        y_val=y_val,
-        y_test=y_test,
-        eval_metric=predictor.eval_metric.name,
-        problem_type=predictor.problem_type,
-        ordered_class_labels=predictor._learner.label_cleaner.ordered_class_labels,
-        ordered_class_labels_transformed=predictor._learner.label_cleaner.ordered_class_labels_transformed,
-        problem_type_transform=predictor._learner.label_cleaner.problem_type_transform,
-        num_classes=predictor._learner.label_cleaner.num_classes,
-        label=predictor.label,
-    )
-
-    return zeroshot_dict
-
-
-def get_infer_speed_real(predictor, test_data, batch_sizes=None, repeats=None):
-    from autogluon.core.utils.infer_utils import get_model_true_infer_speed_per_row_batch
-
-    if batch_sizes is None:
-        batch_sizes = [
-            1,
-            10,
-            100,
-            1000,
-            10000,
-            # 100000,  # Too big to safely fit into 32 GB memory on datasets with 10,000+ columns.
-        ]
-
-    best_model = predictor.get_model_best()
-
-    infer_dfs = dict()
-    for batch_size in batch_sizes:
-        if repeats is None:
-            repeat = 2 if batch_size <= 1000 else 1
-        else:
-            repeat = repeats
-        infer_df, time_per_row_transform = get_model_true_infer_speed_per_row_batch(data=test_data, predictor=predictor, batch_size=batch_size, repeats=repeat)
-        infer_df_best = infer_df[infer_df.index == best_model].copy()
-        assert len(infer_df_best) == 1
-        infer_df_best.index = ['best']
-
-        infer_df_transform = pd.Series({
-            'pred_time_test': time_per_row_transform,
-            'pred_time_test_marginal': time_per_row_transform,
-            'pred_time_test_with_transform': time_per_row_transform,
-        }, name='transform_features').to_frame().T
-        infer_df_transform.index.rename('model', inplace=True)
-
-        infer_df = pd.concat([infer_df, infer_df_best, infer_df_transform])
-        infer_df.index.name = 'model'
-        infer_dfs[batch_size] = infer_df
-    for key in infer_dfs.keys():
-        infer_dfs[key] = infer_dfs[key].reset_index()
-        infer_dfs[key]['batch_size'] = key
-    infer_speed_df = pd.concat([infer_dfs[key] for key in infer_dfs.keys()])
-    return infer_speed_df
+        from pip._internal.operations import freeze
+        pip_dependencies = freeze.freeze()
+        log_pip_str = '\n===== pip freeze =====\n'
+        for p in pip_dependencies:
+            log_pip_str += f'{p}\n'
+        log_pip_str += '======================\n'
+        log.info(log_pip_str)
+    except:
+        pass
 
 
 if __name__ == '__main__':

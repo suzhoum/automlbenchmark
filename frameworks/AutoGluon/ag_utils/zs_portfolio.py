@@ -1,10 +1,13 @@
 import copy
+import logging
 from ast import literal_eval
 from typing import Dict, List, Any
 
 import pandas as pd
 
 from autogluon.common.loaders import load_pd, load_pkl
+
+log = logging.getLogger(__name__)
 
 PORTFOLIO = 'config_selected'
 
@@ -110,3 +113,20 @@ def get_zs_hpo_vendor(
         zeroshot_results_df=zeroshot_results_df,
         config_hyperparameters_dict=config_hyperparameters_dict
     )
+
+
+def get_hyperparameters_from_zeroshot_framework(
+    zeroshot_framework: str,
+    config,
+    **kwargs,
+) -> dict:
+    log.info(f'ZEROSHOT FRAMEWORK: {zeroshot_framework}')
+    zs_vendor = get_zs_hpo_vendor(framework=zeroshot_framework, **kwargs)
+    dataset_name = config.name
+    fold = config.fold
+    log.info(f'fold={fold}, dataset_name={dataset_name}')
+    portfolio = zs_vendor.get_portfolio_for_dataset(dataset=dataset_name, fold=fold)
+    log.info(f'Zeroshot Portfolio: {portfolio}')
+    hyperparameters = zs_vendor.get_ag_hyperparameters_for_dataset(dataset=dataset_name, fold=fold)
+    log.info(hyperparameters)
+    return hyperparameters
