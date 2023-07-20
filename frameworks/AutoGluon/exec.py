@@ -14,22 +14,18 @@ import pandas as pd
 matplotlib.use('agg')  # no need for tk
 
 from autogluon.tabular import TabularPredictor, TabularDataset
+from autogluon.core.utils.savers import save_pd, save_pkl
 import autogluon.core.metrics as metrics
 from autogluon.tabular.version import __version__
 
-from frameworks.shared.callee import call_run, result
-from frameworks.shared.utils import Timer
-
-from ag_utils.save_artifacts import save_artifacts
-from ag_utils.zs_portfolio import get_hyperparameters_from_zeroshot_framework
-
+from frameworks.shared.callee import call_run, result, output_subdir
+from frameworks.shared.utils import Timer, zip_path
 
 log = logging.getLogger(__name__)
 
 
 def run(dataset, config):
     log.info(f"\n**** AutoGluon [v{__version__}] ****\n")
-    log_pip_freeze()
 
     metrics_mapping = dict(
         acc=metrics.accuracy,
@@ -55,15 +51,6 @@ def run(dataset, config):
     problem_type = dataset.problem_type
 
     models_dir = tempfile.mkdtemp() + os.sep  # passed to AG
-
-    _zeroshot_framework = config.framework_params.get('_zeroshot_framework', None)
-    if _zeroshot_framework is not None:
-        _hyperparameters = get_hyperparameters_from_zeroshot_framework(
-            zeroshot_framework=_zeroshot_framework,
-            config=config,
-        )
-        if _hyperparameters is not None:
-            training_params['hyperparameters'] = _hyperparameters
 
     with Timer() as training:
         predictor = TabularPredictor(
@@ -109,7 +96,7 @@ def run(dataset, config):
     else:
         num_models_ensemble = 1
 
-    save_artifacts(predictor, leaderboard, config, test_data=test_data)
+    save_artifacts(predictor, leaderboard, config)
     shutil.rmtree(predictor.path, ignore_errors=True)
 
     return result(output_file=config.output_predictions_file,
@@ -123,17 +110,24 @@ def run(dataset, config):
                   predict_duration=predict.duration)
 
 
-def log_pip_freeze():
+def save_artifacts(predictor, leaderboard, config):
+    artifacts = config.framework_params.get('_save_artifacts', ['leaderboard'])
     try:
-        from pip._internal.operations import freeze
-        pip_dependencies = freeze.freeze()
-        log_pip_str = '\n===== pip freeze =====\n'
-        for p in pip_dependencies:
-            log_pip_str += f'{p}\n'
-        log_pip_str += '======================\n'
-        log.info(log_pip_str)
-    except:
-        pass
+        if 'leaderboard' in artifacts:
+            leaderboard_dir = output_subdir("leaderboard", config)
+            save_pd.save(path=os.path.join(leaderboard_dir, "leaderboard.csv"), df=leaderboard)
+
+        if 'info' in artifacts:
+            ag_info = predictor.info()
+            info_dir = output_subdir("info", config)
+            save_pkl.save(path=os.path.join(info_dir, "info.pkl"), object=ag_info)
+
+        if 'models' in artifacts:
+            shutil.rmtree(os.path.join(predictor.path, "utils"), ignore_errors=True)
+            models_dir = output_subdir("models", config)
+            zip_path(predictor.path, os.path.join(models_dir, "models.zip"))
+    except Exception:
+        log.warning("Error when saving artifacts.", exc_info=True)
 
 
 if __name__ == '__main__':
