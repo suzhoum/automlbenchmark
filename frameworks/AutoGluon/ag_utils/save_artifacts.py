@@ -10,8 +10,8 @@ from autogluon.tabular import TabularPredictor
 from frameworks.shared.callee import touch
 from frameworks.shared.utils import zip_path
 
-from calc_infer_speed import get_infer_speed_real
-from zs_artifact import get_zeroshot_artifact
+from ag_utils.calc_infer_speed import get_infer_speed_real
+from ag_utils.zs_artifact import get_zeroshot_artifact
 
 log = logging.getLogger(__name__)
 
