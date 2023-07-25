@@ -22,7 +22,7 @@ from autogluon.tabular.version import __version__
 from frameworks.shared.callee import call_run, result, measure_inference_times
 from frameworks.shared.utils import Timer
 
-from ag_utils.save_artifacts import save_artifacts
+from ag_utils.save_artifacts import ArtifactSaver
 from ag_utils.zs_portfolio import get_hyperparameters_from_zeroshot_framework
 
 log = logging.getLogger(__name__)
@@ -92,6 +92,8 @@ def run(dataset, config):
             **training_params
         )
 
+    artifact_saver = ArtifactSaver(predictor=predictor, config=config)
+
     log.info(f"Finished fit in {training.duration}s.")
 
     # Persist model in memory that is going to be predicting to get correct inference latency
@@ -141,7 +143,7 @@ def run(dataset, config):
     else:
         num_models_ensemble = 1
 
-    save_artifacts(predictor, leaderboard, config, test_data=test_data)
+    artifact_saver.cache_post_predict(leaderboard=leaderboard, test_data=test_data)
     shutil.rmtree(predictor.path, ignore_errors=True)
 
     return result(output_file=config.output_predictions_file,
