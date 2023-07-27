@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import logging
 import os
 import shutil
@@ -27,7 +29,7 @@ class ArtifactSaver:
     def __init__(self, predictor: TabularPredictor, config):
         self.predictor = predictor
         self.config = config
-        self.artifacts = self.config.framework_params.get('_save_artifacts', ['leaderboard'])
+        self.artifacts = self.config.framework_params.get('_save_artifacts', ['leaderboard', 'model_failures'])
 
     @property
     def path_leaderboard(self) -> str:
@@ -46,9 +48,8 @@ class ArtifactSaver:
         return os.path.join(self.path_info_dir, "file_sizes.csv")
 
     @property
-    def path_info_failures(self) -> str:
-        # TODO
-        pass
+    def path_model_failures(self) -> str:
+        return get_save_path(self.config, "model_failures.csv")
 
     @property
     def path_infer_speed(self) -> str:
@@ -75,8 +76,8 @@ class ArtifactSaver:
         ag_info = self.predictor.info()
         save_pkl.save(path=self.path_info, object=ag_info)
 
-    def save_info_failures(self):
-        pass
+    def save_model_failures(self, model_failures_df: pd.DataFrame):
+        save_pd.save(path=self.path_model_failures, df=model_failures_df)
 
     def save_infer_speed(self, test_data: pd.DataFrame):
         infer_speed_df = get_infer_speed_real(predictor=self.predictor, test_data=test_data)
@@ -92,6 +93,14 @@ class ArtifactSaver:
         if delete_utils:
             shutil.rmtree(os.path.join(self.predictor.path, "utils"), ignore_errors=True)
         zip_path(self.predictor.path, self.path_predictor)
+
+    def cache_post_fit(self, model_failures_df: pd.DataFrame | None):
+        artifacts = self.artifacts
+        try:
+            if 'model_failures' in artifacts and model_failures_df is not None:
+                self.save_model_failures(model_failures_df=model_failures_df)
+        except:
+            log.warning("Error when saving post-fit artifacts.", exc_info=True)
 
     def cache_post_predict(self, leaderboard: pd.DataFrame, test_data: pd.DataFrame):
         artifacts = self.artifacts
@@ -111,7 +120,7 @@ class ArtifactSaver:
             if 'models' in artifacts:
                 self.save_predictor(delete_utils=True)
         except Exception:
-            log.warning("Error when saving artifacts.", exc_info=True)
+            log.warning("Error when saving post-predict artifacts.", exc_info=True)
 
 def save_artifacts(predictor: TabularPredictor, leaderboard: pd.DataFrame, config, test_data: pd.DataFrame):
     artifacts = config.framework_params.get('_save_artifacts', ['leaderboard'])

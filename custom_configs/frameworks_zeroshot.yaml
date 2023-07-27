@@ -8,6 +8,7 @@ ZS_BAG_catboost_b0:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -147,6 +148,7 @@ ZS_BAG_catboost_b1:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -292,6 +294,7 @@ ZS_BAG_catboost_b2:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -437,6 +440,7 @@ ZS_BAG_catboost_b3:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -582,6 +586,7 @@ ZS_BAG_catboost_b4:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -727,6 +732,7 @@ ZS_BAG_catboost_b5:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -872,6 +878,7 @@ ZS_BAG_catboost_b6:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -1017,6 +1024,7 @@ ZS_BAG_catboost_b7:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -1162,6 +1170,7 @@ ZS_BAG_catboost_b8:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -1307,6 +1316,7 @@ ZS_BAG_catboost_b9:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -1452,6 +1462,7 @@ ZS_BAG_catboost_b10:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -1597,6 +1608,7 @@ ZS_BAG_catboost_b11:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -1742,6 +1754,7 @@ ZS_BAG_catboost_b12:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -1831,6 +1844,7 @@ ZS_BAG_lightgbm_b0:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -1950,6 +1964,7 @@ ZS_BAG_lightgbm_b1:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -2079,6 +2094,7 @@ ZS_BAG_lightgbm_b2:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -2208,6 +2224,7 @@ ZS_BAG_lightgbm_b3:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -2337,6 +2354,7 @@ ZS_BAG_lightgbm_b4:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -2466,6 +2484,7 @@ ZS_BAG_lightgbm_b5:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -2595,6 +2614,7 @@ ZS_BAG_lightgbm_b6:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -2724,6 +2744,7 @@ ZS_BAG_lightgbm_b7:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -2853,6 +2874,7 @@ ZS_BAG_lightgbm_b8:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -2982,6 +3004,7 @@ ZS_BAG_lightgbm_b9:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -3111,6 +3134,7 @@ ZS_BAG_lightgbm_b10:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -3240,6 +3264,7 @@ ZS_BAG_lightgbm_b11:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -3369,6 +3394,7 @@ ZS_BAG_lightgbm_b12:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -3470,6 +3496,7 @@ ZS_BAG_xgboost_b0:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -3583,6 +3610,7 @@ ZS_BAG_xgboost_b1:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -3712,6 +3740,7 @@ ZS_BAG_xgboost_b2:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -3841,6 +3870,7 @@ ZS_BAG_xgboost_b3:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -3970,6 +4000,7 @@ ZS_BAG_xgboost_b4:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -4099,6 +4130,7 @@ ZS_BAG_xgboost_b5:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -4228,6 +4260,7 @@ ZS_BAG_xgboost_b6:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -4357,6 +4390,7 @@ ZS_BAG_xgboost_b7:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -4486,6 +4520,7 @@ ZS_BAG_xgboost_b8:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -4615,6 +4650,7 @@ ZS_BAG_xgboost_b9:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -4744,6 +4780,7 @@ ZS_BAG_xgboost_b10:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -4873,6 +4910,7 @@ ZS_BAG_xgboost_b11:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -5002,6 +5040,7 @@ ZS_BAG_xgboost_b12:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -5103,6 +5142,7 @@ ZS_BAG_fastai_b0:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -5271,6 +5311,7 @@ ZS_BAG_fastai_b1:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -5453,6 +5494,7 @@ ZS_BAG_fastai_b2:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -5634,6 +5676,7 @@ ZS_BAG_fastai_b3:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -5809,6 +5852,7 @@ ZS_BAG_fastai_b4:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -5985,6 +6029,7 @@ ZS_BAG_fastai_b5:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -6168,6 +6213,7 @@ ZS_BAG_fastai_b6:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -6347,6 +6393,7 @@ ZS_BAG_fastai_b7:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -6525,6 +6572,7 @@ ZS_BAG_fastai_b8:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -6708,6 +6756,7 @@ ZS_BAG_fastai_b9:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -6883,6 +6932,7 @@ ZS_BAG_fastai_b10:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -7064,6 +7114,7 @@ ZS_BAG_fastai_b11:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -7242,6 +7293,7 @@ ZS_BAG_fastai_b12:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -7350,6 +7402,7 @@ ZS_BAG_nn_torch_b0:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -7487,6 +7540,7 @@ ZS_BAG_nn_torch_b1:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -7648,6 +7702,7 @@ ZS_BAG_nn_torch_b2:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -7809,6 +7864,7 @@ ZS_BAG_nn_torch_b3:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -7970,6 +8026,7 @@ ZS_BAG_nn_torch_b4:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -8131,6 +8188,7 @@ ZS_BAG_nn_torch_b5:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -8292,6 +8350,7 @@ ZS_BAG_nn_torch_b6:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -8453,6 +8512,7 @@ ZS_BAG_nn_torch_b7:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -8614,6 +8674,7 @@ ZS_BAG_nn_torch_b8:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -8775,6 +8836,7 @@ ZS_BAG_nn_torch_b9:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -8936,6 +8998,7 @@ ZS_BAG_nn_torch_b10:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -9097,6 +9160,7 @@ ZS_BAG_nn_torch_b11:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -9258,6 +9322,7 @@ ZS_BAG_nn_torch_b12:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -9383,6 +9448,7 @@ ZS_BAG_rf_b0:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -9477,6 +9543,7 @@ ZS_BAG_rf_b1:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -9574,6 +9641,7 @@ ZS_BAG_rf_b2:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -9671,6 +9739,7 @@ ZS_BAG_rf_b3:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -9768,6 +9837,7 @@ ZS_BAG_rf_b4:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -9865,6 +9935,7 @@ ZS_BAG_rf_b5:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -9962,6 +10033,7 @@ ZS_BAG_rf_b6:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -10059,6 +10131,7 @@ ZS_BAG_rf_b7:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -10156,6 +10229,7 @@ ZS_BAG_rf_b8:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -10253,6 +10327,7 @@ ZS_BAG_rf_b9:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -10350,6 +10425,7 @@ ZS_BAG_rf_b10:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -10447,6 +10523,7 @@ ZS_BAG_rf_b11:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -10544,6 +10621,7 @@ ZS_BAG_rf_b12:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -10606,6 +10684,7 @@ ZS_BAG_xt_b0:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -10700,6 +10779,7 @@ ZS_BAG_xt_b1:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -10797,6 +10877,7 @@ ZS_BAG_xt_b2:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -10894,6 +10975,7 @@ ZS_BAG_xt_b3:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -10991,6 +11073,7 @@ ZS_BAG_xt_b4:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -11088,6 +11171,7 @@ ZS_BAG_xt_b5:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -11185,6 +11269,7 @@ ZS_BAG_xt_b6:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -11282,6 +11367,7 @@ ZS_BAG_xt_b7:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -11379,6 +11465,7 @@ ZS_BAG_xt_b8:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -11476,6 +11563,7 @@ ZS_BAG_xt_b9:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -11573,6 +11661,7 @@ ZS_BAG_xt_b10:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -11670,6 +11759,7 @@ ZS_BAG_xt_b11:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false
@@ -11767,6 +11857,7 @@ ZS_BAG_xt_b12:
     _save_artifacts:
     - leaderboard
     - zeroshot
+    - model_failures
     ag_args_ensemble:
       ag.max_time_limit: 3600
     calibrate: false

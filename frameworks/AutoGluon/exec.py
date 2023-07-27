@@ -81,7 +81,7 @@ def run(dataset, config):
             training_params['hyperparameters'] = _hyperparameters
 
     with Timer() as training:
-        predictor = TabularPredictor(
+        predictor: TabularPredictor = TabularPredictor(
             label=label,
             eval_metric=perf_metric.name,
             path=models_dir,
@@ -95,6 +95,18 @@ def run(dataset, config):
     artifact_saver = ArtifactSaver(predictor=predictor, config=config)
 
     log.info(f"Finished fit in {training.duration}s.")
+
+    # Log failures
+    if hasattr(predictor, 'get_model_failures'):  # version >0.8.2
+        model_failures_df = predictor.get_model_failures()
+        num_model_failures = len(model_failures_df)
+        log.info(f'num_model_failures: {num_model_failures}')
+        if num_model_failures > 0:
+            with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', 1000):
+                log.info(model_failures_df)
+    else:
+        model_failures_df = None
+    artifact_saver.cache_post_fit(model_failures_df=model_failures_df)
 
     # Persist model in memory that is going to be predicting to get correct inference latency
     # max_memory=0.4 will be future default: https://github.com/autogluon/autogluon/pull/3338
