@@ -167,3 +167,17 @@ AutoGluon_euq:
     _save_artifacts: ['leaderboard', 'infer_speed', 'info', 'model_failures']
     presets: experimental_ultra_quality
     _leaderboard_test: True
+
+AutoGluon_ezs:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info', 'model_failures']
+    presets: experimental_zeroshot_hpo
+    _leaderboard_test: True
+
+AutoGluon_ezsh:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'infer_speed', 'info', 'model_failures']
+    presets: experimental_zeroshot_hpo_hybrid
+    _leaderboard_test: True
