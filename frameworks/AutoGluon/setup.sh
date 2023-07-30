@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# exit when any command fails
+set -e
+
 HERE=$(dirname "$0")
 VERSION=${1:-"stable"}
 REPO=${2:-"https://github.com/autogluon/autogluon.git"}
