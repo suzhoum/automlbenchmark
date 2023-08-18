@@ -139,6 +139,30 @@ AutoGluon_hq_il0005:
     _leaderboard_test: True
     infer_limit: 0.005
 
+AutoGluon_hq_il0001:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: high_quality
+    _leaderboard_test: True
+    infer_limit: 0.001
+
+AutoGluon_hq_il00002:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: high_quality
+    _leaderboard_test: True
+    infer_limit: 0.0002
+
+AutoGluon_hq_il00001:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: high_quality
+    _leaderboard_test: True
+    infer_limit: 0.0001
+
 AutoGluon_hq_il0002:
   extends: AutoGluon
   params:
