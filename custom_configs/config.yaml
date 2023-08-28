@@ -9,7 +9,7 @@ frameworks:              # configuration namespace for the frameworks definition
     - '{root}/resources/frameworks.yaml'
     - '{user}/frameworks.yaml'
   allow_duplicates: true     # if true, the last definition is used.
-  tags: ['stable', 'latest', 'zeroshot', '2020Q2', '2021Q3',  '2023Q2', '2022AG']  # the list of supported tags when looking up frameworks:
+  tags: ['stable', 'latest', 'zeroshot', 'stackinfo', '2020Q2', '2021Q3',  '2023Q2', '2022AG']  # the list of supported tags when looking up frameworks:
                               # for example frmwk:latest will look for framework frmwk in a frameworks_latest.yaml file if present.
 
 benchmarks:                     # configuration namespace for the benchmarks definitions.
@@ -70,6 +70,7 @@ aws:                    # configuration namespace for AWS mode.
     - '{user}/frameworks_latest.yaml'
     - '{user}/frameworks_2022AG.yaml'
     - '{user}/frameworks_zeroshot.yaml'
+    - '{user}/frameworks_stackinfo.yaml'
     - '{user}/constraints.yaml'
     - '{user}/benchmarks'
     - '{user}/extensions'
