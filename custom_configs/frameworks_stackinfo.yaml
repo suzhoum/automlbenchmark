@@ -44,6 +44,15 @@ AutoGluon_bq_stack_holdout:
     use_bag_holdout: True
     num_stack_levels: 1
 
+AutoGluon_bq_nostack:
+  extends: AutoGluon
+  description: "Always stack"
+  params:
+    _save_artifacts: ['leaderboard', 'info']
+    _leaderboard_test: True
+    presets: best_quality
+    num_stack_levels: 0
+
 AutoGluon_bq_stack_fix1:
   extends: AutoGluon
   description: "Always stack + fix"
