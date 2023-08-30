@@ -33,6 +33,7 @@ AutoGluon_bq_holdout:
     _save_artifacts: ['leaderboard', 'info']
     _leaderboard_test: True
     presets: best_quality
+    use_bag_holdout: True
 
 AutoGluon_bq_stack_holdout:
   extends: AutoGluon
