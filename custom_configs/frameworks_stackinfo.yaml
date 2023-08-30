@@ -54,6 +54,10 @@ AutoGluon_bq_nostack:
     presets: best_quality
     num_stack_levels: 0
 
+##############
+### Fix V1 ###
+##############
+
 AutoGluon_bq_stack_fix1:
   extends: AutoGluon
   description: "Always stack + fix"
@@ -74,3 +78,47 @@ AutoGluon_bq_stack_holdout_fix1:
     use_bag_holdout: True
     num_stack_levels: 1
     ag_args_fit: {'stack_info_leak_protection': True}
+
+##############
+### Fix V2 ###
+##############
+
+AutoGluon_bq_stack_fix_v2:
+  extends: AutoGluon
+  description: "Always stack + fix v2"
+  params:
+    _save_artifacts: ['leaderboard', 'info']
+    _leaderboard_test: True
+    presets: best_quality
+    num_stack_levels: 1
+    ag_args_fit: {'stack_info_leak_protection': True}
+
+AutoGluon_bq_stack_fix_v2_norm:
+  extends: AutoGluon
+  description: "Always stack + fix v2 + norm"
+  params:
+    _save_artifacts: ['leaderboard', 'info']
+    _leaderboard_test: True
+    presets: best_quality
+    num_stack_levels: 1
+    ag_args_fit: {'stack_info_leak_protection': True, 'stack_info_leak_protection_protection_normalization': True}
+
+AutoGluon_bq_stack_full_l3:
+  extends: AutoGluon
+  description: "Always stack + full l3 weighted ensemble"
+  params:
+    _save_artifacts: ['leaderboard', 'info']
+    _leaderboard_test: True
+    presets: best_quality
+    num_stack_levels: 1
+    ag_args_fit: {'full_last_weighted_ensemble': True}
+
+AutoGluon_bq_stack_fix_v2_full_l3:
+  extends: AutoGluon
+  description: "Always stack + fix v2 + full l3 weighted ensemble"
+  params:
+    _save_artifacts: ['leaderboard', 'info']
+    _leaderboard_test: True
+    presets: best_quality
+    num_stack_levels: 1
+    ag_args_fit: {'stack_info_leak_protection': True, 'full_last_weighted_ensemble': True}
