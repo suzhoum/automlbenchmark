@@ -24,6 +24,24 @@ test:
   cores: 4
   min_vol_size_mb: 100000
 
+5m8c:
+  folds: 10
+  max_runtime_seconds: 300
+  cores: 8
+  min_vol_size_mb: 100000
+
+10m8c:
+  folds: 10
+  max_runtime_seconds: 600
+  cores: 8
+  min_vol_size_mb: 100000
+
+30m8c:
+  folds: 10
+  max_runtime_seconds: 1800
+  cores: 8
+  min_vol_size_mb: 100000
+
 1h8c:
   folds: 10
   max_runtime_seconds: 3600
@@ -45,6 +63,12 @@ test:
 16h8c:
   folds: 10
   max_runtime_seconds: 57600
+  cores: 8
+  min_vol_size_mb: 100000
+
+24h8c:
+  folds: 10
+  max_runtime_seconds: 86400
   cores: 8
   min_vol_size_mb: 100000
 
