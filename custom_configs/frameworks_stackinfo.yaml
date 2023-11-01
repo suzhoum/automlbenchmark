@@ -137,3 +137,16 @@ PR_AG_DSL:
     _leaderboard_test: True
     dynamic_stacking: True
     num_stack_levels: 1
+
+PR_AG_DS:
+  extends: AutoGluon
+  description: "AutoGluon Best Quality Default"
+  params:
+    _save_artifacts: [ 'leaderboard', 'info' ]
+    presets: best_quality
+    _leaderboard_test: True
+    _time_limit_modifier: 2
+    dynamic_stacking: True
+    num_stack_levels: 1
+    ds_args:
+      detection_time_frac: 0.5

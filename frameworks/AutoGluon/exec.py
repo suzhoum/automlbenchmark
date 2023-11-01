@@ -65,6 +65,11 @@ def run(dataset, config):
         log.info(msg)
         config.max_runtime_seconds = preserve * config.max_runtime_seconds
 
+    time_limit = config.max_runtime_seconds
+    time_limit_modifier = config.framework_params.get("_time_limit_modifier", None)
+    if time_limit_modifier is not None:
+        time_limit *= time_limit_modifier
+
     train_path, test_path = dataset.train.path, dataset.test.path
     label = dataset.target.name
     problem_type = dataset.problem_type
@@ -88,7 +93,7 @@ def run(dataset, config):
             problem_type=problem_type,
         ).fit(
             train_data=train_path,
-            time_limit=config.max_runtime_seconds,
+            time_limit=time_limit,
             **training_params
         )
 
