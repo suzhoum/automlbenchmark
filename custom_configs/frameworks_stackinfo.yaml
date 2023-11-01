@@ -122,3 +122,18 @@ AutoGluon_bq_stack_fix_v2_full_l3:
     presets: best_quality
     num_stack_levels: 1
     ag_args_fit: {'stack_info_leak_protection': True, 'full_last_weighted_ensemble': True}
+
+
+##############
+### Final  ###
+##############
+
+PR_AG_DSL:
+  extends: AutoGluon
+  description: "AutoGluon Best Quality Default"
+  params:
+    _save_artifacts: [ 'leaderboard', 'info' ]
+    presets: best_quality
+    _leaderboard_test: True
+    dynamic_stacking: True
+    num_stack_levels: 1
