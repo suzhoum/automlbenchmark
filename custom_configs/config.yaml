@@ -20,6 +20,7 @@ benchmarks:                     # configuration namespace for the benchmarks def
     - '{root}/resources/constraints.yaml'
     - '{user}/constraints.yaml'
   overhead_time_seconds: 72000   # amount of additional time allowed for the job to complete before sending an interruption signal
+  timeout_multiplier: 6          # multiplier to the time_limit used to interrupt the job due to timeout if exceeded. 2 by default.
 
 job_scheduler:           # configuration namespace
   max_parallel_jobs: 3000  # safety limit: increase this if you want to be able to run many jobs in parallel, especially in aws mode. Defaults to 10 to allow running the usual 10 folds in parallel with no problem.

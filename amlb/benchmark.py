@@ -438,7 +438,8 @@ class TaskConfig:
             inference_time_extension = 0
             if rconfig().inference_time_measurements.enabled:
                 inference_time_extension = rconfig().inference_time_measurements.additional_job_time
-            self.job_timeout_seconds = min(value * 2 + inference_time_extension,
+            timeout_multiplier = ns.get(rconfig(), "benchmarks.timeout_multiplier", 2)
+            self.job_timeout_seconds = min(value * timeout_multiplier + inference_time_extension,
                                            value + rconfig().benchmarks.overhead_time_seconds + inference_time_extension)
         super().__setattr__(name, value)
 
