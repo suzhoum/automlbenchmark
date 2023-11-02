@@ -128,7 +128,7 @@ AutoGluon_bq_stack_fix_v2_full_l3:
 ### Final  ###
 ##############
 
-PR_AG_DSL:
+AutoGluon_bq_DSL:
   extends: AutoGluon
   description: "AutoGluon Best Quality Default"
   params:
@@ -138,7 +138,7 @@ PR_AG_DSL:
     dynamic_stacking: True
     num_stack_levels: 1
 
-PR_AG_DS:
+AutoGluon_bq_DS:
   extends: AutoGluon
   description: "AutoGluon Best Quality Default"
   params:
