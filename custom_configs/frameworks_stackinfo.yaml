@@ -6,7 +6,7 @@
 AutoGluon:
   version: "latest"
   params:
-    _save_artifacts: ['leaderboard', 'info']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
     _leaderboard_test: True
 
 AutoGluon_bq:
@@ -132,7 +132,7 @@ AutoGluon_bq_DSL:
   extends: AutoGluon
   description: "AutoGluon Best Quality Default"
   params:
-    _save_artifacts: [ 'leaderboard', 'info' ]
+    _save_artifacts: [ 'leaderboard', 'info', 'model_failures']
     presets: best_quality
     _leaderboard_test: True
     dynamic_stacking: True
@@ -142,7 +142,7 @@ AutoGluon_bq_DS:
   extends: AutoGluon
   description: "AutoGluon Best Quality Default"
   params:
-    _save_artifacts: [ 'leaderboard', 'info' ]
+    _save_artifacts: [ 'leaderboard', 'info', 'model_failures']
     presets: best_quality
     _leaderboard_test: True
     _time_limit_modifier: 2
