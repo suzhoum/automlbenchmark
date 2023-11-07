@@ -31,7 +31,8 @@ versions:              # configuration namespace for versions enforcement (libra
   python: 3.9          # the Python minor version that will be used by the application in containers and cloud instances, , also used as a based version for virtual environments created for each framework.
 
 aws:                    # configuration namespace for AWS mode.
-  region: 'us-east-1'            # the AWS region to use. By default, the app will use the region set in ~/.aws/config when configuring AWS CLI.
+  # region: 'us-east-1'            # the AWS region to use. By default, the app will use the region set in ~/.aws/config when configuring AWS CLI.
+  region: 'eu-west-1'
 
   iam:                                               # sub-namespace for AWS IAM service.
     max_role_session_duration_secs: 259200             # the max duration (in seconds) during which the ec2 instance will have access to s3.
@@ -54,13 +55,16 @@ aws:                    # configuration namespace for AWS mode.
         '32': 8xlarge
         '64': 16xlarge
     volume_type: gp3                # one of gp2, io1, st1, sc1, or standard (default).
-    key_name: neerick_dev           # the name of the key pair passed to EC2 instances (if not set, user can't ssh the running instances)
+    # key_name: neerick_dev           # the name of the key pair passed to EC2 instances (if not set, user can't ssh the running instances)
 
     # Note: Added a new updated region image, old images no longer responded to SSH and didn't work correctly
     regions:                             #
       us-east-1:
         ami: ami-09cd747c78a9add63
         description: Canonical, Ubuntu, 20.04 LTS, amd64 focal image build on 2023-02-07
+      eu-west-1:
+        ami: ami-0cd454db24da5cb9b
+        description: Built with PyTorch conda environment, NVIDIA CUDA, cuDNN, NCCL, GPU Driver, Docker, NVIDIA-Docker and EFA support.
 
   max_timeout_seconds: 259200    #
   overhead_time_seconds: 36000   # amount of additional time allowed for the job to complete on aws before the instance is stopped.
