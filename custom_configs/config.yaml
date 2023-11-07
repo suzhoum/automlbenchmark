@@ -43,7 +43,7 @@ aws:                    # configuration namespace for AWS mode.
 
   ec2:
     instance_type:                       #
-      series: g4dn                       #
+      series: m6i                        #
       map:                               # map between num cores required and ec2 instance type sizes
         default: large
         '1': small

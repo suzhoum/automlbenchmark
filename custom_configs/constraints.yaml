@@ -72,6 +72,41 @@ test:
   cores: 8
   min_vol_size_mb: 100000
 
+1h8c_gpu:
+  folds: 10
+  max_runtime_seconds: 3600
+  cores: 8
+  min_vol_size_mb: 100000
+  ec2_instance_type: g4dn.2xlarge
+
+4h8c_gpu:
+  folds: 10
+  max_runtime_seconds: 14400
+  cores: 8
+  min_vol_size_mb: 100000
+  ec2_instance_type: g4dn.2xlarge
+
+8h8c_gpu:
+  folds: 10
+  max_runtime_seconds: 28800
+  cores: 8
+  min_vol_size_mb: 100000
+  ec2_instance_type: g4dn.2xlarge
+
+16h8c_gpu:
+  folds: 10
+  max_runtime_seconds: 57600
+  cores: 8
+  min_vol_size_mb: 100000
+  ec2_instance_type: g4dn.2xlarge
+
+24h8c_gpu:
+  folds: 10
+  max_runtime_seconds: 86400
+  cores: 8
+  min_vol_size_mb: 100000
+  ec2_instance_type: g4dn.2xlarge
+
 60h8c:
   folds: 10
   max_runtime_seconds: 216000

@@ -1,0 +1,13 @@
+---
+
+# binary
+- name: Australian
+  openml_task_id: 146818
+
+# multiclass
+- name: vehicle
+  openml_task_id: 190146
+
+# regression
+- name: sensory
+  openml_task_id: 359931
