@@ -24,17 +24,20 @@ class ZeroshotHyperparametersVendor:
                  config_hyperparameters_dict: dict,
                  zeroshot_results_df: pd.DataFrame,
                  framework: str,
+                 framework_column: str = "framework",
                  convert_from_bag: bool = True,
                  portfolio_column: str = PORTFOLIO):
         self.config_hyperparameters_dict = config_hyperparameters_dict
-        self.zeroshot_results_df = copy.deepcopy(zeroshot_results_df[zeroshot_results_df['framework'] == framework])
+        self.zeroshot_results_df = copy.deepcopy(zeroshot_results_df[zeroshot_results_df[framework_column] == framework])
         assert len(self.zeroshot_results_df) > 0, f'framework="{framework}" missing from zeroshot_results_df!'
         self.convert_from_bag = convert_from_bag
         self.portfolio_column = portfolio_column
         self.framework = framework
 
-    def get_ag_hyperparameters_from_portfolio(self, portfolio: List[str]) -> Dict[str, Any]:
-        priority = len(portfolio)
+    def get_ag_hyperparameters_from_portfolio(self, portfolio: List[str], include_defaults=False) -> Dict[str, Any]:
+        if include_defaults:
+            portfolio = [p for p in portfolio if "_c" not in p]
+        priority = -1
         ag_hyperparameters = {}
         for m in portfolio:
             assert m in self.config_hyperparameters_dict, m
@@ -50,6 +53,19 @@ class ZeroshotHyperparametersVendor:
                 ag_hyperparameters[model_type].append(hyperparameters_w_priority)
             else:
                 ag_hyperparameters[model_type] = [hyperparameters_w_priority]
+
+        if include_defaults:
+            from autogluon.tabular.configs.hyperparameter_configs import get_hyperparameter_config
+            default_hyperparameters = get_hyperparameter_config(config_name="default")
+            final_hyperparameters = copy.deepcopy(default_hyperparameters)
+            for k in ag_hyperparameters:
+                if k not in final_hyperparameters:
+                    final_hyperparameters[k] = []
+                if not isinstance(final_hyperparameters[k], list):
+                    final_hyperparameters[k] = [final_hyperparameters[k]]
+                final_hyperparameters[k] = final_hyperparameters[k] + ag_hyperparameters[k]
+            ag_hyperparameters = final_hyperparameters
+
         return ag_hyperparameters
 
     def get_portfolio_for_dataset(self,
@@ -94,11 +110,11 @@ class ZeroshotHyperparametersVendor:
         return self.get_ag_hyperparameters_from_portfolio(portfolio=portfolio)
 
     def get_ag_hyperparameters_for_dataset(self,
-                                       dataset: str,
-                                       fold: int) -> Dict[str, Any]:
+                                           dataset: str,
+                                           fold: int,
+                                           include_defaults=False) -> Dict[str, Any]:
         portfolio = self.get_portfolio_for_dataset(dataset=dataset, fold=fold)
-        return self.get_ag_hyperparameters_from_portfolio(portfolio=portfolio)
-
+        return self.get_ag_hyperparameters_from_portfolio(portfolio=portfolio, include_defaults=include_defaults)
 
 
 def get_zs_hpo_vendor(
