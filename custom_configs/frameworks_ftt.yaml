@@ -19,7 +19,7 @@ __dummy_framework_with_defaults:
 #########################
 
 Artifacts: &artifacts
-  _save_artifacts: [ 'leaderboard', 'info', 'zeroshot']
+  _save_artifacts: ['leaderboard', 'zeroshot']
   _leaderboard_test: True
 
 AutoGluon:
