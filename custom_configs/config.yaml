@@ -63,8 +63,8 @@ aws:                    # configuration namespace for AWS mode.
         ami: ami-09cd747c78a9add63
         description: Canonical, Ubuntu, 20.04 LTS, amd64 focal image build on 2023-02-07
       eu-west-1:
-        ami: ami-0cd454db24da5cb9b
-        description: Built with PyTorch conda environment, NVIDIA CUDA, cuDNN, NCCL, GPU Driver, Docker, NVIDIA-Docker and EFA support.
+        ami: ami-0eee12f2bb3531eab
+        description: Deep Learning AMI GPU PyTorch 2.1.0 (Ubuntu 20.04) 20231103
 
   max_timeout_seconds: 259200    #
   overhead_time_seconds: 36000   # amount of additional time allowed for the job to complete on aws before the instance is stopped.
