@@ -23,6 +23,12 @@ fi
 PIP install --upgrade pip
 PIP install --upgrade setuptools wheel
 
+if [[ "$VERSION" == "latest_gpu" ]]; then
+    PIP install mmcv
+    PIP install pulp
+    PIP install torch==1.12.0+cu113 torchvision==0.13.0+cu113 torchtext==0.13.0 --extra-index-url https://download.pytorch.org/whl/cu113
+fi
+
 if [[ "$VERSION" == "stable" ]]; then
     PIP install --no-cache-dir -U "${PKG}"
     PIP install --no-cache-dir -U "${PKG}.tabular[skex]"

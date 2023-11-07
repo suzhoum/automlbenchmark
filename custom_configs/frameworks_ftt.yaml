@@ -23,7 +23,7 @@ Artifacts: &artifacts
   _leaderboard_test: True
 
 AutoGluon:
-  version: "latest"
+  version: "latest_gpu"
   description: |
     AutoGluon-Tabular: Unlike existing AutoML frameworks that primarily focus on model/hyperparameter selection,
     AutoGluon-Tabular succeeds by ensembling multiple models and stacking them in multiple layers.
