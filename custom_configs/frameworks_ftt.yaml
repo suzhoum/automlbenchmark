@@ -94,7 +94,6 @@ Ensemble_AG_mq:
 
 Ensemble_AG_FTT_bq:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     hyperparameters:
@@ -105,7 +104,6 @@ Ensemble_AG_FTT_bq:
 
 Ensemble_AG_FTT_mq:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     hyperparameters:
@@ -115,7 +113,6 @@ Ensemble_AG_FTT_mq:
 
 Ensemble_AG_FTT_rowatt_bq:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     hyperparameters:
@@ -127,7 +124,6 @@ Ensemble_AG_FTT_rowatt_bq:
 
 Ensemble_AG_FTT_rowatt_mq:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     hyperparameters:
@@ -138,7 +134,6 @@ Ensemble_AG_FTT_rowatt_mq:
 
 Ensemble_AG_FTT_pretrain_bq:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     hyperparameters:
@@ -156,7 +151,6 @@ Ensemble_AG_FTT_pretrain_bq:
 
 Ensemble_AG_FTT_pretrain_mq:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     hyperparameters:
@@ -173,7 +167,6 @@ Ensemble_AG_FTT_pretrain_mq:
 
 Ensemble_AG_FTT_all_bq:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     hyperparameters:
@@ -212,7 +205,6 @@ Ensemble_AG_FTT_all_bq:
 
 Ensemble_AG_FTT_all_mq:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     hyperparameters:
@@ -309,7 +301,6 @@ FASTAI_AG:
 
 HTT_AG:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     hyperparameters:
@@ -323,7 +314,6 @@ HTT_AG:
 
 FTT_AG:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     hyperparameters:
@@ -336,7 +326,6 @@ FTT_AG:
 
 FastFTT_AG:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     hyperparameters:
@@ -351,7 +340,6 @@ FastFTT_AG:
 
 FTT_AG_64:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     hyperparameters:
@@ -363,7 +351,6 @@ FTT_AG_64:
 
 FTT_AG_32:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     hyperparameters:
@@ -375,7 +362,6 @@ FTT_AG_32:
 
 FastFTT_AG_64:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     hyperparameters:
@@ -390,7 +376,6 @@ FastFTT_AG_64:
 
 FastFTT_AG_32:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     hyperparameters:
@@ -405,7 +390,6 @@ FastFTT_AG_32:
 
 FTT_AG_row_attention_1:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     _infer_rounds: 1
@@ -420,7 +404,6 @@ FTT_AG_row_attention_1:
 
 FTT_AG_row_attention_10:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     _infer_rounds: 10
@@ -435,7 +418,6 @@ FTT_AG_row_attention_10:
 
 FTT_AG_row_attention_10_gt:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     _infer_rounds: 10
@@ -451,7 +433,6 @@ FTT_AG_row_attention_10_gt:
 
 FTT_AG_row_attention_1_gt:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     _infer_rounds: 1
@@ -467,7 +448,6 @@ FTT_AG_row_attention_1_gt:
 
 FTT_AG_row_attention_-1_gt:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     _infer_rounds: -1
@@ -483,7 +463,6 @@ FTT_AG_row_attention_-1_gt:
 
 FTT_AG_row_attention_gt:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     _infer_rounds: 1
@@ -499,7 +478,6 @@ FTT_AG_row_attention_gt:
 
 FTT_AG_identical:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     hyperparameters:
@@ -518,7 +496,6 @@ FTT_AG_identical:
 
 FTT_AG_pretrain_cont:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     hyperparameters:
@@ -537,7 +514,6 @@ FTT_AG_pretrain_cont:
 
 FTT_AG_pretrain_recon:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     hyperparameters:
@@ -556,7 +532,6 @@ FTT_AG_pretrain_recon:
 
 FTT_AG_pretrain_both:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     hyperparameters:
@@ -575,7 +550,6 @@ FTT_AG_pretrain_both:
 
 FTT_AG_pretrain_dist:
   extends: AutoGluon
-  version: "latest_gpu"
   params:
     <<: *artifacts
     hyperparameters:
