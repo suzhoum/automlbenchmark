@@ -78,9 +78,11 @@ def run(dataset, config):
 
     _zeroshot_framework = config.framework_params.get('_zeroshot_framework', None)
     if _zeroshot_framework is not None:
+        _zeroshot_include_defaults = config.framework_params.get('_zeroshot_include_defaults', False)
         _hyperparameters = get_hyperparameters_from_zeroshot_framework(
             zeroshot_framework=_zeroshot_framework,
             config=config,
+            include_defaults=_zeroshot_include_defaults,
         )
         if _hyperparameters is not None:
             training_params['hyperparameters'] = _hyperparameters

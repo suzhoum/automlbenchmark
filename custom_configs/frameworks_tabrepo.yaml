@@ -1,0 +1,50 @@
+---
+
+#########################
+### AutoML frameworks ###
+#########################
+
+AutoGluon:
+  version: "latest"
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _leaderboard_test: True
+
+AutoGluon_bq_bag8_N100:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _leaderboard_test: True
+    presets: best_quality
+    _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
+    _zeroshot_include_defaults: True
+    num_bag_folds: 8
+
+AutoGluon_bq_N100:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _leaderboard_test: True
+    presets: best_quality
+    _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
+    _zeroshot_include_defaults: True
+
+AutoGluon_bq_nodefaults_N100:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _leaderboard_test: True
+    presets: best_quality
+    _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
+    _zeroshot_include_defaults: False
+
+AutoGluon_bq_ds_N100:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _leaderboard_test: True
+    presets: best_quality
+    _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
+    _zeroshot_include_defaults: True
+    dynamic_stacking: True
+    num_stack_levels: 1

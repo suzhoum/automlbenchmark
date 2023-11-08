@@ -5,7 +5,7 @@ from typing import Dict, List, Any
 
 import pandas as pd
 
-from autogluon.common.loaders import load_pd, load_pkl
+from autogluon.common.loaders import load_pd, load_json
 
 log = logging.getLogger(__name__)
 
@@ -119,11 +119,11 @@ class ZeroshotHyperparametersVendor:
 
 def get_zs_hpo_vendor(
     framework: str,
-    zeroshot_results_path='s3://automl-benchmark-ag/ec2/zs_data/zs_Bag244_test.csv',
-    config_hyperparameters_dict_path='s3://automl-benchmark-ag/ec2/zs_data/config_dict.pkl',
+    zeroshot_results_path='s3://automl-benchmark-ag/ec2/zs_data_v2/simulation/D244_F3_C1416_200_ALL/results.csv',
+    config_hyperparameters_dict_path='s3://automl-benchmark-ag/ec2/zs_data_v2/configs.json',
 ):
     zeroshot_results_df = load_pd.load(path=zeroshot_results_path)
-    config_hyperparameters_dict = load_pkl.load(path=config_hyperparameters_dict_path)
+    config_hyperparameters_dict = load_json.load(path=config_hyperparameters_dict_path)
     return ZeroshotHyperparametersVendor(
         framework=framework,
         zeroshot_results_df=zeroshot_results_df,
@@ -134,6 +134,7 @@ def get_zs_hpo_vendor(
 def get_hyperparameters_from_zeroshot_framework(
     zeroshot_framework: str,
     config,
+    include_defaults=False,
     **kwargs,
 ) -> dict:
     log.info(f'ZEROSHOT FRAMEWORK: {zeroshot_framework}')
@@ -143,6 +144,6 @@ def get_hyperparameters_from_zeroshot_framework(
     log.info(f'fold={fold}, dataset_name={dataset_name}')
     portfolio = zs_vendor.get_portfolio_for_dataset(dataset=dataset_name, fold=fold)
     log.info(f'Zeroshot Portfolio: {portfolio}')
-    hyperparameters = zs_vendor.get_ag_hyperparameters_for_dataset(dataset=dataset_name, fold=fold)
+    hyperparameters = zs_vendor.get_ag_hyperparameters_for_dataset(dataset=dataset_name, fold=fold, include_defaults=include_defaults)
     log.info(hyperparameters)
     return hyperparameters
