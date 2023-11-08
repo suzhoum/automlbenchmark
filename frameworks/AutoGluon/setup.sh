@@ -36,7 +36,8 @@ elif [[ "$VERSION" =~ ^[0-9] ]]; then
     PIP install --no-cache-dir -U "${PKG}==${VERSION}"
     PIP install --no-cache-dir -U "${PKG}.tabular[skex]==${VERSION}"
 else
-    VERSION="refrac_3"
+    # VERSION="refrac_3"
+    VERSION="add_zeroshot_hpo_simulation_fetcher"
     REPO="https://github.com/Innixma/autogluon.git"
 
     TARGET_DIR="${HERE}/lib/${PKG}"

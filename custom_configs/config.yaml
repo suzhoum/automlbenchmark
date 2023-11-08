@@ -1,5 +1,5 @@
 ---
-project_repository: https://github.com/Innixma/automlbenchmark#2023_11_07_bingzhao    # this is also the url used to clone the repository on ec2 instances
+project_repository: https://github.com/Innixma/automlbenchmark#2023_11_08_tabrepo    # this is also the url used to clone the repository on ec2 instances
                                                                           # when running those without docker.
                                                                           # to clone a specific branch/tag, add a url fragment, e.g.:
                                                                           # https://github.com/openml/automlbenchmark#stable
@@ -31,8 +31,8 @@ versions:              # configuration namespace for versions enforcement (libra
   python: 3.9          # the Python minor version that will be used by the application in containers and cloud instances, , also used as a based version for virtual environments created for each framework.
 
 aws:                    # configuration namespace for AWS mode.
-  # region: 'us-east-1'            # the AWS region to use. By default, the app will use the region set in ~/.aws/config when configuring AWS CLI.
-  region: 'eu-west-1'
+  region: 'us-east-1'            # the AWS region to use. By default, the app will use the region set in ~/.aws/config when configuring AWS CLI.
+  # region: 'eu-west-1'
 
   iam:                                               # sub-namespace for AWS IAM service.
     max_role_session_duration_secs: 259200             # the max duration (in seconds) during which the ec2 instance will have access to s3.
@@ -40,7 +40,7 @@ aws:                    # configuration namespace for AWS mode.
 
   s3:                               # sub-namespace for AWS S3 service.
     bucket: automl-benchmark-ag        # must be unique im whole Amazon s3, max 40 chars, and include only numbers, lowercase characters and hyphens.
-    root_key: ec2/2023_11_07_bingzhao/                  #
+    root_key: ec2/2023_11_08_tabrepo/                  #
 
   ec2:
     instance_type:                       #
@@ -55,7 +55,7 @@ aws:                    # configuration namespace for AWS mode.
         '32': 8xlarge
         '64': 16xlarge
     volume_type: gp3                # one of gp2, io1, st1, sc1, or standard (default).
-    # key_name: neerick_dev           # the name of the key pair passed to EC2 instances (if not set, user can't ssh the running instances)
+    key_name: neerick_dev           # the name of the key pair passed to EC2 instances (if not set, user can't ssh the running instances)
 
     # Note: Added a new updated region image, old images no longer responded to SSH and didn't work correctly
     regions:                             #
