@@ -113,6 +113,13 @@ test:
   cores: 8
   min_vol_size_mb: 100000
 
+60h8c_gpu:
+  folds: 10
+  max_runtime_seconds: 216000
+  cores: 8
+  min_vol_size_mb: 100000
+  ec2_instance_type: g4dn.2xlarge
+
 1h64c:
   folds: 10
   max_runtime_seconds: 3600
