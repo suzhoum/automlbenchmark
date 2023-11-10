@@ -1,0 +1,158 @@
+AutoGluon:
+  version: latest
+
+ZS_BAG_ftt_b0:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    - model_failures
+    ag_args_ensemble:
+      ag.max_time_limit: 3600
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      FT_TRANSFORMER:
+      - adapter_output_feature: 192
+        ag_args:
+          name_suffix: _c1
+        d_token: 192
+        ffn_d_hidden: 192
+        learning_rate: 0.0001
+        n_blocks: 3
+        weight_decay: 1.0e-05
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_ftt_b1:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    - model_failures
+    ag_args_ensemble:
+      ag.max_time_limit: 3600
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      FT_TRANSFORMER:
+      - adapter_output_feature: 192
+        ag_args:
+          name_suffix: _c2
+        d_token: 192
+        ffn_d_hidden: 192
+        learning_rate: 0.0001
+        n_blocks: 2
+        weight_decay: 1.0e-05
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_ftt_b2:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    - model_failures
+    ag_args_ensemble:
+      ag.max_time_limit: 3600
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      FT_TRANSFORMER:
+      - adapter_output_feature: 192
+        ag_args:
+          name_suffix: _c3
+        d_token: 192
+        ffn_d_hidden: 192
+        learning_rate: 0.0001
+        n_blocks: 4
+        weight_decay: 1.0e-05
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_ftt_b3:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    - model_failures
+    ag_args_ensemble:
+      ag.max_time_limit: 3600
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      FT_TRANSFORMER:
+      - adapter_output_feature: 256
+        ag_args:
+          name_suffix: _c4
+        d_token: 256
+        ffn_d_hidden: 256
+        learning_rate: 0.0001
+        n_blocks: 3
+        weight_decay: 1.0e-05
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_ftt_b4:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    - model_failures
+    ag_args_ensemble:
+      ag.max_time_limit: 3600
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      FT_TRANSFORMER:
+      - adapter_output_feature: 192
+        ag_args:
+          name_suffix: _c5
+        d_token: 192
+        ffn_d_hidden: 288
+        learning_rate: 0.0001
+        n_blocks: 3
+        weight_decay: 1.0e-05
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_ftt_b5:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    - model_failures
+    ag_args_ensemble:
+      ag.max_time_limit: 3600
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      FT_TRANSFORMER:
+      - adapter_output_feature: 192
+        ag_args:
+          name_suffix: _c6
+        d_token: 192
+        ffn_d_hidden: 384
+        learning_rate: 0.0001
+        n_blocks: 3
+        weight_decay: 1.0e-05
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest

@@ -50,7 +50,7 @@ else
     PIP install -e tabular/[skex]
 fi
 
-PIP install s3fs
-PIP install "boto3==1.26.90"
+#PIP install s3fs
+#PIP install "boto3==1.26.90"
 
 PY -c "from autogluon.tabular.version import __version__; print(__version__)" >> "${HERE}/.setup/installed"
