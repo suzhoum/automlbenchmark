@@ -35,14 +35,14 @@ ZS_BAG_ftt_b1:
     fit_weighted_ensemble: false
     hyperparameters:
       FT_TRANSFORMER:
-      - adapter_output_feature: 192
-        ag_args:
+      - ag_args:
           name_suffix: _c2
-        d_token: 192
-        ffn_d_hidden: 192
-        learning_rate: 0.0001
-        n_blocks: 3
-        weight_decay: 1.0e-05
+        model.ft_transformer.adapter_output_feature: 192
+        model.ft_transformer.d_token: 192
+        model.ft_transformer.ffn_d_hidden: 192
+        model.ft_transformer.n_blocks: 3
+        optimization.learning_rate: 0.0001
+        optimization.weight_decay: 1.0e-05
     num_bag_folds: 8
     num_bag_sets: 1
   version: latest
@@ -61,14 +61,14 @@ ZS_BAG_ftt_b2:
     fit_weighted_ensemble: false
     hyperparameters:
       FT_TRANSFORMER:
-      - adapter_output_feature: 192
-        ag_args:
+      - ag_args:
           name_suffix: _c3
-        d_token: 192
-        ffn_d_hidden: 192
-        learning_rate: 0.0001
-        n_blocks: 2
-        weight_decay: 1.0e-05
+        model.ft_transformer.adapter_output_feature: 192
+        model.ft_transformer.d_token: 192
+        model.ft_transformer.ffn_d_hidden: 192
+        model.ft_transformer.n_blocks: 2
+        optimization.learning_rate: 0.0001
+        optimization.weight_decay: 1.0e-05
     num_bag_folds: 8
     num_bag_sets: 1
   version: latest
@@ -87,14 +87,14 @@ ZS_BAG_ftt_b3:
     fit_weighted_ensemble: false
     hyperparameters:
       FT_TRANSFORMER:
-      - adapter_output_feature: 192
-        ag_args:
+      - ag_args:
           name_suffix: _c4
-        d_token: 192
-        ffn_d_hidden: 192
-        learning_rate: 0.0001
-        n_blocks: 4
-        weight_decay: 1.0e-05
+        model.ft_transformer.adapter_output_feature: 192
+        model.ft_transformer.d_token: 192
+        model.ft_transformer.ffn_d_hidden: 192
+        model.ft_transformer.n_blocks: 4
+        optimization.learning_rate: 0.0001
+        optimization.weight_decay: 1.0e-05
     num_bag_folds: 8
     num_bag_sets: 1
   version: latest
@@ -113,14 +113,14 @@ ZS_BAG_ftt_b4:
     fit_weighted_ensemble: false
     hyperparameters:
       FT_TRANSFORMER:
-      - adapter_output_feature: 256
-        ag_args:
+      - ag_args:
           name_suffix: _c5
-        d_token: 256
-        ffn_d_hidden: 256
-        learning_rate: 0.0001
-        n_blocks: 3
-        weight_decay: 1.0e-05
+        model.ft_transformer.adapter_output_feature: 256
+        model.ft_transformer.d_token: 256
+        model.ft_transformer.ffn_d_hidden: 256
+        model.ft_transformer.n_blocks: 3
+        optimization.learning_rate: 0.0001
+        optimization.weight_decay: 1.0e-05
     num_bag_folds: 8
     num_bag_sets: 1
   version: latest
@@ -139,14 +139,14 @@ ZS_BAG_ftt_b5:
     fit_weighted_ensemble: false
     hyperparameters:
       FT_TRANSFORMER:
-      - adapter_output_feature: 192
-        ag_args:
+      - ag_args:
           name_suffix: _c6
-        d_token: 192
-        ffn_d_hidden: 288
-        learning_rate: 0.0001
-        n_blocks: 3
-        weight_decay: 1.0e-05
+        model.ft_transformer.adapter_output_feature: 192
+        model.ft_transformer.d_token: 192
+        model.ft_transformer.ffn_d_hidden: 288
+        model.ft_transformer.n_blocks: 3
+        optimization.learning_rate: 0.0001
+        optimization.weight_decay: 1.0e-05
     num_bag_folds: 8
     num_bag_sets: 1
   version: latest
@@ -165,14 +165,14 @@ ZS_BAG_ftt_b6:
     fit_weighted_ensemble: false
     hyperparameters:
       FT_TRANSFORMER:
-      - adapter_output_feature: 192
-        ag_args:
+      - ag_args:
           name_suffix: _c7
-        d_token: 192
-        ffn_d_hidden: 384
-        learning_rate: 0.0001
-        n_blocks: 3
-        weight_decay: 1.0e-05
+        model.ft_transformer.adapter_output_feature: 192
+        model.ft_transformer.d_token: 192
+        model.ft_transformer.ffn_d_hidden: 384
+        model.ft_transformer.n_blocks: 3
+        optimization.learning_rate: 0.0001
+        optimization.weight_decay: 1.0e-05
     num_bag_folds: 8
     num_bag_sets: 1
   version: latest
