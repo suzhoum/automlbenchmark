@@ -10,6 +10,151 @@ AutoGluon:
     _save_artifacts: ['leaderboard', 'info', 'model_failures']
     _leaderboard_test: True
 
+AutoGluon_bq:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _leaderboard_test: True
+    presets: best_quality
+
+AutoGluon_hq:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _leaderboard_test: True
+    presets: high_quality
+
+AutoGluon_hq_ds:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _leaderboard_test: True
+    presets: high_quality
+    dynamic_stacking: True
+    num_bag_folds: 8
+    num_stack_levels: 1
+
+AutoGluon_mq:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _leaderboard_test: True
+    presets: medium_quality
+
+AutoGluon_mq_N100:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _leaderboard_test: True
+    presets: medium_quality
+    _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
+    _zeroshot_include_defaults: True
+
+AutoGluon_bq_simple:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _leaderboard_test: True
+    presets: best_quality
+    num_bag_sets: 1
+    num_stack_levels: 0
+
+AutoGluon_hq_simple:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _leaderboard_test: True
+    presets: high_quality
+    num_bag_sets: 1
+    num_stack_levels: 0
+
+AutoGluon_hq_ds_N100:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _leaderboard_test: True
+    presets: high_quality
+    _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
+    _zeroshot_include_defaults: True
+    dynamic_stacking: True
+    num_stack_levels: 1
+    num_bag_folds: 8
+
+AutoGluon_hq_ds_norepeats_N100:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _leaderboard_test: True
+    presets: high_quality
+    _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
+    _zeroshot_include_defaults: True
+    dynamic_stacking: True
+    num_stack_levels: 1
+    num_bag_sets: 1
+    num_bag_folds: 8
+
+AutoGluon_bq_ds_norepeats_N100:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _leaderboard_test: True
+    presets: best_quality
+    _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
+    _zeroshot_include_defaults: True
+    dynamic_stacking: True
+    num_stack_levels: 1
+    num_bag_sets: 1
+    num_bag_folds: 8
+
+AutoGluon_bq_ds_L3_N100:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _leaderboard_test: True
+    presets: best_quality
+    _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
+    _zeroshot_include_defaults: True
+    dynamic_stacking: True
+    num_stack_levels: 2
+    num_bag_folds: 8
+
+AutoGluon_bq_ds_L4_N100:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _leaderboard_test: True
+    presets: best_quality
+    _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
+    _zeroshot_include_defaults: True
+    dynamic_stacking: True
+    num_stack_levels: 3
+    num_bag_folds: 8
+
+AutoGluon_bq_simple_N100:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _leaderboard_test: True
+    presets: best_quality
+    _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
+    _zeroshot_include_defaults: True
+    num_bag_folds: 8
+    num_bag_sets: 1
+    num_stack_levels: 0
+
+AutoGluon_hq_simple_N100:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _leaderboard_test: True
+    presets: high_quality
+    _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
+    _zeroshot_include_defaults: True
+    num_bag_folds: 8
+    num_bag_sets: 1
+    num_stack_levels: 0
+
+
 AutoGluon_bq_bag8_N100:
   extends: AutoGluon
   params:
