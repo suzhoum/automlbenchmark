@@ -3,7 +3,7 @@ from autogluon.tabular import TabularPredictor
 
 
 def get_zeroshot_artifact(predictor: TabularPredictor, test_data: pd.DataFrame) -> dict:
-    models = predictor.get_model_names(can_infer=True)
+    models = predictor.model_names(can_infer=True)
 
     if predictor.can_predict_proba:
         pred_proba_dict_val = predictor.predict_proba_multi(inverse_transform=False, as_multiclass=False, models=models)

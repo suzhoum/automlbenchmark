@@ -104,8 +104,8 @@ def run(dataset, config):
     log.info(f"Finished fit in {training.duration}s.")
 
     # Log failures
-    if hasattr(predictor, 'get_model_failures'):  # version >0.8.2
-        model_failures_df = predictor.get_model_failures()
+    if hasattr(predictor, 'model_failures'):  # version >0.8.2
+        model_failures_df = predictor.model_failures()
         num_model_failures = len(model_failures_df)
         log.info(f'num_model_failures: {num_model_failures}')
         if num_model_failures > 0:
@@ -117,7 +117,10 @@ def run(dataset, config):
 
     # Persist model in memory that is going to be predicting to get correct inference latency
     # max_memory=0.4 will be future default: https://github.com/autogluon/autogluon/pull/3338
-    predictor.persist_models('best', max_memory=0.4)
+    if hasattr(predictor, 'persist'):  # version >=1.0
+        predictor.persist('best', max_memory=0.4)
+    else:
+        predictor.persist_models('best', max_memory=0.4)
 
     def inference_time_classification(data: Union[str, pd.DataFrame]):
         return None, predictor.predict_proba(data, as_multiclass=True)
