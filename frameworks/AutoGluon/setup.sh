@@ -23,6 +23,8 @@ fi
 PIP install --upgrade pip
 PIP install --upgrade setuptools wheel
 
+PIP install s3fs
+
 if [[ "$VERSION" == "latest_gpu" ]]; then
     PIP install mmcv
     PIP install pulp
@@ -37,7 +39,7 @@ elif [[ "$VERSION" =~ ^[0-9] ]]; then
     PIP install --no-cache-dir -U "${PKG}.tabular[skex]==${VERSION}"
 else
     # VERSION="refrac_3"
-    VERSION="fix_lr"
+    VERSION="tabular_weights_log"
     REPO="https://github.com/Innixma/autogluon.git"
 
     TARGET_DIR="${HERE}/lib/${PKG}"
