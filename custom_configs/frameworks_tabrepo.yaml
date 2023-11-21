@@ -24,6 +24,13 @@ AutoGluon_hq_v1:
     _leaderboard_test: True
     presets: high_quality_v1
 
+AutoGluon_hq_v2:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _leaderboard_test: True
+    presets: high_quality_v2
+
 AutoGluon_gq_v1:
   extends: AutoGluon
   params:
