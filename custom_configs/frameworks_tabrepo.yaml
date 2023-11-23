@@ -7,55 +7,79 @@
 AutoGluon:
   version: "latest"
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
 
 AutoGluon_bq_v1:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     presets: best_quality_v1
 
 AutoGluon_hq_v1:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     presets: high_quality_v1
+
+AutoGluon_hq_v1_il0001:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
+    _leaderboard_test: True
+    presets: high_quality_v1
+    infer_limit: 0.001
+
+AutoGluon_hq_v1_il00001:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
+    _leaderboard_test: True
+    presets: high_quality_v1
+    infer_limit: 0.0001
+
+AutoGluon_hq_v1_il000005:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
+    _leaderboard_test: True
+    presets: high_quality_v1
+    infer_limit: 0.00005
 
 AutoGluon_hq_v2:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     presets: high_quality_v2
 
 AutoGluon_gq_v1:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     presets: good_quality_v1
 
 AutoGluon_bq:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     presets: best_quality
 
 AutoGluon_hq:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     presets: high_quality
 
 AutoGluon_hq_ds:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     presets: high_quality
     dynamic_stacking: True
@@ -65,14 +89,14 @@ AutoGluon_hq_ds:
 AutoGluon_mq:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     presets: medium_quality
 
 AutoGluon_mq_N100:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     presets: medium_quality
     _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
@@ -81,7 +105,7 @@ AutoGluon_mq_N100:
 AutoGluon_bq_simple:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     presets: best_quality
     num_bag_sets: 1
@@ -90,7 +114,7 @@ AutoGluon_bq_simple:
 AutoGluon_hq_simple:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     presets: high_quality
     num_bag_sets: 1
@@ -99,7 +123,7 @@ AutoGluon_hq_simple:
 AutoGluon_hq_ds_N100:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     presets: high_quality
     _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
@@ -111,7 +135,7 @@ AutoGluon_hq_ds_N100:
 AutoGluon_hq_ds_norepeats_N100:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     presets: high_quality
     _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
@@ -124,7 +148,7 @@ AutoGluon_hq_ds_norepeats_N100:
 AutoGluon_bq_ds_norepeats_N100:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     presets: best_quality
     _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
@@ -137,7 +161,7 @@ AutoGluon_bq_ds_norepeats_N100:
 AutoGluon_bq_ds_L3_N100:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     presets: best_quality
     _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
@@ -149,7 +173,7 @@ AutoGluon_bq_ds_L3_N100:
 AutoGluon_bq_ds_L4_N100:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     presets: best_quality
     _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
@@ -161,7 +185,7 @@ AutoGluon_bq_ds_L4_N100:
 AutoGluon_bq_simple_N100:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     presets: best_quality
     _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
@@ -173,7 +197,7 @@ AutoGluon_bq_simple_N100:
 AutoGluon_hq_simple_N100:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     presets: high_quality
     _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
@@ -186,7 +210,7 @@ AutoGluon_hq_simple_N100:
 AutoGluon_bq_bag8_N100:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     presets: best_quality
     _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
@@ -196,7 +220,7 @@ AutoGluon_bq_bag8_N100:
 AutoGluon_bq_N100:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     presets: best_quality
     _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
@@ -205,7 +229,7 @@ AutoGluon_bq_N100:
 AutoGluon_bq_norepeats_N100:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     presets: best_quality
     _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
@@ -215,7 +239,7 @@ AutoGluon_bq_norepeats_N100:
 AutoGluon_bq_nodefaults_nostack_N100:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
     _zeroshot_include_defaults: False
@@ -225,7 +249,7 @@ AutoGluon_bq_nodefaults_nostack_N100:
 AutoGluon_bq_nodefaults_N100:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     presets: best_quality
     _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
@@ -234,7 +258,7 @@ AutoGluon_bq_nodefaults_N100:
 AutoGluon_bq_ds_N100:
   extends: AutoGluon
   params:
-    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _save_artifacts: ['leaderboard', 'info', 'model_failures', 'infer_speed']
     _leaderboard_test: True
     presets: best_quality
     _zeroshot_framework: "Portfolio-N100 (ensemble) (4h)"
