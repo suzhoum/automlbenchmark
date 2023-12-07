@@ -1,0 +1,101 @@
+---
+
+#########################
+### AutoML frameworks ###
+#########################
+
+Artifacts: &artifacts
+  _save_artifacts: ['leaderboard', 'info', 'model_failures']
+  _leaderboard_test: True
+
+AutoGluon:
+  version: "1.0"
+  params:
+    <<: *artifacts
+
+AutoGluon_bq:
+  extends: AutoGluon
+  params:
+    <<: *artifacts
+    presets: best_quality
+
+AutoGluon_hq:
+  extends: AutoGluon
+  params:
+    <<: *artifacts
+    presets: high_quality
+
+AutoGluon_hq_il0001:
+  extends: AutoGluon
+  params:
+    <<: *artifacts
+    presets: high_quality
+    infer_limit: 0.001
+
+AutoGluon_hq_il00005:
+  extends: AutoGluon
+  params:
+    <<: *artifacts
+    presets: high_quality
+    infer_limit: 0.0005
+
+AutoGluon_hq_il00001:
+  extends: AutoGluon
+  params:
+    <<: *artifacts
+    presets: high_quality
+    infer_limit: 0.0001
+
+AutoGluon_hq_il000005:
+  extends: AutoGluon
+  params:
+    <<: *artifacts
+    presets: high_quality
+    infer_limit: 0.00005
+
+AutoGluon_gq:
+  extends: AutoGluon
+  params:
+    <<: *artifacts
+    presets: good_quality
+
+AutoGluon_mq:
+  extends: AutoGluon
+  params:
+    <<: *artifacts
+    presets: medium_quality
+
+AutoGluon_CatBoost:
+  extends: AutoGluon
+  params:
+    <<: *artifacts
+    hyperparameters: {"CAT": {}}
+    fit_weighted_ensemble: False
+
+AutoGluon_XGBoost:
+  extends: AutoGluon
+  params:
+    <<: *artifacts
+    hyperparameters: {"XGB": {}}
+    fit_weighted_ensemble: False
+
+AutoGluon_LightGBM:
+  extends: AutoGluon
+  params:
+    <<: *artifacts
+    hyperparameters: {"GBM": {}}
+    fit_weighted_ensemble: False
+
+AutoGluon_NN:
+  extends: AutoGluon
+  params:
+    <<: *artifacts
+    hyperparameters: {"NN_TORCH": {}}
+    fit_weighted_ensemble: False
+
+AutoGluon_FastAI:
+  extends: AutoGluon
+  params:
+    <<: *artifacts
+    hyperparameters: {"FASTAI": {}}
+    fit_weighted_ensemble: False
