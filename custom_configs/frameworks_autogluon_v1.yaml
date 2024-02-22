@@ -19,6 +19,28 @@ AutoGluon_bq:
     <<: *artifacts
     presets: best_quality
 
+AutoGluon_bq_noportfolio:
+  extends: AutoGluon
+  params:
+    <<: *artifacts
+    presets: best_quality
+    hyperparameters: "default"
+
+AutoGluon_bq_nodynamic:
+  extends: AutoGluon
+  params:
+    <<: *artifacts
+    presets: best_quality
+    dynamic_stacking: False
+
+AutoGluon_bq_noportfolio_nodynamic:
+  extends: AutoGluon
+  params:
+    <<: *artifacts
+    presets: best_quality
+    hyperparameters: "default"
+    dynamic_stacking: False
+
 AutoGluon_hq:
   extends: AutoGluon
   params:
