@@ -85,5 +85,5 @@ aws:                    # configuration namespace for AWS mode.
     - '{user}/benchmarks'
     - '{user}/extensions'
 
-inference_time_measurements:  # configuration namespace for performing additional inference time measurements on various batch sizes
-  enabled: true
+#inference_time_measurements:  # configuration namespace for performing additional inference time measurements on various batch sizes
+#  enabled: true
