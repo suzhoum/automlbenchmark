@@ -1,5 +1,5 @@
 ---
-project_repository: https://github.com/Innixma/automlbenchmark#2024_02_25    # this is also the url used to clone the repository on ec2 instances
+project_repository: https://github.com/Innixma/automlbenchmark#2024_02_26    # this is also the url used to clone the repository on ec2 instances
                                                                           # when running those without docker.
                                                                           # to clone a specific branch/tag, add a url fragment, e.g.:
                                                                           # https://github.com/openml/automlbenchmark#stable
@@ -40,11 +40,11 @@ aws:                    # configuration namespace for AWS mode.
 
   s3:                               # sub-namespace for AWS S3 service.
     bucket: automl-benchmark-ag        # must be unique im whole Amazon s3, max 40 chars, and include only numbers, lowercase characters and hyphens.
-    root_key: ec2/2024_02_25/                  #
+    root_key: ec2/2024_02_26/                  #
 
   ec2:
     instance_type:                       #
-      series: m5                        # m6i
+      series: m6i                        # m6i
       map:                               # map between num cores required and ec2 instance type sizes
         default: large
         '1': small
