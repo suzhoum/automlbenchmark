@@ -428,17 +428,17 @@ class CsvDatasplit(FileDatasplit):
             if self.dataset._dtypes is None:
                 df = read_csv(self.path, timestamp_column=self.timestamp_column)
                 # df = df.convert_dtypes()
-                dt_conversions = {name: 'category'
-                                  for name, dtype in zip(df.dtypes.index, df.dtypes.values)
-                                  if pat.is_string_dtype(dtype)
-                                  or pat.is_object_dtype(dtype)
-                                  or (name == self.dataset._target
-                                      and self.dataset._type is not None
-                                      and DatasetType[self.dataset._type] in [DatasetType.binary, DatasetType.multiclass])
-                                  }
-                # we could be a bit more clever in the future and convert 'string' to category iff len(distinct values) << nrows
-                if dt_conversions:
-                    df = df.astype(dt_conversions, copy=False)
+                # dt_conversions = {name: 'category'
+                #                  for name, dtype in zip(df.dtypes.index, df.dtypes.values)
+                #                  if pat.is_string_dtype(dtype)
+                #                  or pat.is_object_dtype(dtype)
+                #                  or (name == self.dataset._target
+                #                      and self.dataset._type is not None
+                #                      and DatasetType[self.dataset._type] in [DatasetType.binary, DatasetType.multiclass])
+                #                  }
+                ## we could be a bit more clever in the future and convert 'string' to category iff len(distinct values) << nrows
+                #if dt_conversions:
+                #    df = df.astype(dt_conversions, copy=False)
 
                 self._ds = df
                 self.dataset._dtypes = self._ds.dtypes
