@@ -291,14 +291,14 @@ class ArffDatasplit(FileDatasplit):
         target = self._find_target_feature(features)
         self._set_feature_as_target(target)
 
-        df = to_data_frame(self._ds['data'])
-        for f in features:
-            col = df.iloc[:, f.index]
-            f.has_missing_values = col.hasnans
-            if f.is_categorical():
-                arff_type = attrs[f.index][1]
-                assert isinstance(arff_type, (list, set))
-                f.values = sorted(arff_type)
+        # df = to_data_frame(self._ds['data'])
+        # for f in features:
+        #     col = df.iloc[:, f.index]
+        #     f.has_missing_values = col.hasnans
+        #     if f.is_categorical():
+        #         arff_type = attrs[f.index][1]
+        #         assert isinstance(arff_type, (list, set))
+        #         f.values = sorted(arff_type)
 
         meta = dict(
             features=features,
@@ -427,18 +427,18 @@ class CsvDatasplit(FileDatasplit):
         if self._ds is None:
             if self.dataset._dtypes is None:
                 df = read_csv(self.path, timestamp_column=self.timestamp_column)
-                # df = df.convert_dtypes()
+                # # df = df.convert_dtypes()
                 # dt_conversions = {name: 'category'
-                #                  for name, dtype in zip(df.dtypes.index, df.dtypes.values)
-                #                  if pat.is_string_dtype(dtype)
-                #                  or pat.is_object_dtype(dtype)
-                #                  or (name == self.dataset._target
-                #                      and self.dataset._type is not None
-                #                      and DatasetType[self.dataset._type] in [DatasetType.binary, DatasetType.multiclass])
-                #                  }
-                ## we could be a bit more clever in the future and convert 'string' to category iff len(distinct values) << nrows
-                #if dt_conversions:
-                #    df = df.astype(dt_conversions, copy=False)
+                #                   for name, dtype in zip(df.dtypes.index, df.dtypes.values)
+                #                   if pat.is_string_dtype(dtype)
+                #                   or pat.is_object_dtype(dtype)
+                #                   or (name == self.dataset._target
+                #                       and self.dataset._type is not None
+                #                       and DatasetType[self.dataset._type] in [DatasetType.binary, DatasetType.multiclass])
+                #                   }
+                # # we could be a bit more clever in the future and convert 'string' to category iff len(distinct values) << nrows
+                # if dt_conversions:
+                #     df = df.astype(dt_conversions, copy=False)
 
                 self._ds = df
                 self.dataset._dtypes = self._ds.dtypes
@@ -557,3 +557,4 @@ def _get_file_convert_cls(fmt=None):
         supported = [ds.format for ds in __file_converters__]
         raise ValueError(f"`{fmt}` is not among supported formats: {supported}.")
     return cls
+
