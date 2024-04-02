@@ -11,8 +11,8 @@ AutoGluon:
     AutoGluon-Tabular succeeds by ensembling multiple models and stacking them in multiple layers.
   project: https://auto.gluon.ai
   refs: [https://arxiv.org/abs/2003.06505]
-#  params:
-#    _save_artifacts: ['leaderboard', 'models', 'info']
+  params:
+    _save_artifacts: ['leaderboard', 'models', 'info']
 
 AutoGluon_bq:
   extends: AutoGluon
@@ -22,6 +22,7 @@ AutoGluon_bq:
   params:
     presets: best_quality
     _leaderboard_test: True
+    _save_artifacts: ['leaderboard', 'models', 'info']
 
 AutoGluon_hq:
   extends: AutoGluon
@@ -31,6 +32,7 @@ AutoGluon_hq:
   params:
     presets: high_quality
     _leaderboard_test: True
+    _save_artifacts: ['leaderboard', 'models', 'info']
 
 AutoGluon_gq:
   extends: AutoGluon
@@ -40,9 +42,11 @@ AutoGluon_gq:
   params:
     presets: good_quality
     _leaderboard_test: True
+    _save_artifacts: ['leaderboard', 'models', 'info']
 
 AutoGluon_mq:
   extends: AutoGluon
   params:
     presets: medium_quality
     _leaderboard_test: True
+    _save_artifacts: ['leaderboard', 'models', 'info']
