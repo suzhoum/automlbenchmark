@@ -60,8 +60,8 @@ aws:                    # configuration namespace for AWS mode.
     # Note: Added a new updated region image, old images no longer responded to SSH and didn't work correctly
     regions:                             #
       us-east-1:
-        ami: ami-09cd747c78a9add63
-        description: Canonical, Ubuntu, 20.04 LTS, amd64 focal image build on 2023-02-07
+        ami: ami-005fc0f236362e99f
+        description: Canonical, Ubuntu, 22.04 LTS, amd64 jammy image build on 2024-09-27
       eu-west-1:
         ami: ami-0eee12f2bb3531eab
         description: Deep Learning AMI GPU PyTorch 2.1.0 (Ubuntu 20.04) 20231103
