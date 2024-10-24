@@ -16,7 +16,7 @@ AutoGluon:
 AutoGluon_bq_mainline:
   extends: AutoGluon
   repo: "https://github.com/Innixma/autogluon.git"
-  version: "2024_10_24_amlb"
+  version: "amlb_2024_10_24"
   description: |
     AutoGluon with 'best_quality' preset provides the most accurate overall predictor.
     Refer to https://auto.gluon.ai/stable/tutorials/tabular_prediction/tabular-quickstart.html#presets for a description of the presets.
