@@ -36,3 +36,15 @@ AutoGluon_bq_pr4559:
     presets: best_quality
     _leaderboard_test: True
     _save_artifacts: ['leaderboard', 'info', 'model_failures']
+
+AutoGluon_bq_pr4586:
+  extends: AutoGluon
+  repo: "https://github.com/Innixma/autogluon.git"
+  version: "tabular_stratify_regression"
+  description: |
+    AutoGluon with 'best_quality' preset provides the most accurate overall predictor.
+    Refer to https://auto.gluon.ai/stable/tutorials/tabular_prediction/tabular-quickstart.html#presets for a description of the presets.
+  params:
+    presets: best_quality
+    _leaderboard_test: True
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
