@@ -48,3 +48,30 @@ AutoGluon_bq_pr4586:
     presets: best_quality
     _leaderboard_test: True
     _save_artifacts: ['leaderboard', 'info', 'model_failures']
+
+
+AutoGluon_bq_pr4606:
+  extends: AutoGluon
+  repo: "https://github.com/LennartPurucker/autogluon.git"
+  version: "ag_dist_pr"
+  description: |
+    AutoGluon with 'best_quality' preset provides the most accurate overall predictor.
+    Refer to https://auto.gluon.ai/stable/tutorials/tabular_prediction/tabular-quickstart.html#presets for a description of the presets.
+  params:
+    presets: best_quality
+    fit_strategy: "parallel"
+    _leaderboard_test: True
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+
+AutoGluon_bq_pr4606_seq:
+  extends: AutoGluon
+  repo: "https://github.com/LennartPurucker/autogluon.git"
+  version: "ag_dist_pr"
+  description: |
+    AutoGluon with 'best_quality' preset provides the most accurate overall predictor.
+    Refer to https://auto.gluon.ai/stable/tutorials/tabular_prediction/tabular-quickstart.html#presets for a description of the presets.
+  params:
+    presets: best_quality
+    fit_strategy: "sequential"
+    _leaderboard_test: True
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
