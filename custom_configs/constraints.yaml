@@ -120,6 +120,12 @@ test:
   min_vol_size_mb: 100000
   ec2_instance_type: g4dn.2xlarge
 
+10m64c:
+  folds: 10
+  max_runtime_seconds: 600
+  cores: 64
+  min_vol_size_mb: 100000
+
 1h64c:
   folds: 10
   max_runtime_seconds: 3600
