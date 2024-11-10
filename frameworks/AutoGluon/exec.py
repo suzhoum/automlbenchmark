@@ -19,7 +19,7 @@ from autogluon.tabular import TabularPredictor, TabularDataset
 import autogluon.core.metrics as metrics
 from autogluon.tabular.version import __version__
 
-from frameworks.shared.callee import call_run, result, measure_inference_times, output_subdir
+from frameworks.shared.callee import call_run, result, measure_inference_times
 from frameworks.shared.utils import Timer
 
 from ag_utils.save_artifacts import ArtifactSaver
