@@ -884,7 +884,7 @@ class AWSBenchmark(Benchmark):
             )
         )
 
-    def _download_results(self, instance_id):
+    def _download_results(self, instance_id, only_results_file: bool = True):
         """
         :param instance_id:
         :return: True iff the main result/scoring file has been successfully downloaded. Other failures are only logged.
@@ -918,6 +918,11 @@ class AWSBenchmark(Benchmark):
                 rel_path = url_relpath(obj.key, start=session_key)
                 dest_path = os.path.join(self.output_dirs.session, rel_path)
                 try:
+                    if only_results_file and not is_result:
+                        # Skip non-result files if only_results_file = True
+                        log.info(f"Skipping download of `{obj.key}` from s3 bucket {self.bucket.name} "
+                                 f"(only_results_file={only_results_file}, is_result={is_result}).")
+                        continue
                     download_file(obj, dest_path)
                     if is_result and not success:
                         self._exec_send(lambda path: self._save_global(Scoreboard.from_file(path)), dest_path)
