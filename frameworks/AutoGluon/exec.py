@@ -16,13 +16,14 @@ import pandas as pd
 matplotlib.use('agg')  # no need for tk
 
 from autogluon.tabular import TabularPredictor, TabularDataset
-from autogluon.core.utils.savers import save_pd, save_pkl, save_json
 import autogluon.core.metrics as metrics
 from autogluon.tabular.version import __version__
 
-from frameworks.shared.callee import call_run, result, output_subdir, \
-    measure_inference_times
-from frameworks.shared.utils import Timer, zip_path
+from frameworks.shared.callee import call_run, result, measure_inference_times, output_subdir
+from frameworks.shared.utils import Timer
+
+from ag_utils.save_artifacts import ArtifactSaver
+from ag_utils.zs_portfolio import get_hyperparameters_from_zeroshot_framework
 
 log = logging.getLogger(__name__)
 
@@ -93,6 +94,18 @@ def run(dataset, config):
 
     models_dir = tempfile.mkdtemp() + os.sep  # passed to AG
 
+    # FIXME: Either remove or cleanup, this is very rarely used.
+    _zeroshot_framework = config.framework_params.get('_zeroshot_framework', None)
+    if _zeroshot_framework is not None:
+        _zeroshot_include_defaults = config.framework_params.get('_zeroshot_include_defaults', False)
+        _hyperparameters = get_hyperparameters_from_zeroshot_framework(
+            zeroshot_framework=_zeroshot_framework,
+            config=config,
+            include_defaults=_zeroshot_include_defaults,
+        )
+        if _hyperparameters is not None:
+            training_params['hyperparameters'] = _hyperparameters
+
     with Timer() as training:
         predictor = TabularPredictor(
             label=label,
@@ -105,7 +118,21 @@ def run(dataset, config):
             **training_params
         )
 
+    artifact_saver = ArtifactSaver(predictor=predictor, config=config)
+
     log.info(f"Finished fit in {training.duration}s.")
+
+    # Log failures
+    if hasattr(predictor, 'model_failures'):  # version >0.8.2
+        model_failures_df = predictor.model_failures()
+        num_model_failures = len(model_failures_df)
+        log.info(f'num_model_failures: {num_model_failures}')
+        if num_model_failures > 0:
+            with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', 1000):
+                log.info(model_failures_df)
+    else:
+        model_failures_df = None
+    artifact_saver.cache_post_fit(model_failures_df=model_failures_df)
 
     # Persist model in memory that is going to be predicting to get correct inference latency
     if hasattr(predictor, 'persist'):  # autogluon>=1.0
@@ -160,7 +187,9 @@ def run(dataset, config):
     else:
         num_models_ensemble = 1
 
-    save_artifacts(predictor, leaderboard, learning_curves, config)
+    # FIXME: caching artifacts doesn't work correctly in local mode, because all dataset/folds will overwrite eachother.
+    #  It does work fine in AWS mode though. Refer to https://github.com/openml/automlbenchmark/issues/647
+    artifact_saver.cache_post_predict(leaderboard=leaderboard, test_data=test_data)
     shutil.rmtree(predictor.path, ignore_errors=True)
 
     return result(output_file=config.output_predictions_file,
@@ -187,32 +216,6 @@ def initialize_callbacks(callback_settings):
             raise ValueError(f"Callback {callback} is not a valid callback")
         callbacks.append(callback_cls(**hyperparameters))
     return callbacks
-
-
-def save_artifacts(predictor, leaderboard, learning_curves, config):
-    artifacts = config.framework_params.get('_save_artifacts', ['leaderboard'])
-    try:
-        if 'leaderboard' in artifacts:
-            leaderboard_dir = output_subdir("leaderboard", config)
-            save_pd.save(path=os.path.join(leaderboard_dir, "leaderboard.csv"), df=leaderboard)
-
-        if 'info' in artifacts:
-            ag_info = predictor.info()
-            info_dir = output_subdir("info", config)
-            save_pkl.save(path=os.path.join(info_dir, "info.pkl"), object=ag_info)
-
-        if 'models' in artifacts:
-            shutil.rmtree(os.path.join(predictor.path, "utils"), ignore_errors=True)
-            models_dir = output_subdir("models", config)
-            zip_path(predictor.path, os.path.join(models_dir, "models.zip"))
-
-        if 'learning_curves' in artifacts:
-            assert learning_curves is not None, "No learning curves were generated!"
-            learning_curves_dir = output_subdir("learning_curves", config)
-            save_json.save(path=os.path.join(learning_curves_dir, "learning_curves.json"), obj=learning_curves)
-
-    except Exception:
-        log.warning("Error when saving artifacts.", exc_info=True)
 
 
 if __name__ == '__main__':
