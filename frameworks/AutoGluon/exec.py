@@ -30,7 +30,6 @@ log = logging.getLogger(__name__)
 
 def run(dataset, config):
     log.info(f"\n**** AutoGluon [v{__version__}] ****\n")
-    log_pip_freeze()
 
     metrics_mapping = dict(
         acc=metrics.accuracy,
