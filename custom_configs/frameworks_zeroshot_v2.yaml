@@ -1,0 +1,733 @@
+AutoGluon:
+  version: latest
+
+ZS_BAG_lr_b0:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    - model_failures
+    ag_args_ensemble:
+      ag.max_time_limit: 3600
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      LR:
+      - ag_args:
+          name_suffix: _c1
+      - ag_args:
+          name_suffix: _c2
+        proc.skew_threshold: null
+      - C: 548.858622576932
+        ag_args:
+          name_suffix: _r1
+        penalty: L1
+        proc.impute_strategy: median
+        proc.skew_threshold: null
+      - C: 857.9598230609945
+        ag_args:
+          name_suffix: _r2
+        penalty: L1
+        proc.impute_strategy: mean
+        proc.skew_threshold: null
+      - C: 645.9295236553495
+        ag_args:
+          name_suffix: _r3
+        penalty: L2
+        proc.impute_strategy: mean
+        proc.skew_threshold: 0.999
+      - C: 56.80730601971143
+        ag_args:
+          name_suffix: _r4
+        penalty: L2
+        proc.impute_strategy: median
+        proc.skew_threshold: 0.9
+      - C: 791.7458655788563
+        ag_args:
+          name_suffix: _r5
+        penalty: L1
+        proc.impute_strategy: median
+        proc.skew_threshold: 0.99
+      - C: 392.84551762121964
+        ag_args:
+          name_suffix: _r6
+        penalty: L1
+        proc.impute_strategy: mean
+        proc.skew_threshold: 0.99
+      - C: 87.22058677157055
+        ag_args:
+          name_suffix: _r7
+        penalty: L1
+        proc.impute_strategy: median
+        proc.skew_threshold: null
+      - C: 957.159443437151
+        ag_args:
+          name_suffix: _r8
+        penalty: L1
+        proc.impute_strategy: mean
+        proc.skew_threshold: 0.99
+      - C: 978.6204803985407
+        ag_args:
+          name_suffix: _r9
+        penalty: L2
+        proc.impute_strategy: mean
+        proc.skew_threshold: null
+      - C: 520.5254318032497
+        ag_args:
+          name_suffix: _r10
+        penalty: L1
+        proc.impute_strategy: median
+        proc.skew_threshold: null
+      - C: 639.9570292253911
+        ag_args:
+          name_suffix: _r11
+        penalty: L1
+        proc.impute_strategy: mean
+        proc.skew_threshold: null
+      - C: 758.6397627599249
+        ag_args:
+          name_suffix: _r12
+        penalty: L2
+        proc.impute_strategy: median
+        proc.skew_threshold: null
+      - C: 264.6291565434165
+        ag_args:
+          name_suffix: _r13
+        penalty: L1
+        proc.impute_strategy: median
+        proc.skew_threshold: null
+      - C: 216.62869938892942
+        ag_args:
+          name_suffix: _r14
+        penalty: L2
+        proc.impute_strategy: median
+        proc.skew_threshold: 0.99
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_lr_b1:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    - model_failures
+    ag_args_ensemble:
+      ag.max_time_limit: 3600
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      LR:
+      - C: 617.6737335261695
+        ag_args:
+          name_suffix: _r15
+        penalty: L2
+        proc.impute_strategy: median
+        proc.skew_threshold: 0.99
+      - C: 386.5503322277494
+        ag_args:
+          name_suffix: _r16
+        penalty: L2
+        proc.impute_strategy: mean
+        proc.skew_threshold: 0.999
+      - C: 359.57194978372866
+        ag_args:
+          name_suffix: _r17
+        penalty: L2
+        proc.impute_strategy: mean
+        proc.skew_threshold: 0.9
+      - C: 99.37042232393796
+        ag_args:
+          name_suffix: _r18
+        penalty: L1
+        proc.impute_strategy: mean
+        proc.skew_threshold: 0.999
+      - C: 670.6708058311976
+        ag_args:
+          name_suffix: _r19
+        penalty: L2
+        proc.impute_strategy: median
+        proc.skew_threshold: null
+      - C: 750.7110726043344
+        ag_args:
+          name_suffix: _r20
+        penalty: L1
+        proc.impute_strategy: mean
+        proc.skew_threshold: 0.99
+      - C: 570.2397507408378
+        ag_args:
+          name_suffix: _r21
+        penalty: L2
+        proc.impute_strategy: mean
+        proc.skew_threshold: 0.99
+      - C: 958.9533736976579
+        ag_args:
+          name_suffix: _r22
+        penalty: L1
+        proc.impute_strategy: mean
+        proc.skew_threshold: 0.99
+      - C: 161.39338693320775
+        ag_args:
+          name_suffix: _r23
+        penalty: L2
+        proc.impute_strategy: median
+        proc.skew_threshold: 0.99
+      - C: 414.4271513675462
+        ag_args:
+          name_suffix: _r24
+        penalty: L2
+        proc.impute_strategy: mean
+        proc.skew_threshold: 0.999
+      - C: 159.05368668715516
+        ag_args:
+          name_suffix: _r25
+        penalty: L1
+        proc.impute_strategy: mean
+        proc.skew_threshold: 0.9
+      - C: 317.27002189508914
+        ag_args:
+          name_suffix: _r26
+        penalty: L1
+        proc.impute_strategy: mean
+        proc.skew_threshold: null
+      - C: 368.78829814389803
+        ag_args:
+          name_suffix: _r27
+        penalty: L1
+        proc.impute_strategy: median
+        proc.skew_threshold: 0.99
+      - C: 622.8838109371148
+        ag_args:
+          name_suffix: _r28
+        penalty: L2
+        proc.impute_strategy: median
+        proc.skew_threshold: 0.99
+      - C: 976.4618190668945
+        ag_args:
+          name_suffix: _r29
+        penalty: L2
+        proc.impute_strategy: median
+        proc.skew_threshold: 0.9
+      - C: 55.80912223223615
+        ag_args:
+          name_suffix: _r30
+        penalty: L1
+        proc.impute_strategy: mean
+        proc.skew_threshold: null
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_lr_b2:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    - model_failures
+    ag_args_ensemble:
+      ag.max_time_limit: 3600
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      LR:
+      - C: 39.28387347509524
+        ag_args:
+          name_suffix: _r31
+        penalty: L2
+        proc.impute_strategy: mean
+        proc.skew_threshold: 0.999
+      - C: 359.5085195229246
+        ag_args:
+          name_suffix: _r32
+        penalty: L1
+        proc.impute_strategy: median
+        proc.skew_threshold: 0.9
+      - C: 318.05138107603665
+        ag_args:
+          name_suffix: _r33
+        penalty: L1
+        proc.impute_strategy: median
+        proc.skew_threshold: null
+      - C: 216.90045541378012
+        ag_args:
+          name_suffix: _r34
+        penalty: L2
+        proc.impute_strategy: mean
+        proc.skew_threshold: 0.99
+      - C: 265.4629519903515
+        ag_args:
+          name_suffix: _r35
+        penalty: L1
+        proc.impute_strategy: median
+        proc.skew_threshold: 0.9
+      - C: 921.165494476176
+        ag_args:
+          name_suffix: _r36
+        penalty: L2
+        proc.impute_strategy: median
+        proc.skew_threshold: 0.999
+      - C: 318.6370955560785
+        ag_args:
+          name_suffix: _r37
+        penalty: L1
+        proc.impute_strategy: median
+        proc.skew_threshold: null
+      - C: 647.2094227735367
+        ag_args:
+          name_suffix: _r38
+        penalty: L2
+        proc.impute_strategy: median
+        proc.skew_threshold: 0.999
+      - C: 183.2730428709161
+        ag_args:
+          name_suffix: _r39
+        penalty: L2
+        proc.impute_strategy: mean
+        proc.skew_threshold: 0.99
+      - C: 165.02396619585994
+        ag_args:
+          name_suffix: _r40
+        penalty: L1
+        proc.impute_strategy: median
+        proc.skew_threshold: 0.99
+      - C: 677.8487551425505
+        ag_args:
+          name_suffix: _r41
+        penalty: L1
+        proc.impute_strategy: median
+        proc.skew_threshold: 0.999
+      - C: 288.54758940482384
+        ag_args:
+          name_suffix: _r42
+        penalty: L2
+        proc.impute_strategy: median
+        proc.skew_threshold: 0.99
+      - C: 576.1997186843952
+        ag_args:
+          name_suffix: _r43
+        penalty: L2
+        proc.impute_strategy: median
+        proc.skew_threshold: 0.999
+      - C: 638.9571841236898
+        ag_args:
+          name_suffix: _r44
+        penalty: L1
+        proc.impute_strategy: median
+        proc.skew_threshold: 0.9
+      - C: 447.1806660797656
+        ag_args:
+          name_suffix: _r45
+        penalty: L2
+        proc.impute_strategy: mean
+        proc.skew_threshold: 0.9
+      - C: 116.29028942143316
+        ag_args:
+          name_suffix: _r46
+        penalty: L2
+        proc.impute_strategy: mean
+        proc.skew_threshold: 0.9
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_lr_b3:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    - model_failures
+    ag_args_ensemble:
+      ag.max_time_limit: 3600
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      LR:
+      - C: 396.56609027289994
+        ag_args:
+          name_suffix: _r47
+        penalty: L2
+        proc.impute_strategy: median
+        proc.skew_threshold: 0.99
+      - C: 313.2870101127564
+        ag_args:
+          name_suffix: _r48
+        penalty: L2
+        proc.impute_strategy: mean
+        proc.skew_threshold: 0.99
+      - C: 725.2817543916585
+        ag_args:
+          name_suffix: _r49
+        penalty: L2
+        proc.impute_strategy: mean
+        proc.skew_threshold: 0.9
+      - C: 230.60997020397923
+        ag_args:
+          name_suffix: _r50
+        penalty: L2
+        proc.impute_strategy: median
+        proc.skew_threshold: 0.99
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_knn_b0:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    - model_failures
+    ag_args_ensemble:
+      ag.max_time_limit: 3600
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      KNN:
+      - ag_args:
+          name_suffix: _c1
+        weights: uniform
+      - ag_args:
+          name_suffix: _c2
+        weights: distance
+      - ag_args:
+          name_suffix: _r1
+        n_neighbors: 9
+        p: 1
+        weights: uniform
+      - ag_args:
+          name_suffix: _r2
+        n_neighbors: 4
+        p: 1
+        weights: distance
+      - ag_args:
+          name_suffix: _r3
+        n_neighbors: 8
+        p: 1
+        weights: distance
+      - ag_args:
+          name_suffix: _r4
+        n_neighbors: 50
+        p: 2
+        weights: uniform
+      - ag_args:
+          name_suffix: _r5
+        n_neighbors: 4
+        p: 2
+        weights: distance
+      - ag_args:
+          name_suffix: _r6
+        n_neighbors: 30
+        p: 2
+        weights: uniform
+      - ag_args:
+          name_suffix: _r7
+        n_neighbors: 20
+        p: 1
+        weights: uniform
+      - ag_args:
+          name_suffix: _r8
+        n_neighbors: 40
+        p: 2
+        weights: uniform
+      - ag_args:
+          name_suffix: _r9
+        n_neighbors: 40
+        p: 2
+        weights: distance
+      - ag_args:
+          name_suffix: _r10
+        n_neighbors: 9
+        p: 2
+        weights: uniform
+      - ag_args:
+          name_suffix: _r11
+        n_neighbors: 13
+        p: 1
+        weights: uniform
+      - ag_args:
+          name_suffix: _r12
+        n_neighbors: 7
+        p: 1
+        weights: uniform
+      - ag_args:
+          name_suffix: _r13
+        n_neighbors: 5
+        p: 1
+        weights: uniform
+      - ag_args:
+          name_suffix: _r14
+        n_neighbors: 20
+        p: 1
+        weights: distance
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_knn_b1:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    - model_failures
+    ag_args_ensemble:
+      ag.max_time_limit: 3600
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      KNN:
+      - ag_args:
+          name_suffix: _r15
+        n_neighbors: 4
+        p: 1
+        weights: uniform
+      - ag_args:
+          name_suffix: _r16
+        n_neighbors: 5
+        p: 1
+        weights: distance
+      - ag_args:
+          name_suffix: _r17
+        n_neighbors: 6
+        p: 2
+        weights: distance
+      - ag_args:
+          name_suffix: _r18
+        n_neighbors: 15
+        p: 2
+        weights: distance
+      - ag_args:
+          name_suffix: _r19
+        n_neighbors: 9
+        p: 1
+        weights: distance
+      - ag_args:
+          name_suffix: _r20
+        n_neighbors: 13
+        p: 2
+        weights: distance
+      - ag_args:
+          name_suffix: _r21
+        n_neighbors: 3
+        p: 1
+        weights: distance
+      - ag_args:
+          name_suffix: _r22
+        n_neighbors: 6
+        p: 1
+        weights: uniform
+      - ag_args:
+          name_suffix: _r23
+        n_neighbors: 3
+        p: 1
+        weights: uniform
+      - ag_args:
+          name_suffix: _r24
+        n_neighbors: 5
+        p: 2
+        weights: uniform
+      - ag_args:
+          name_suffix: _r25
+        n_neighbors: 6
+        p: 2
+        weights: uniform
+      - ag_args:
+          name_suffix: _r26
+        n_neighbors: 20
+        p: 2
+        weights: uniform
+      - ag_args:
+          name_suffix: _r27
+        n_neighbors: 10
+        p: 1
+        weights: distance
+      - ag_args:
+          name_suffix: _r28
+        n_neighbors: 8
+        p: 2
+        weights: distance
+      - ag_args:
+          name_suffix: _r29
+        n_neighbors: 10
+        p: 2
+        weights: distance
+      - ag_args:
+          name_suffix: _r30
+        n_neighbors: 10
+        p: 2
+        weights: uniform
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_knn_b2:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    - model_failures
+    ag_args_ensemble:
+      ag.max_time_limit: 3600
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      KNN:
+      - ag_args:
+          name_suffix: _r31
+        n_neighbors: 7
+        p: 1
+        weights: distance
+      - ag_args:
+          name_suffix: _r32
+        n_neighbors: 50
+        p: 2
+        weights: distance
+      - ag_args:
+          name_suffix: _r33
+        n_neighbors: 8
+        p: 1
+        weights: uniform
+      - ag_args:
+          name_suffix: _r34
+        n_neighbors: 20
+        p: 2
+        weights: distance
+      - ag_args:
+          name_suffix: _r35
+        n_neighbors: 8
+        p: 2
+        weights: uniform
+      - ag_args:
+          name_suffix: _r36
+        n_neighbors: 11
+        p: 1
+        weights: distance
+      - ag_args:
+          name_suffix: _r37
+        n_neighbors: 9
+        p: 2
+        weights: distance
+      - ag_args:
+          name_suffix: _r38
+        n_neighbors: 3
+        p: 2
+        weights: distance
+      - ag_args:
+          name_suffix: _r39
+        n_neighbors: 7
+        p: 2
+        weights: uniform
+      - ag_args:
+          name_suffix: _r40
+        n_neighbors: 6
+        p: 1
+        weights: distance
+      - ag_args:
+          name_suffix: _r41
+        n_neighbors: 10
+        p: 1
+        weights: uniform
+      - ag_args:
+          name_suffix: _r42
+        n_neighbors: 50
+        p: 1
+        weights: distance
+      - ag_args:
+          name_suffix: _r43
+        n_neighbors: 4
+        p: 2
+        weights: uniform
+      - ag_args:
+          name_suffix: _r44
+        n_neighbors: 15
+        p: 1
+        weights: uniform
+      - ag_args:
+          name_suffix: _r45
+        n_neighbors: 30
+        p: 1
+        weights: uniform
+      - ag_args:
+          name_suffix: _r46
+        n_neighbors: 50
+        p: 1
+        weights: uniform
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_knn_b3:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    - model_failures
+    ag_args_ensemble:
+      ag.max_time_limit: 3600
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      KNN:
+      - ag_args:
+          name_suffix: _r47
+        n_neighbors: 15
+        p: 2
+        weights: uniform
+      - ag_args:
+          name_suffix: _r48
+        n_neighbors: 11
+        p: 2
+        weights: distance
+      - ag_args:
+          name_suffix: _r49
+        n_neighbors: 15
+        p: 1
+        weights: distance
+      - ag_args:
+          name_suffix: _r50
+        n_neighbors: 40
+        p: 1
+        weights: uniform
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest
+
+ZS_BAG_tabpfn_b0:
+  extends: AutoGluon
+  params:
+    _leaderboard_test: true
+    _save_artifacts:
+    - leaderboard
+    - zeroshot
+    - model_failures
+    ag_args_ensemble:
+      ag.max_time_limit: 3600
+    calibrate: false
+    fit_weighted_ensemble: false
+    hyperparameters:
+      TABPFN:
+      - ag_args:
+          name_suffix: _c1
+      - N_ensemble_configurations: 4
+        ag_args:
+          name_suffix: _c2
+      - N_ensemble_configurations: 8
+        ag_args:
+          name_suffix: _c3
+    num_bag_folds: 8
+    num_bag_sets: 1
+  version: latest

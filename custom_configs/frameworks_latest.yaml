@@ -1,0 +1,251 @@
+---
+#
+#  Please note: frameworks defined in this file are all set to "latest" which is usually not be a stable/release version
+#  but rather the current state of `master` branch for example or the last nightly build.
+#
+
+#########################
+### AutoML frameworks ###
+#########################
+
+AutoGluon:
+  version: "latest"
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _leaderboard_test: True
+
+AutoGluon_bq:
+  extends: AutoGluon
+  description: "AutoGluon with 'best_quality' preset provides the most accurate overall predictor"
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: best_quality
+    _leaderboard_test: True
+
+AutoGluon_bq_simple:
+  extends: AutoGluon
+  description: "AutoGluon with 'best_quality' preset (no repeat, no stack, no calibrate)"
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: best_quality
+    # calibrate: False
+    num_stack_levels: 0
+    num_bag_sets: 1
+    _leaderboard_test: True
+
+AutoGluon_hq:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: high_quality
+    _leaderboard_test: True
+
+AutoGluon_gq:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: good_quality
+    _leaderboard_test: True
+
+AutoGluon_mq:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: medium_quality
+    _leaderboard_test: True
+
+AutoGluon_bestquality_prune:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: best_quality
+    feature_prune_kwargs: {}
+    _leaderboard_test: True
+
+AutoGluon_prune:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    feature_prune_kwargs: {}
+    _leaderboard_test: True
+
+AutoGluon_CatBoost:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _leaderboard_test: True
+    hyperparameters: {"CAT": {}}
+
+AutoGluon_holdout:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: best_quality
+    use_bag_holdout: True
+    _leaderboard_test: True
+
+AutoGluon_hpo_auto:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    hyperparameter_tune_kwargs: 'auto'
+
+AutoGluon_bestquality_hpo_auto:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: best_quality
+    hyperparameter_tune_kwargs: 'auto'
+
+AutoGluon_random:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    hyperparameter_tune_kwargs: 'random'
+
+AutoGluon_bestquality_random:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: best_quality
+    hyperparameter_tune_kwargs: 'random'
+
+AutoGluon_bayesopt:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    hyperparameter_tune_kwargs: 'bayesopt'
+
+AutoGluon_bestquality_bayesopt:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: best_quality
+    hyperparameter_tune_kwargs: 'bayesopt'
+
+AutoGluon_hq_il001:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: high_quality
+    _leaderboard_test: True
+    infer_limit: 0.01
+
+AutoGluon_hq_il0005:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: high_quality
+    _leaderboard_test: True
+    infer_limit: 0.005
+
+AutoGluon_hq_il0001:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: high_quality
+    _leaderboard_test: True
+    infer_limit: 0.001
+
+AutoGluon_hq_il00002:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: high_quality
+    _leaderboard_test: True
+    infer_limit: 0.0002
+
+AutoGluon_hq_il00001:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: high_quality
+    _leaderboard_test: True
+    infer_limit: 0.0001
+
+AutoGluon_hq_il000002:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: high_quality
+    _leaderboard_test: True
+    infer_limit: 0.00002
+
+AutoGluon_hq_il0002:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: high_quality
+    _leaderboard_test: True
+    infer_limit: 0.002
+
+AutoGluon_ebq:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: experimental_best_quality
+    _leaderboard_test: True
+
+AutoGluon_ehq:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: experimental_high_quality
+    _leaderboard_test: True
+
+AutoGluon_euq:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: experimental_ultra_quality
+    _leaderboard_test: True
+
+AutoGluon_ezs:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: experimental_zeroshot_hpo
+    _leaderboard_test: True
+
+AutoGluon_ezsh:
+  extends: AutoGluon
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    presets: experimental_zeroshot_hpo_hybrid
+    _leaderboard_test: True
+
+AutoGluon_bq_sigmoid:
+  extends: AutoGluon
+  description: "AutoGluon with 'best_quality' preset provides the most accurate overall predictor"
+  params:
+    _save_artifacts: ['leaderboard', 'info']
+    presets: best_quality
+    _leaderboard_test: True
+    hyperparameters: {
+      'NN_TORCH': {},
+      'GBM': [{'extra_trees': True, 'ag_args': {'name_suffix': 'XT'}}, {}, 'GBMLarge'],
+      'CAT': {},
+      'XGB': {},
+      'FASTAI': {"clipping": "SigmoidRange"},
+      'RF': [{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'squared_error', 'ag_args': {'name_suffix': 'MSE', 'problem_types': ['regression', 'quantile']}}],
+      'XT': [{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'squared_error', 'ag_args': {'name_suffix': 'MSE', 'problem_types': ['regression', 'quantile']}}],
+      'KNN': [{'weights': 'uniform', 'ag_args': {'name_suffix': 'Unif'}}, {'weights': 'distance', 'ag_args': {'name_suffix': 'Dist'}}],
+  }
+
+AutoGluon_bq_clipping:
+  extends: AutoGluon
+  description: "AutoGluon with 'best_quality' preset provides the most accurate overall predictor"
+  params:
+    _save_artifacts: ['leaderboard', 'info']
+    presets: best_quality
+    _leaderboard_test: True
+    hyperparameters: {
+      'NN_TORCH': {},
+      'GBM': [{'extra_trees': True, 'ag_args': {'name_suffix': 'XT'}}, {}, 'GBMLarge'],
+      'CAT': {},
+      'XGB': {},
+      'FASTAI': {"clipping": "ClipScale"},
+      'RF': [{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'squared_error', 'ag_args': {'name_suffix': 'MSE', 'problem_types': ['regression', 'quantile']}}],
+      'XT': [{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'squared_error', 'ag_args': {'name_suffix': 'MSE', 'problem_types': ['regression', 'quantile']}}],
+      'KNN': [{'weights': 'uniform', 'ag_args': {'name_suffix': 'Unif'}}, {'weights': 'distance', 'ag_args': {'name_suffix': 'Dist'}}],
+  }

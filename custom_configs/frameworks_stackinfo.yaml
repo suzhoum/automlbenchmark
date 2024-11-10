@@ -1,0 +1,152 @@
+---
+#########################
+### AutoML frameworks ###
+#########################
+
+AutoGluon:
+  version: "latest"
+  params:
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+    _leaderboard_test: True
+
+AutoGluon_bq:
+  extends: AutoGluon
+  description: "AutoGluon with 'best_quality' preset provides the most accurate overall predictor"
+  params:
+    _save_artifacts: ['leaderboard', 'info']
+    _leaderboard_test: True
+    presets: best_quality
+
+AutoGluon_bq_stack:
+  extends: AutoGluon
+  description: "Always stack"
+  params:
+    _save_artifacts: ['leaderboard', 'info']
+    _leaderboard_test: True
+    presets: best_quality
+    num_stack_levels: 1
+
+AutoGluon_bq_holdout:
+  extends: AutoGluon
+  description: "Always holdout"
+  params:
+    _save_artifacts: ['leaderboard', 'info']
+    _leaderboard_test: True
+    presets: best_quality
+    use_bag_holdout: True
+
+AutoGluon_bq_stack_holdout:
+  extends: AutoGluon
+  description: "Always stack + holdout"
+  params:
+    _save_artifacts: ['leaderboard', 'info']
+    _leaderboard_test: True
+    presets: best_quality
+    use_bag_holdout: True
+    num_stack_levels: 1
+
+AutoGluon_bq_nostack:
+  extends: AutoGluon
+  description: "Always stack"
+  params:
+    _save_artifacts: ['leaderboard', 'info']
+    _leaderboard_test: True
+    presets: best_quality
+    num_stack_levels: 0
+
+##############
+### Fix V1 ###
+##############
+
+AutoGluon_bq_stack_fix1:
+  extends: AutoGluon
+  description: "Always stack + fix"
+  params:
+    _save_artifacts: ['leaderboard', 'info']
+    _leaderboard_test: True
+    presets: best_quality
+    num_stack_levels: 1
+    ag_args_fit: {'stack_info_leak_protection': True}
+
+AutoGluon_bq_stack_holdout_fix1:
+  extends: AutoGluon
+  description: "Always stack + holdout + fix"
+  params:
+    _save_artifacts: ['leaderboard', 'info']
+    _leaderboard_test: True
+    presets: best_quality
+    use_bag_holdout: True
+    num_stack_levels: 1
+    ag_args_fit: {'stack_info_leak_protection': True}
+
+##############
+### Fix V2 ###
+##############
+
+AutoGluon_bq_stack_fix_v2:
+  extends: AutoGluon
+  description: "Always stack + fix v2"
+  params:
+    _save_artifacts: ['leaderboard', 'info']
+    _leaderboard_test: True
+    presets: best_quality
+    num_stack_levels: 1
+    ag_args_fit: {'stack_info_leak_protection': True}
+
+AutoGluon_bq_stack_fix_v2_norm:
+  extends: AutoGluon
+  description: "Always stack + fix v2 + norm"
+  params:
+    _save_artifacts: ['leaderboard', 'info']
+    _leaderboard_test: True
+    presets: best_quality
+    num_stack_levels: 1
+    ag_args_fit: {'stack_info_leak_protection': True, 'stack_info_leak_protection_protection_normalization': True}
+
+AutoGluon_bq_stack_full_l3:
+  extends: AutoGluon
+  description: "Always stack + full l3 weighted ensemble"
+  params:
+    _save_artifacts: ['leaderboard', 'info']
+    _leaderboard_test: True
+    presets: best_quality
+    num_stack_levels: 1
+    ag_args_fit: {'full_last_weighted_ensemble': True}
+
+AutoGluon_bq_stack_fix_v2_full_l3:
+  extends: AutoGluon
+  description: "Always stack + fix v2 + full l3 weighted ensemble"
+  params:
+    _save_artifacts: ['leaderboard', 'info']
+    _leaderboard_test: True
+    presets: best_quality
+    num_stack_levels: 1
+    ag_args_fit: {'stack_info_leak_protection': True, 'full_last_weighted_ensemble': True}
+
+
+##############
+### Final  ###
+##############
+
+AutoGluon_bq_DSL:
+  extends: AutoGluon
+  description: "AutoGluon Best Quality Default"
+  params:
+    _save_artifacts: [ 'leaderboard', 'info', 'model_failures']
+    presets: best_quality
+    _leaderboard_test: True
+    dynamic_stacking: True
+    num_stack_levels: 1
+
+AutoGluon_bq_DS:
+  extends: AutoGluon
+  description: "AutoGluon Best Quality Default"
+  params:
+    _save_artifacts: [ 'leaderboard', 'info', 'model_failures']
+    presets: best_quality
+    _leaderboard_test: True
+    _time_limit_modifier: 2
+    dynamic_stacking: True
+    num_stack_levels: 1
+    ds_args:
+      detection_time_frac: 0.5
