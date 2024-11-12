@@ -4,6 +4,7 @@ to expose `OpenML<https://www.openml.org>`_ datasets.
 """
 from __future__ import annotations
 
+import time
 import pathlib
 from abc import abstractmethod
 import copy
@@ -18,12 +19,33 @@ import numpy as np
 import pandas as pd
 import pandas.api.types as pat
 import openml as oml
+from openml.exceptions import OpenMLServerException
 import xmltodict
 
 from ..data import AM, DF, Dataset, DatasetType, Datasplit, Feature
 from ..datautils import impute_array
 from ..resources import config as rconfig, get as rget
 from ..utils import as_list, lazy_property, path_from_split, profile, split_path, unsparsify
+
+
+# FIXME: HACK
+def get_task_with_retry(task_id: int, max_delay_exp: int = 8, **kwargs):
+    delay_exp = 0
+    while True:
+        try:
+            print(f'Getting task {task_id}')
+            task = oml.tasks.get_task(task_id=task_id, **kwargs)
+            print(f'Got task {task_id}')
+            return task
+        except OpenMLServerException as e:
+            delay = 2 ** delay_exp
+            delay_exp += 1
+            if delay_exp > max_delay_exp:
+                raise ValueError("Unable to get task after 10 retries")
+            print(e)
+            print(f'Retry in {delay}s...')
+            time.sleep(delay)
+            continue
 
 
 # https://github.com/openml/automlbenchmark/pull/574#issuecomment-1646179921
@@ -57,7 +79,8 @@ class OpenmlLoader:
         if task_id is not None:
             if dataset_id is not None:
                 log.warning("Ignoring dataset id {} as a task id {} was already provided.".format(dataset_id, task_id))
-            task = oml.tasks.get_task(task_id, download_qualities=False)
+            # task = oml.tasks.get_task(task_id, download_qualities=False)
+            task = get_task_with_retry(task_id=task_id, download_qualities=False)
             dataset = oml.datasets.get_dataset(task.dataset_id, download_qualities=False)
             _, nfolds, _ = task.get_split_dimensions()
             if fold >= nfolds:
