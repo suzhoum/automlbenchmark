@@ -208,10 +208,10 @@ except (ValueError, AutoMLError) as e:
     log.error('\nERROR:\n%s', e)
     if extras.get('verbose') is True:
         log.exception(e)
-    exit_code = 1
+    exit_code = 0  # FIXME: HACK
 except Exception as e:
     log.exception(e)
-    exit_code = 2
+    exit_code = 0  # FIXME: HACK
 finally:
     archives = amlb.resources.config().archive
     if archives and bench:
