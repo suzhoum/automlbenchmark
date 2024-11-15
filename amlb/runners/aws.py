@@ -1160,23 +1160,43 @@ packages:
   #- python3-venv
 
 runcmd:
+  - mkdir /testcheckpoints
+  - echo "Hello, World!" > /testcheckpoints/checkpoint0.txt
+  - log_dir="/amlb_logs"
+  - mkdir -p $log_dir
+  - log_error="$log_dir/error.txt"
+  - exec 2>"$log_error"
+  - log_out="$log_dir/output.txt"
+  - exec 1>"$log_out"
+  - trap 'aws s3 cp $log_dir {s3_output}/setup_logs --recursive' EXIT
+  - echo "Hello, World!" > /testcheckpoints/checkpoint1.txt
+  - aws s3 cp /testcheckpoints '{s3_output}/testcheckpoints' --recursive
   - apt-get -y remove unattended-upgrades
   - systemctl stop apt-daily.timer
   - systemctl disable apt-daily.timer
   - systemctl disable apt-daily.service
   - systemctl daemon-reload
+  - echo "Hello, World!" > /testcheckpoints/checkpoint2.txt
+  - aws s3 cp /testcheckpoints '{s3_output}/testcheckpoints' --recursive
   - add-apt-repository -y ppa:deadsnakes/ppa
   - apt-get update
   - apt-get -y install python{pyv} python{pyv}-venv python{pyv}-dev python3-pip python3-apt
+  - echo "Hello, World!" > /testcheckpoints/checkpoint3.txt
+  - aws s3 cp /testcheckpoints '{s3_output}/testcheckpoints' --recursive
 #  - update-alternatives --install /usr/bin/python3 python3 $(which python{pyv}) 1
   - mkdir -p /s3bucket/input
   - mkdir -p /s3bucket/output
+  - mkdir -p /buckettmp/output
   - mkdir -p /s3bucket/user
   - mkdir /repo
   - cd /repo
   - git clone --depth 1 --single-branch --branch {branch} {repo} .
+  - echo "Hello, World!" > /testcheckpoints/checkpoint4.txt
+  - aws s3 cp /testcheckpoints '{s3_output}/testcheckpoints' --recursive
   - python{pyv} -m pip install -U pip wheel awscli
   - python{pyv} -m venv venv
+  - echo "Hello, World!" > /testcheckpoints/checkpoint5.txt
+  - aws s3 cp /testcheckpoints '{s3_output}/testcheckpoints' --recursive
   - alias PIP='/repo/venv/bin/python3 -m pip'
   - alias PY='/repo/venv/bin/python3 -W ignore'
   - alias PIP_REQ="(grep -v '^\\s*#' | xargs -L 1 /repo/venv/bin/python3 -m pip install --no-cache-dir)"
@@ -1184,11 +1204,27 @@ runcmd:
   - PIP install -U pip
   - PIP_REQ < requirements.txt
 #  - until aws s3 ls '{s3_base_url}'; do echo "waiting for credentials"; sleep 10; done
+  - echo "Hello, World!" > /testcheckpoints/checkpoint6.txt
+  - aws s3 cp /testcheckpoints '{s3_output}/testcheckpoints' --recursive
   - aws s3 cp '{s3_input}' /s3bucket/input --recursive
   - aws s3 cp '{s3_user}' /s3bucket/user --recursive
+  - echo "Hello, World!" > /testcheckpoints/checkpoint7.txt
+  - aws s3 cp /testcheckpoints '{s3_output}/testcheckpoints' --recursive
+  - aws s3 cp "$log_dir" '{s3_output}/setup_logs_before_setup' --recursive
   - PY {script} {params} -i /s3bucket/input -o /s3bucket/output -u /s3bucket/user -s only --session=
+  - echo "Hello, World!" > /testcheckpoints/checkpoint7_2.txt
+  - aws s3 cp /testcheckpoints '{s3_output}/testcheckpoints' --recursive
+  - aws s3 cp "$log_dir" '{s3_output}/setup_logs_after_setup' --recursive
+# - PY {script} {params} -i /s3bucket/input -o /s3bucket/output -u /s3bucket/user -Xrun_mode=aws -Xproject_repository={repo}#{branch} {extra_params}
+# - echo "Hello, World!" > /testcheckpoints/checkpoint7_3.txt
+# - aws s3 cp /testcheckpoints '{s3_output}/testcheckpoints' --recursive
+# - aws s3 cp "$log_dir" '{s3_output}/setup_logs_after_constantpredictor' --recursive
   - PY {script} {params} -i /s3bucket/input -o /s3bucket/output -u /s3bucket/user -Xrun_mode=aws -Xproject_repository={repo}#{branch} {extra_params}
+  - echo "Hello, World!" > /testcheckpoints/checkpoint8.txt
+  - aws s3 cp /testcheckpoints '{s3_output}/testcheckpoints' --recursive
   - aws s3 cp /s3bucket/output '{s3_output}' --recursive
+  - echo "Hello, World!" > /testcheckpoints/checkpoint9.txt
+  - aws s3 cp /testcheckpoints '{s3_output}/testcheckpoints' --recursive
 #  - rm -f /var/lib/cloud/instance/sem/config_scripts_user
 
 final_message: "AutoML benchmark {ikey} completed after $UPTIME s"
