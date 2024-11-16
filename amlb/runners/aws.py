@@ -1161,7 +1161,6 @@ packages:
 
 runcmd:
   - mkdir /testcheckpoints
-  - echo "Hello, World!" > /testcheckpoints/checkpoint0.txt
   - log_dir="/amlb_logs"
   - mkdir -p $log_dir
   - log_error="$log_dir/error.txt"
@@ -1169,20 +1168,14 @@ runcmd:
   - log_out="$log_dir/output.txt"
   - exec 1>"$log_out"
   - trap 'aws s3 cp $log_dir {s3_output}/setup_logs --recursive' EXIT
-  - echo "Hello, World!" > /testcheckpoints/checkpoint1.txt
-  - aws s3 cp /testcheckpoints '{s3_output}/testcheckpoints' --recursive
   - apt-get -y remove unattended-upgrades
   - systemctl stop apt-daily.timer
   - systemctl disable apt-daily.timer
   - systemctl disable apt-daily.service
   - systemctl daemon-reload
-  - echo "Hello, World!" > /testcheckpoints/checkpoint2.txt
-  - aws s3 cp /testcheckpoints '{s3_output}/testcheckpoints' --recursive
   - add-apt-repository -y ppa:deadsnakes/ppa
   - apt-get update
   - apt-get -y install python{pyv} python{pyv}-venv python{pyv}-dev python3-pip python3-apt
-  - echo "Hello, World!" > /testcheckpoints/checkpoint3.txt
-  - aws s3 cp /testcheckpoints '{s3_output}/testcheckpoints' --recursive
 #  - update-alternatives --install /usr/bin/python3 python3 $(which python{pyv}) 1
   - mkdir -p /s3bucket/input
   - mkdir -p /s3bucket/output
@@ -1191,12 +1184,10 @@ runcmd:
   - mkdir /repo
   - cd /repo
   - git clone --depth 1 --single-branch --branch {branch} {repo} .
-  - echo "Hello, World!" > /testcheckpoints/checkpoint4.txt
-  - aws s3 cp /testcheckpoints '{s3_output}/testcheckpoints' --recursive
   - python{pyv} -m pip install -U pip wheel awscli
   - python{pyv} -m venv venv
   - echo "Hello, World!" > /testcheckpoints/checkpoint5.txt
-  - aws s3 cp /testcheckpoints '{s3_output}/testcheckpoints' --recursive
+  - aws s3 cp /testcheckpoints/checkpoint5.txt '{s3_output}/testcheckpoints/checkpoint5.txt'
   - alias PIP='/repo/venv/bin/python3 -m pip'
   - alias PY='/repo/venv/bin/python3 -W ignore'
   - alias PIP_REQ="(grep -v '^\\s*#' | xargs -L 1 /repo/venv/bin/python3 -m pip install --no-cache-dir)"
@@ -1205,15 +1196,15 @@ runcmd:
   - PIP_REQ < requirements.txt
 #  - until aws s3 ls '{s3_base_url}'; do echo "waiting for credentials"; sleep 10; done
   - echo "Hello, World!" > /testcheckpoints/checkpoint6.txt
-  - aws s3 cp /testcheckpoints '{s3_output}/testcheckpoints' --recursive
+  - aws s3 cp /testcheckpoints/checkpoint6.txt '{s3_output}/testcheckpoints/checkpoint6.txt'
   - aws s3 cp '{s3_input}' /s3bucket/input --recursive
   - aws s3 cp '{s3_user}' /s3bucket/user --recursive
   - echo "Hello, World!" > /testcheckpoints/checkpoint7.txt
   - aws s3 cp /testcheckpoints '{s3_output}/testcheckpoints' --recursive
   - aws s3 cp "$log_dir" '{s3_output}/setup_logs_before_setup' --recursive
   - PY {script} {params} -i /s3bucket/input -o /s3bucket/output -u /s3bucket/user -s only --session=
-  - echo "Hello, World!" > /testcheckpoints/checkpoint7_2.txt
-  - aws s3 cp /testcheckpoints '{s3_output}/testcheckpoints' --recursive
+  - echo "Hello, World!" > /testcheckpoints/checkpoint7_3.txt
+  - aws s3 cp /testcheckpoints/checkpoint7_3.txt '{s3_output}/testcheckpoints/checkpoint7_3.txt'
   - aws s3 cp "$log_dir" '{s3_output}/setup_logs_after_setup' --recursive
 # - PY {script} {params} -i /s3bucket/input -o /s3bucket/output -u /s3bucket/user -Xrun_mode=aws -Xproject_repository={repo}#{branch} {extra_params}
 # - echo "Hello, World!" > /testcheckpoints/checkpoint7_3.txt
@@ -1221,10 +1212,10 @@ runcmd:
 # - aws s3 cp "$log_dir" '{s3_output}/setup_logs_after_constantpredictor' --recursive
   - PY {script} {params} -i /s3bucket/input -o /s3bucket/output -u /s3bucket/user -Xrun_mode=aws -Xproject_repository={repo}#{branch} {extra_params}
   - echo "Hello, World!" > /testcheckpoints/checkpoint8.txt
-  - aws s3 cp /testcheckpoints '{s3_output}/testcheckpoints' --recursive
+  - aws s3 cp /testcheckpoints/checkpoint8.txt '{s3_output}/testcheckpoints/checkpoint8.txt'
   - aws s3 cp /s3bucket/output '{s3_output}' --recursive
   - echo "Hello, World!" > /testcheckpoints/checkpoint9.txt
-  - aws s3 cp /testcheckpoints '{s3_output}/testcheckpoints' --recursive
+  - aws s3 cp /testcheckpoints/checkpoint9.txt '{s3_output}/testcheckpoints/checkpoint9.txt'
 #  - rm -f /var/lib/cloud/instance/sem/config_scripts_user
 
 final_message: "AutoML benchmark {ikey} completed after $UPTIME s"
@@ -1236,7 +1227,7 @@ power_state:
   timeout: {timeout}
   condition: True
 """
-        return cloud_config.format(
+        startup_script = cloud_config.format(
             repo=rget().project_info.repo,
             branch=rget().project_info.branch,
             image=rconfig().docker.image or DockerBenchmark.image_name(self.framework_def),
@@ -1253,6 +1244,7 @@ power_state:
             docker_options=rconfig().docker.run_extra_options,
             timeout=timeout_secs if timeout_secs > 0 else rconfig().aws.max_timeout_seconds,
         )
+        return startup_script
 
 
 class AWSRemoteBenchmark(Benchmark):
