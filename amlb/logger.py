@@ -77,7 +77,7 @@ def setup(log_file=None, root_file=None, root_level=logging.WARNING, app_level=N
         root_handler.setFormatter(file_formatter)
         root.addHandler(root_handler)
 
-    if print_to_log:
+    if False:  # FIXME: Setting to False was recommended by Lennart to fix random crashes.
         import builtins
         nl = '\n'
         print_logger = logging.getLogger(app_logger.name + '.print')
