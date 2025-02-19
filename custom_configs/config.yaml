@@ -1,5 +1,5 @@
 ---
-project_repository: https://github.com/Innixma/automlbenchmark#2024_11_14_AWS_BUG    # this is also the url used to clone the repository on ec2 instances
+project_repository: https://github.com/Innixma/automlbenchmark#2025_02_19_LENNART_FIX    # this is also the url used to clone the repository on ec2 instances
                                                                           # when running those without docker.
                                                                           # to clone a specific branch/tag, add a url fragment, e.g.:
                                                                           # https://github.com/openml/automlbenchmark#stable
@@ -40,7 +40,7 @@ aws:                    # configuration namespace for AWS mode.
 
   s3:                               # sub-namespace for AWS S3 service.
     bucket: automl-benchmark-ag        # must be unique im whole Amazon s3, max 40 chars, and include only numbers, lowercase characters and hyphens.
-    root_key: ec2/2024_11_14_AWS_BUG/                  #
+    root_key: ec2/2025_02_19_LENNART_FIX/                  #
 
   ec2:
     instance_type:                       #
@@ -65,6 +65,10 @@ aws:                    # configuration namespace for AWS mode.
       eu-west-1:
         ami: ami-0eee12f2bb3531eab
         description: Deep Learning AMI GPU PyTorch 2.1.0 (Ubuntu 20.04) 20231103
+
+    monitoring:                          # EC2 instances monitoring
+      cpu:                               #
+        abort_inactive_instances: false   #
 
   max_timeout_seconds: 259200    #
   overhead_time_seconds: 36000   # amount of additional time allowed for the job to complete on aws before the instance is stopped.
