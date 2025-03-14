@@ -47,6 +47,7 @@ else
     # Install in non-editable mode to avoid interaction with other pre-existing AutoGluon installations
     env PATH="$PY_EXEC_DIR:$PATH" bash -c "./full_install.sh --non-editable"
     $UV pip install tabular/[skex]
+    # $UV pip install "torch<2.5"  # FIXME: Temp, only needed for local instance
 fi
 
 # Note: `setuptools` being present in the venv will cause torch==1.4.x to raise an exception for an unknown reason in AMLB.

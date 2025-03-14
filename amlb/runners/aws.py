@@ -359,9 +359,11 @@ class AWSBenchmark(Benchmark):
                     # instance_key='_'.join([job.name, datetime_iso(micros=True, time_sep='.')]),
                     instance_key=_self.name,
                     timeout_secs=timeout_secs,
-                    instance_type=_self.ext.instance_type
+                    instance_type=_self.ext.instance_type,
+                    task_def=task_def,
                 )
                 self._reset_retry()
+                # return  # FIXME: Try stopping monitoring
                 return self._wait_for_results(_self)
             except Exception as e:
                 log.error("Job %s failed with: %s", _self.name, e)
@@ -570,7 +572,7 @@ class AWSBenchmark(Benchmark):
         finally:
             self.monitoring = None
 
-    def _start_instance(self, instance_def, script_params="", instance_key=None, timeout_secs=-1, instance_type=None):
+    def _start_instance(self, instance_def, script_params="", instance_key=None, timeout_secs=-1, instance_type=None, task_def=None):
         log.info("Starting new EC2 instance with params: %s", script_params)
         inst_key = (instance_key.lower() if instance_key
                     else "{}_p{}_i{}".format(self.sid,
@@ -613,7 +615,7 @@ class AWSBenchmark(Benchmark):
                         Tags=[dict(Key=k, Value=v) for k, v in volume_tags]
                     ),
                 ],
-                UserData=self._ec2_startup_script(inst_key, script_params=script_params, timeout_secs=timeout_secs)
+                UserData=self._ec2_startup_script(inst_key, script_params=script_params, timeout_secs=timeout_secs, task_def=task_def)
             )
             if ec2_config.availability_zone:
                 instance_params.update(Placement=dict(
@@ -843,7 +845,7 @@ class AWSBenchmark(Benchmark):
 
     def _rel_path(self, res_path):
         in_app_dir = res_path.startswith(rconfig().root_dir)
-        if in_app_dir:
+        if in_app_dir and "automlbenchmark/custom_configs" not in res_path:
             return None
         in_input_dir = res_path.startswith(rconfig().input_dir)
         in_user_dir = res_path.startswith(rconfig().user_dir)
@@ -1089,7 +1091,7 @@ class AWSBenchmark(Benchmark):
         except botocore.exceptions.ClientError as e:
             log.info("Role %s doesn't exist, skipping its deletion: [%s]", iamc.role_name, str(e))
 
-    def _ec2_startup_script(self, instance_key, script_params="", timeout_secs=-1):
+    def _ec2_startup_script(self, instance_key, script_params="", timeout_secs=-1, task_def=None):
         """
         Generates the UserData is cloud-config format for the EC2 instance:
         this script is automatically executed by the instance at the end of its boot process.
@@ -1109,6 +1111,9 @@ class AWSBenchmark(Benchmark):
         :param script_params: the custom params passed to the benchmark script, usually only task, fold params
         :return: the UserData for the new ec2 instance
         """
+        assert task_def is not None
+        assert "openml_task_id" in task_def
+        task_id = task_def["openml_task_id"]
         script_extra_params = "--session="
         cloud_config = """
 #cloud-config
@@ -1160,6 +1165,7 @@ packages:
   #- python3-venv
 
 runcmd:
+  # - sleep 120
   - mkdir /testcheckpoints
   - log_dir="/amlb_logs"
   - mkdir -p $log_dir
@@ -1200,7 +1206,12 @@ runcmd:
   - aws s3 cp '{s3_input}' /s3bucket/input --recursive
   - aws s3 cp '{s3_user}' /s3bucket/user --recursive
   - echo "Hello, World!" > /testcheckpoints/checkpoint7.txt
-  - aws s3 cp /testcheckpoints '{s3_output}/testcheckpoints' --recursive
+  - aws s3 cp /testcheckpoints/checkpoint7.txt '{s3_output}/testcheckpoints/checkpoint7.txt'
+  - aws s3 cp "$log_dir" '{s3_output}/setup_logs_before_task_download' --recursive
+  - aws s3 cp 's3://automl-benchmark-ag/ec2/openml_cache/tasks/{task_id}' /s3bucket/input --recursive
+  - echo "Hello, World!" > /testcheckpoints/checkpoint7_2.txt
+ # - aws s3 cp 's3://automl-benchmark-ag/ec2/tabpfn_weights' /home/ubuntu/tabpfn_weights --recursive
+  - aws s3 cp /testcheckpoints/checkpoint7_2.txt '{s3_output}/testcheckpoints/checkpoint7_2.txt'
   - aws s3 cp "$log_dir" '{s3_output}/setup_logs_before_setup' --recursive
   - PY {script} {params} -i /s3bucket/input -o /s3bucket/output -u /s3bucket/user -s only --session=
   - echo "Hello, World!" > /testcheckpoints/checkpoint7_3.txt
@@ -1237,6 +1248,7 @@ power_state:
             s3_user=self._s3_user(absolute=True, encode=True),
             s3_input=self._s3_input(absolute=True, encode=True),
             s3_output=self._s3_output(instance_key, absolute=True, encode=True),
+            task_id=task_id,
             script=rconfig().script,
             ikey=instance_key,
             params=script_params,

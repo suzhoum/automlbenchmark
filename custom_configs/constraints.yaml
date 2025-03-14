@@ -120,36 +120,42 @@ test:
   min_vol_size_mb: 100000
   ec2_instance_type: g4dn.2xlarge
 
+5m64c:
+  folds: 10
+  max_runtime_seconds: 300
+  cores: 64
+  min_vol_size_mb: 500000
+
 10m64c:
   folds: 10
   max_runtime_seconds: 600
   cores: 64
-  min_vol_size_mb: 100000
+  min_vol_size_mb: 500000
 
 1h64c:
   folds: 10
   max_runtime_seconds: 3600
   cores: 64
-  min_vol_size_mb: 100000
+  min_vol_size_mb: 500000
 
 4h64c:
   folds: 10
   max_runtime_seconds: 14400
   cores: 64
-  min_vol_size_mb: 100000
+  min_vol_size_mb: 500000
 
 16h64c:
   folds: 10
   max_runtime_seconds: 57600
   cores: 64
-  min_vol_size_mb: 100000
+  min_vol_size_mb: 500000
 
 # FIXME: This is reduced to 16 hours because 24 hours has weird crashes.
 24h64c:
   folds: 10
   max_runtime_seconds: 57600
   cores: 64
-  min_vol_size_mb: 100000
+  min_vol_size_mb: 500000
 
 1h8c_gp3:
   folds: 10

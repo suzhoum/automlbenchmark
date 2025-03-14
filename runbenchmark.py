@@ -5,6 +5,17 @@ import re
 import shutil
 import sys
 
+# logging.basicConfig(format='%(asctime)s,%(msecs)03d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
+#     datefmt='%Y-%m-%d:%H:%M:%S',
+#     level=logging.DEBUG)
+
+logging.basicConfig(
+    format='%(asctime)s,%(msecs)d %(levelname)-8s [%(pathname)s:%(lineno)d in ' \
+           'function %(funcName)s] %(message)s',
+    datefmt='%Y-%m-%d:%H:%M:%S',
+    level=logging.DEBUG
+)
+
 # prevent asap other modules from defining the root logger using basicConfig
 import amlb.logger
 

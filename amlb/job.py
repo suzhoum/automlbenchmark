@@ -328,6 +328,7 @@ class SimpleJobRunner(JobRunner):
             if job.state is State.rescheduling:
                 self.reschedule(job)
             else:
+                # FIXME: What if the instance is stopping because of a bug in AMLB where the host is shutting it down?
                 self._add_result(result)
                 job.done()
             self.stop_if_complete()

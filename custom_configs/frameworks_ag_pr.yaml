@@ -89,6 +89,46 @@ AutoGluon_bq_pr4606_v2:
     _leaderboard_test: True
     _save_artifacts: ['leaderboard', 'info', 'model_failures']
 
+AutoGluon_bq_pr4606_v2_notree:
+  extends: AutoGluon
+  repo: "https://github.com/Innixma/autogluon.git"
+  version: "ag_dist_pr_v2"
+  description: |
+    AutoGluon with 'best_quality' preset provides the most accurate overall predictor.
+    Refer to https://auto.gluon.ai/stable/tutorials/tabular_prediction/tabular-quickstart.html#presets for a description of the presets.
+  params:
+    presets: best_quality
+    excluded_model_types: ["RF", "XT"]
+    fit_strategy: "parallel"
+    _leaderboard_test: True
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+
+AutoGluon_bq_pr4606_v2_max30:
+  extends: AutoGluon
+  repo: "https://github.com/Innixma/autogluon.git"
+  version: "ag_dist_pr_v2"
+  description: |
+    AutoGluon with 'best_quality' preset provides the most accurate overall predictor.
+    Refer to https://auto.gluon.ai/stable/tutorials/tabular_prediction/tabular-quickstart.html#presets for a description of the presets.
+  params:
+    presets: best_quality
+    fit_strategy: "parallel"
+    _leaderboard_test: True
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+
+AutoGluon_bq_pr4606_v2_max30_sleep120:
+  extends: AutoGluon
+  repo: "https://github.com/Innixma/autogluon.git"
+  version: "ag_dist_pr_v2"
+  description: |
+    AutoGluon with 'best_quality' preset provides the most accurate overall predictor.
+    Refer to https://auto.gluon.ai/stable/tutorials/tabular_prediction/tabular-quickstart.html#presets for a description of the presets.
+  params:
+    presets: best_quality
+    fit_strategy: "parallel"
+    _leaderboard_test: True
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+
 
 AutoGluon_bq_pr4632:
   extends: AutoGluon
@@ -99,5 +139,121 @@ AutoGluon_bq_pr4632:
     Refer to https://auto.gluon.ai/stable/tutorials/tabular_prediction/tabular-quickstart.html#presets for a description of the presets.
   params:
     presets: best_quality
+    _leaderboard_test: True
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+
+
+AutoGluon_bq_pr4671_exp1:
+  extends: AutoGluon
+  repo: "https://github.com/Innixma/autogluon.git"
+  version: "tabpfnmix"
+  description: |
+    AutoGluon with 'best_quality' preset provides the most accurate overall predictor.
+    Refer to https://auto.gluon.ai/stable/tutorials/tabular_prediction/tabular-quickstart.html#presets for a description of the presets.
+  params:
+    presets: best_quality
+    fit_strategy: "parallel"
+    hyperparameters: "experiment_portfolio_1"
+    _leaderboard_test: True
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+
+
+AutoGluon_bq_pr4671_exp2:
+  extends: AutoGluon
+  repo: "https://github.com/Innixma/autogluon.git"
+  version: "tabpfnmix"
+  description: |
+    AutoGluon with 'best_quality' preset provides the most accurate overall predictor.
+    Refer to https://auto.gluon.ai/stable/tutorials/tabular_prediction/tabular-quickstart.html#presets for a description of the presets.
+  params:
+    presets: best_quality
+    fit_strategy: "parallel"
+    hyperparameters: "experiment_portfolio_2"
+    _leaderboard_test: True
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+
+
+AutoGluon_bq_pr4671_exp3:
+  extends: AutoGluon
+  repo: "https://github.com/Innixma/autogluon.git"
+  version: "tabpfnmix"
+  description: |
+    AutoGluon with 'best_quality' preset provides the most accurate overall predictor.
+    Refer to https://auto.gluon.ai/stable/tutorials/tabular_prediction/tabular-quickstart.html#presets for a description of the presets.
+  params:
+    presets: best_quality
+    fit_strategy: "parallel"
+    hyperparameters: "experiment_portfolio_3"
+    _leaderboard_test: True
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+
+
+AutoGluon_bq_pr4671_exp4:
+  extends: AutoGluon
+  repo: "https://github.com/Innixma/autogluon.git"
+  version: "tabpfnmix"
+  description: |
+    AutoGluon with 'best_quality' preset provides the most accurate overall predictor.
+    Refer to https://auto.gluon.ai/stable/tutorials/tabular_prediction/tabular-quickstart.html#presets for a description of the presets.
+  params:
+    presets: best_quality
+    fit_strategy: "parallel"
+    hyperparameters: "experiment_portfolio_4"
+    _leaderboard_test: True
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+
+
+AutoGluon_bq_pr4671_exp5:
+  extends: AutoGluon
+  repo: "https://github.com/Innixma/autogluon.git"
+  version: "tabpfnmix"
+  description: |
+    AutoGluon with 'best_quality' preset provides the most accurate overall predictor.
+    Refer to https://auto.gluon.ai/stable/tutorials/tabular_prediction/tabular-quickstart.html#presets for a description of the presets.
+  params:
+    presets: best_quality
+    fit_strategy: "parallel"
+    hyperparameters: "experiment_portfolio_5"
+    _leaderboard_test: True
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+
+
+AutoGluon_bq_pr4671_exp6:
+  extends: AutoGluon
+  repo: "https://github.com/Innixma/autogluon.git"
+  version: "tabpfnmix"
+  description: |
+    AutoGluon with 'best_quality' preset provides the most accurate overall predictor.
+    Refer to https://auto.gluon.ai/stable/tutorials/tabular_prediction/tabular-quickstart.html#presets for a description of the presets.
+  params:
+    presets: best_quality
+    fit_strategy: "parallel"
+    hyperparameters: "experiment_portfolio_6"
+    _leaderboard_test: True
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+
+
+AutoGluon_eq_pr4671:
+  extends: AutoGluon
+  repo: "https://github.com/Innixma/autogluon.git"
+  version: "tabpfnmix"
+  description: |
+    AutoGluon with 'best_quality' preset provides the most accurate overall predictor.
+    Refer to https://auto.gluon.ai/stable/tutorials/tabular_prediction/tabular-quickstart.html#presets for a description of the presets.
+  params:
+    presets: experimental_quality
+    _leaderboard_test: True
+    _save_artifacts: ['leaderboard', 'info', 'model_failures']
+
+
+AutoGluon_eq_pr4694:
+  extends: AutoGluon
+  repo: "https://github.com/xiyuanzh/autogluon.git"
+  version: "master"
+  description: |
+    AutoGluon with 'best_quality' preset provides the most accurate overall predictor.
+    Refer to https://auto.gluon.ai/stable/tutorials/tabular_prediction/tabular-quickstart.html#presets for a description of the presets.
+  params:
+    presets: experimental_quality
     _leaderboard_test: True
     _save_artifacts: ['leaderboard', 'info', 'model_failures']
