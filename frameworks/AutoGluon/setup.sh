@@ -31,20 +31,12 @@ PIP install --upgrade pip
 PIP install uv
 UV="${PY_EXEC_NO_ARGS} -m uv"
 
-ARCH=$(uname -m)
-if [[ ${ARCH} == "x86_64" ]]; then
-    DEPENDENCIES='all,skex'
-else
-    DEPENDENCIES='all'
-    echo "Skipping 'skex' install as architecture is not 64-bit intel."
-fi
-
 if [[ "$VERSION" == "stable" ]]; then
     $UV pip install --no-cache-dir -U "${PKG}"
-    $UV pip install --no-cache-dir -U "${PKG}.tabular[${DEPENDENCIES}]"
+    $UV pip install --no-cache-dir -U "${PKG}.tabular[skex]"
 elif [[ "$VERSION" =~ ^[0-9] ]]; then
     $UV pip install --no-cache-dir -U "${PKG}==${VERSION}"
-    $UV pip install --no-cache-dir -U "${PKG}.tabular[${DEPENDENCIES}]==${VERSION}"
+    $UV pip install --no-cache-dir -U "${PKG}.tabular[skex]==${VERSION}"
 else
     TARGET_DIR="${HERE}/lib/${PKG}"
     rm -Rf ${TARGET_DIR}
@@ -54,7 +46,7 @@ else
 
     # Install in non-editable mode to avoid interaction with other pre-existing AutoGluon installations
     env PATH="$PY_EXEC_DIR:$PATH" bash -c "./full_install.sh --non-editable"
-    $UV pip install tabular/[${DEPENDENCIES}]
+    $UV pip install tabular/[skex]
 fi
 
 # Note: `setuptools` being present in the venv will cause torch==1.4.x to raise an exception for an unknown reason in AMLB.
