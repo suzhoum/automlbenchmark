@@ -10,6 +10,7 @@ warnings.simplefilter("ignore")
 
 if sys.platform == "darwin":
     os.environ["OMP_NUM_THREADS"] = "1"
+os.environ["SETUPTOOLS_USE_DISTUTILS"] = "local"
 
 import matplotlib
 import pandas as pd
