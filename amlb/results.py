@@ -115,7 +115,7 @@ class Scoreboard:
         if new_format or (exists and not append):
             backup_file(path)
         if new_format and append:
-            df = read_csv(path).append(data_frame)
+            df = pd.concat([read_csv(path), data_frame], ignore_index=True)
         new_file = not exists or not append or new_format
         is_default_index = data_frame.index.name is None and not any(data_frame.index.names)
         log.debug("Saving scores to `%s`.", path)
@@ -203,7 +203,7 @@ class Scoreboard:
 
     def append(self, board_or_df, no_duplicates=True):
         to_append = board_or_df.as_data_frame() if isinstance(board_or_df, Scoreboard) else board_or_df
-        scores = self.as_data_frame().append(to_append)
+        scores = pd.concat([self.as_data_frame(), to_append], ignore_index=True)
         if no_duplicates:
             scores = scores.drop_duplicates()
         return Scoreboard(scores=scores,
