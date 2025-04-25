@@ -58,7 +58,7 @@ class OpenmlLoader:
             if dataset_id is not None:
                 log.warning("Ignoring dataset id {} as a task id {} was already provided.".format(dataset_id, task_id))
             task = oml.tasks.get_task(task_id, download_qualities=False)
-            dataset = oml.datasets.get_dataset(task.dataset_id, download_qualities=False)
+            dataset = oml.datasets.get_dataset(task.dataset_id, download_data=True, download_qualities=False)
             _, nfolds, _ = task.get_split_dimensions()
             if fold >= nfolds:
                 raise ValueError("OpenML task {} only accepts `fold` < {}.".format(task_id, nfolds))
