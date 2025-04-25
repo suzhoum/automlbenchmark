@@ -80,6 +80,8 @@ class OpenmlDataset(Dataset):
         self._test = None
         self._nrows: int | None = None
 
+        if self._oml_dataset.data_file is None and self._oml_dataset.parquet_file is not None:
+            self._oml_dataset.data_file = self._oml_dataset.parquet_file
 
     @property
     def nrows(self) -> int:
